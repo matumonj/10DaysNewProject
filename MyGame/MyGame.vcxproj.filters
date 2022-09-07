@@ -352,72 +352,69 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="Resources\Shader\BasicGS.hlsl">
+    <FxCompile Include="BasicGS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\BasicPS.hlsl">
+    <FxCompile Include="BasicPS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\BasicVS.hlsl">
+    <FxCompile Include="BasicVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\BlurPS.hlsl">
+    <FxCompile Include="BlurPS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\BlurVS.hlsl">
+    <FxCompile Include="BlurVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\FBXPS.hlsl">
+    <FxCompile Include="FBXPS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\FBXVS.hlsl">
+    <FxCompile Include="FBXVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\lightpixel.hlsl">
+    <FxCompile Include="lightpixel.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\lightver.hlsl">
+    <FxCompile Include="lightver.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\PostEffectTestPS.hlsl">
+    <FxCompile Include="PostEffectTestPS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\PostEffectTestVS.hlsl">
+    <FxCompile Include="PostEffectTestVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\SpritePS.hlsl">
+    <FxCompile Include="SpritePS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\SpriteVS.hlsl">
+    <FxCompile Include="SpriteVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\TexturePS.hlsl">
+    <FxCompile Include="TexturePS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Resources\Shader\TextureVS.hlsl">
+    <FxCompile Include="TextureVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shader\Blur.hlsli">
+    <None Include="Blur.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="Resources\Shader\FBX.hlsli">
+    <None Include="FBX.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="Resources\Shader\Header.hlsli">
+    <None Include="light.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="Resources\Shader\PostEffectTest.hlsli">
+    <None Include="PostEffectTest.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="Resources\Shader\Sprite.hlsli">
+    <None Include="Sprite.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
-    <None Include="Resources\Shader\Texture.hlsli">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include="Resources\Shader\light.hlsli">
+    <None Include="Texture.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>

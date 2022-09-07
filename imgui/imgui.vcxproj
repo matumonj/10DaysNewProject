@@ -11,24 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.cpp" />
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.cpp" />
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_widgets.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imconfig.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_internal.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_rectpack.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_textedit.h" />
-    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_truetype.h" />
-=======
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
     <ClInclude Include="imgui_impl_dx12.h" />
@@ -45,7 +27,6 @@
     <ClCompile Include="imgui_impl_dx12.cpp" />
     <ClCompile Include="imgui_impl_win32.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
->>>>>>> f3362611d968c57cb14bf2fe01b5437d1a887b45
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
