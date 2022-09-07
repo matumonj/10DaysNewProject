@@ -1,0 +1,22 @@
+﻿{
+  "BackgroundImageAbsolutePath": "C:\\Users\\K020G1414\\OneDrive\\画像\\スクリーンショット\\2021-03-16 (1).png",
+  "BackgroundImagesDirectoryAbsolutePath": "C:\\USERS\\K020G1414\\APPDATA\\LOCAL\\MICROSOFT\\VISUALSTUDIO\\16.0_489CBE2B\\EXTENSIONS\\I20RZDQV.XQE\\Images",
+  "ExpandToIDE": true,
+  "Extensions": ".png, .jpg, .gif, .bmp",
+  "ImageBackgroundType": 0,
+  "ImageFadeAnimationInterval": "PT0S",
+  "ImageStretch": 0,
+  "IsLimitToMainlyEditorWindow": false,
+  "LoopSlideshow": false,
+  "MaxHeight": 9000,
+  "MaxWidth": 9000,
+  "Opacity": 0.5,
+  "PositionHorizon": 2,
+  "PositionVertical": 1,
+  "ShuffleSlideshow": false,
+  "SoftEdgeX": 0,
+  "SoftEdgeY": 0,
+  "UpdateImageInterval": "PT1M",
+  "ViewBoxPointX": 0,
+  "ViewBoxPointY": 0
+}

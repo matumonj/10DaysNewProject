@@ -1,0 +1,104 @@
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
+
+list
+(ki) aaa
+bbb
+ccc
+ddd
+0.000
+posX
+0.000
+posY
+0.000
+posZ
+z  0.000000
