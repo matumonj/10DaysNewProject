@@ -2,20 +2,13 @@
 #include"Input.h"
 #include"DebugTxt.h"
 #include"SphereCollider.h"
-#include"TargetMarker.h"
 #include"Collision.h"
 #include"SphereCollider.h"
 #include"CollisionManager.h"
 #include"CollisionAttribute.h"
-#include"PlayerAttackState.h"
 #include"imgui.h"
 #include"WoodControl.h"
-#include"FenceControl.h"
-#include"CustomButton.h"
-#include"BigSword.h"
-#include"SelectSword.h"
 #include"SceneManager.h"
-#include"HUD.h"
 #define PI 3.145265
 using namespace DirectX;
 XMFLOAT3 Player::Effect_Pos = { -50,-10,-100 };
@@ -55,7 +48,6 @@ void Player::Initialize(DebugCamera* camera)
 
 	Rotation = { -90,0,0 };
 	Position = { 0,-30,0 };
-	SelectSword::GetInstance()->Initialize();
 }
 void Player::Update(DebugCamera* camera)
 {
@@ -93,7 +85,6 @@ void Player::Update(DebugCamera* camera)
 	CollisionField(camera);
 
 	HandMat = m_fbxObject->GetRot();
-	SelectSword::GetInstance()->Update();
 }
 
 void Player::RotationStatus()
@@ -156,7 +147,6 @@ void Player::RotationStatus()
 void Player::Draw()
 {
 	Draw_Fbx();
-	SelectSword::GetInstance()->SwordDraw();
 }
 
 void Player::ImguiDraw()
@@ -196,12 +186,6 @@ void Player::ImguiDraw()
 
 void Player::FbxAnimationControl()
 {
-	if (HUD::GetInstance()->GetSpriteSize(0) <=10.0f) {//‚±‚Ì‚â‚è•û‚ ‚Æ‚ÅÁ‚·
-
-	if (CustomButton::GetInstance()->GetAttackAction() == true) {
-			AttackFlag = true;
-		}
-		}
 	if (AttackFlag) {
 		f_time = AttackTime;
 		AttackFlag = false;

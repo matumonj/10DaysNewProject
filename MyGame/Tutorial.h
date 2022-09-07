@@ -16,11 +16,6 @@
 #include "f_Object3d.h"
 #include"Texture.h"
 #include"PostEffect.h"
-#include"Enemy.h"
-#include"Effects.h"
-#include"AttackCollision.h"
-#include"TargetMarker.h"
-#include"GameUI.h"
 #include"ControlBase.h"
 
 #pragma comment(lib,"winmm.lib")
@@ -43,7 +38,6 @@ private: // エイリアス
 	using XMVECTOR = DirectX::XMVECTOR;
 
 private:
-	AttackCollision* acol;
 	const float window_width = 1900;
 	const float window_height = 1020;
 	static const int debugTextTexNumber = 0;
@@ -53,7 +47,6 @@ private:
 	int obbf = 0;
 	unsigned long prev_time = timeGetTime();
 	int count_frame = 0;
-	TargetMarker* targetm = nullptr;
 float ty;
 	float cameraAngle = -90;
 	float charaAngle = 0;
@@ -118,7 +111,6 @@ private:
 	bool t, y;
 
 private:
-	std::vector<Enemy*>subenemy;
 	std::vector<ControlBase*>AllObjectControl;
 };
 

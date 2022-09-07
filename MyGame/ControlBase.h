@@ -1,5 +1,4 @@
 #pragma once
-#include"Enemy.h"
 #include<fstream>
 #include<string>
 #include<sstream>
@@ -34,13 +33,9 @@ protected:
 protected:
 	//エディタの読み込みに必要な変数
 	int Quantity;
-	std::vector<XMFLOAT3> pos;
-	std::vector<XMFLOAT3> rot;
-	std::vector<XMFLOAT3> scl;
 	std::string line;
 	std::stringstream popcom;
 	std::ifstream file;
-	std::vector<int> Num;
 	//オブジェクトの更新と描画がされる範囲
 	float UpdateRange;
 public:

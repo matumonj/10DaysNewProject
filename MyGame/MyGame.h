@@ -32,9 +32,7 @@
 #include"LightGroup.h"
 #include"DebugCamera.h"
 #include"Framework.h"
-#include"PlayScene.h"
 #include"TitleScene.h"
-#include"MapCreateScene.h"
 #include"DirectXCommon.h"
 
 using namespace DirectX;

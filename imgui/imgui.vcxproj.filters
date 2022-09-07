@@ -15,49 +15,49 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imconfig.h">
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_widgets.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui.h">
+    </ClCompile>
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.h">
+    </ClCompile>
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.h">
+    </ClCompile>
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_draw.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_internal.h">
+    </ClCompile>
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_demo.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_rectpack.h">
+    </ClCompile>
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_textedit.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_truetype.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui.cpp">
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_truetype.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_demo.cpp">
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_textedit.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_draw.cpp">
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_rectpack.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.cpp">
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_internal.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.cpp">
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_widgets.cpp">
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.h">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imconfig.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

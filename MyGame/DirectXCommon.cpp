@@ -1,8 +1,7 @@
 #include "DirectXCommon.h"
 #include<imgui.h>
 #include"BaseScene.h"
-#include"PlayScene.h"
-#include"MapCreateScene.h"
+
 #include<dxgidebug.h>
 DirectXCommon* DirectXCommon::GetInstance()
 {

@@ -1,7 +1,6 @@
 #include "PlayerControl.h"
 #include"SceneManager.h"
 #include"TutorialSprite.h"
-#include"PlayerAttackState.h"
 PlayerControl* PlayerControl::GetInstance()
 {
 	static PlayerControl instance;

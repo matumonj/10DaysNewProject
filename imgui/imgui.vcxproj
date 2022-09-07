@@ -11,22 +11,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imconfig.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_internal.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_rectpack.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_textedit.h" />
-    <ClInclude Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imstb_truetype.h" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.cpp" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui.cpp" />
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_demo.cpp" />
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_draw.cpp" />
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.cpp" />
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.cpp" />
-    <ClCompile Include="..\..\..\..\..\Users\K020G1414\OneDrive\ドキュメント\10daysTeamGit\imgui\imgui_widgets.cpp" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imconfig.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_dx12.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imgui_internal.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\..\..\ドキュメント\10daysTeamGit\imgui\imstb_truetype.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
