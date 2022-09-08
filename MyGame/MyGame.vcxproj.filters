@@ -201,9 +201,6 @@
     <ClCompile Include="ControlBase.cpp">
       <Filter>Game\gameobject\camera</Filter>
     </ClCompile>
-    <ClCompile Include="CameraControl.cpp">
-      <Filter>Game\gameobject\camera</Filter>
-    </ClCompile>
     <ClCompile Include="Sushi.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
@@ -212,6 +209,12 @@
     </ClCompile>
     <ClCompile Include="GameObj\Bench.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraControl.cpp">
+      <Filter>Game\gameobject\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Egg.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +376,9 @@
     </ClInclude>
     <ClInclude Include="GameObj\Bench.h">
       <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
+    </ClInclude>
+    <ClInclude Include="Egg.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

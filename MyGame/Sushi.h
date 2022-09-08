@@ -19,14 +19,18 @@ public:
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void Draw()=0;
-
+	//回転運動
 	void Moves();
+	//復活処理
+	void Rebirth(int cooltime);
+
 	void RotState();
 public:
 	enum SushiMove {
 		GATE,//入場
 		LANE,//レーン回る
-		dAMP//廃棄
+		DUMP,//廃棄,
+		CREATE
 	};
 protected:
 	std::unique_ptr<Object3d>SushiObj;
@@ -36,13 +40,16 @@ protected:
 	XMFLOAT3 Scale={2,2,2};
 	XMFLOAT3 Rot;
 	//回転用アングル
-	//移動ベクトルをy軸周りの角度で回転
 	XMVECTOR move;
 
 	XMMATRIX matRot;
 	float RotTime[5];
 	SushiMove SMove;
 
+	int HP;
+	int MaxHP;
+
+	int coolTime;
 private:
 	//ゴミ箱
 	const XMFLOAT3 GarbagepPos = {20,0,-10};

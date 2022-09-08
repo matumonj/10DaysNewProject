@@ -43,12 +43,12 @@ void Tuna::Update()
 	XMVECTOR mouseDirection = posfar - posnear;
 		mouseDirection = XMVector3Normalize(mouseDirection);
 
-	const float kDistanceTestObject = 20.0f;
+	const float kDistanceTestObject = 40.0f;
 	Pos3d = (mouseDirection + posnear) * kDistanceTestObject;
 
 	//Moves();
 	SushiObj->SetScale(Scale);
-	SushiObj->SetPosition({Pos3d.m128_f32[0],Pos3d.m128_f32[1],20 });
+	SushiObj->SetPosition({Pos3d.m128_f32[0],-10,Pos3d.m128_f32[1] });
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 }
@@ -60,7 +60,7 @@ void Tuna::Draw()
 	SushiObj->PostDraw();
 
 	ImGui::Begin("pos");
-	ImGui::SliderFloat("x", &Pos3d.m128_f32[0], 100, 90);
+	ImGui::SliderFloat("x", &Pos3d.m128_f32[1], 100, 90);
 
 	ImGui::End();
 }
@@ -72,8 +72,8 @@ XMVECTOR Tuna::wDivision(XMVECTOR vec, XMMATRIX mat)
 	x = (vec.m128_f32[0] * mat.r[0].m128_f32[0]) + (vec.m128_f32[1] * mat.r[1].m128_f32[0]) + (vec.m128_f32[2] * mat.r[2].m128_f32[0]) + (1.0f * mat.r[3].m128_f32[0]);
 	y = (vec.m128_f32[0] * mat.r[0].m128_f32[1]) + (vec.m128_f32[1] * mat.r[1].m128_f32[1]) + (vec.m128_f32[2] * mat.r[2].m128_f32[1]) + (1.0f * mat.r[3].m128_f32[1]);
 	z = (vec.m128_f32[0] * mat.r[0].m128_f32[2]) + (vec.m128_f32[1] * mat.r[1].m128_f32[2]) + (vec.m128_f32[2] * mat.r[2].m128_f32[2]) + (1.0f * mat.r[3].m128_f32[2]);
-	w = 1.0f;
-
+	//w = (vec.m128_f32[0] * mat.r[0].m128_f32[2]) + (vec.m128_f32[1] * mat.r[1].m128_f32[2]) + (vec.m128_f32[2] * mat.r[2].m128_f32[2]) + (1.0f * mat.r[3].m128_f32[2]);
+	w = 1;
 	//w = z;
 	x = x / w;
 	y = y / w;

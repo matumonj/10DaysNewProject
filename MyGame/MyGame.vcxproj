@@ -169,6 +169,7 @@
     <ClCompile Include="DebugCamera.cpp" />
     <ClCompile Include="DebugTxt.cpp" />
     <ClCompile Include="DirectXCommon.cpp" />
+    <ClCompile Include="Egg.cpp" />
     <ClCompile Include="FbxLoader.cpp" />
     <ClCompile Include="Feed.cpp" />
     <ClCompile Include="Framework.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="DebugTxt.h" />
     <ClInclude Include="DirectionalLight.h" />
     <ClInclude Include="DirectXCommon.h" />
+    <ClInclude Include="Egg.h" />
     <ClInclude Include="FbxLoader.h" />
     <ClInclude Include="Feed.h" />
     <ClInclude Include="Framework.h" />

@@ -29,10 +29,10 @@ void Sushi::Moves()
 		isDump = Collision::GetLength(Position, GarbagepPos) < 5.0f;
 		//‰ñ“]”¼Œa
 		if (isDump) {
-			SMove = dAMP;
+			SMove = DUMP;
 		}
 		break;
-	case Sushi::dAMP:
+	case Sushi::DUMP:
 		for (int i = 0; i < 5; i++) {
 			RotTime[i] = 0;
 		}
@@ -77,5 +77,20 @@ void Sushi::RotState()
 		if (RotTime[4] <= 1.0f) {
 			Rot.y = Easing::EaseOut(RotTime[4], -180, -270);
 		} 
+	}
+}
+
+void Sushi::Rebirth(int cooltime)
+{
+	bool CoolEnd = coolTime > cooltime*60;
+	if (SMove == DUMP) {
+		coolTime++;
+		if (CoolEnd) {
+			coolTime = 0;
+			SMove = CREATE;
+		}
+	}
+	if (SMove == CREATE) {
+		Position = GatePos;
 	}
 }
