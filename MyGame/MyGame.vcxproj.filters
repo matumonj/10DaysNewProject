@@ -73,6 +73,9 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\Player">
       <UniqueIdentifier>{82a94310-85ef-4641-b334-083a5d0e8f8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\gameobject\ゲームオブジェクト\寿司">
+      <UniqueIdentifier>{6fe175e9-e69e-4ac6-9e08-18ff1721733b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -197,6 +200,12 @@
     </ClCompile>
     <ClCompile Include="CameraControl.cpp">
       <Filter>Game\gameobject\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Sushi.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClCompile>
+    <ClCompile Include="Tuna.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +358,12 @@
     </ClInclude>
     <ClInclude Include="CameraControl.h">
       <Filter>Game\gameobject\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Sushi.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClInclude>
+    <ClInclude Include="Tuna.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

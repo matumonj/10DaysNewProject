@@ -193,9 +193,11 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Sushi.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="TouchableObject.cpp" />
+    <ClCompile Include="Tuna.cpp" />
     <ClCompile Include="Tutorial.cpp" />
     <ClCompile Include="WinApp.cpp" />
   </ItemGroup>
@@ -245,9 +247,11 @@
     <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="SpotLight.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Sushi.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TouchableObject.h" />
+    <ClInclude Include="Tuna.h" />
     <ClInclude Include="Tutorial.h" />
     <ClInclude Include="WinApp.h" />
   </ItemGroup>

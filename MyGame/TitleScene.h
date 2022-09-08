@@ -12,13 +12,13 @@
 #include"LightGroup.h"
 #include"DebugCamera.h"
 #include"DirectXCommon.h"
-
+#include"Sushi.h"
 class TitleScene :public BaseScene
 {
 public:
 	TitleScene(SceneManager* sceneManager);
 private:
-
+	std::vector<Sushi*> sushis;
 	Sprite* titlesprite;
 
 	Sprite* titlesprite2;
