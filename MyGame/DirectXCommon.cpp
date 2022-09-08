@@ -306,6 +306,8 @@ void DirectXCommon::ClearDepthBuffer(ID3D12GraphicsCommandList* cmdList)
 
 void DirectXCommon::ImguiDraw()
 {
+	wx = WinApp::window_width;
+	wy = WinApp::window_height; 
 	/*
 	ImGui::Begin("WindowSize");
 	ImGui::SliderFloat("window_width", &wx, 0, WinApp::window_width);

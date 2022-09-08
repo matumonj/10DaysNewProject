@@ -34,19 +34,19 @@ void Tuna::Update()
 
 	XMMATRIX matVPVIn=XMMatrixInverse(nullptr, matVPV);
 
-	XMVECTOR posnear={p.x,p.y,0};
+	XMVECTOR posnear={(float)p.x,(float)p.y,0};
 
-	XMVECTOR posfar = { p.x,p.y,1 };
+	XMVECTOR posfar = { (float)p.x,(float)p.y,1 };
 	
 	posnear = wDivision(posnear, matVPVIn);
 	posfar = wDivision(posfar, matVPVIn);
-	XMVECTOR mouseDirection = { posfar.m128_f32[0] - posnear.m128_f32[0],posfar.m128_f32[1] - posnear.m128_f32[1],posfar.m128_f32[2] - posnear.m128_f32[2] };
-	mouseDirection = XMVector3Normalize(mouseDirection);
+	XMVECTOR mouseDirection = posfar - posnear;
+		mouseDirection = XMVector3Normalize(mouseDirection);
 
-	const float kDistanceTestObject = 90.0f;
+	const float kDistanceTestObject = 20.0f;
 	Pos3d = (mouseDirection + posnear) * kDistanceTestObject;
 
-	Moves();
+	//Moves();
 	SushiObj->SetScale(Scale);
 	SushiObj->SetPosition({Pos3d.m128_f32[0],Pos3d.m128_f32[1],20 });
 	SushiObj->SetRotation(Rot);
@@ -74,7 +74,7 @@ XMVECTOR Tuna::wDivision(XMVECTOR vec, XMMATRIX mat)
 	z = (vec.m128_f32[0] * mat.r[0].m128_f32[2]) + (vec.m128_f32[1] * mat.r[1].m128_f32[2]) + (vec.m128_f32[2] * mat.r[2].m128_f32[2]) + (1.0f * mat.r[3].m128_f32[2]);
 	w = 1.0f;
 
-	w = z;
+	//w = z;
 	x = x / w;
 	y = y / w;
 	z = z / w;

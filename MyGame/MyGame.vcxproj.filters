@@ -397,12 +397,6 @@
     <FxCompile Include="FBXVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="lightpixel.hlsl">
-      <Filter>リソース ファイル</Filter>
-    </FxCompile>
-    <FxCompile Include="lightver.hlsl">
-      <Filter>リソース ファイル</Filter>
-    </FxCompile>
     <FxCompile Include="PostEffectTestPS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
@@ -421,15 +415,18 @@
     <FxCompile Include="TextureVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
+    <FxCompile Include="Resources\Shader\lightpixel.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\lightver.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Blur.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
     <None Include="FBX.hlsli">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include="light.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
     <None Include="PostEffectTest.hlsli">
@@ -439,6 +436,9 @@
       <Filter>リソース ファイル</Filter>
     </None>
     <None Include="Texture.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="Resources\Shader\light.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>
