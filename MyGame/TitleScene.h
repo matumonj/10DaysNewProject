@@ -13,12 +13,15 @@
 #include"DebugCamera.h"
 #include"DirectXCommon.h"
 #include"Sushi.h"
+#include"Bench.h"
+
 class TitleScene :public BaseScene
 {
 public:
 	TitleScene(SceneManager* sceneManager);
 private:
 	std::vector<Sushi*> sushis;
+	std::list<std::unique_ptr<Bench>> Benchs;
 	Sprite* titlesprite;
 
 	Sprite* titlesprite2;
