@@ -311,8 +311,8 @@ void DirectXCommon::ImguiDraw()
 	ImGui::SliderFloat("window_width", &wx, 0, WinApp::window_width);
 	ImGui::SliderFloat("window_height", &wy, 0, WinApp::window_height);
 	if (ImGui::RadioButton("FullScreen", &FullScreenMode)) {
-	*/	wx = WinApp::window_width;
-		wy = WinApp::window_height;
+	*/	/*wx = WinApp::window_width;
+		wy = WinApp::window_height;*/
 		//imgui_turnoff_draw = true;
 	//}
 	//if (ImGui::RadioButton("Off_FullScreen", &OffFullScreenMode)) {
@@ -322,5 +322,5 @@ void DirectXCommon::ImguiDraw()
 		//imgui_turnoff_draw = false;
 	//}
 		
-	ImGui::End();
+	//ImGui::End();
 }

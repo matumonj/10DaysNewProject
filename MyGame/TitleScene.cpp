@@ -20,7 +20,14 @@ void TitleScene::Initialize()
 	for (int i = 0; i < sushis.size(); i++) {
 		sushis[i]->Initialize();
 	}
-	
+	std::unique_ptr<Bench> newBench;
+	Bench* newBench_ = new Bench();
+	newBench.reset(newBench_);
+	Benchs.push_back(std::move(newBench));
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->Initialize();
+	}
+
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 
@@ -35,6 +42,10 @@ void TitleScene::Update()
 	for (int i = 0; i < sushis.size(); i++) {
 		sushis[i]->Update();
 	}
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->Update();
+	}
+
 	if (Input::GetInstance()->TriggerButton(Input::Button_B)) {//押されたら
 		BaseScene* scene = new Tutorial(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::TUTORIAL);
@@ -59,6 +70,9 @@ void TitleScene::Draw()
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
 	SpriteDraw();
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->Draw();
+	}
 	for (int i = 0; i < sushis.size(); i++) {
 		sushis[i]->Draw();
 	}

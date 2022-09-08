@@ -165,7 +165,7 @@ public:	//íËêî
 		
 		void SetFbxTime(float time) { f_time = time; }
 		void SetAttackFlag(bool flag) { AttackFlag = flag; }
-	void SetAttackTime(int time) { AttackTime = time; }
+	void SetAttackTime(float time) { AttackTime = time; }
 	void SetDeathFlag(bool flag) { DeathFlag = flag; }
 	void SetDeathTime(float time) { DeathTime = time; }
 	float GetEndTime() { return end_time; }
