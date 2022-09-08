@@ -4,6 +4,7 @@
 #include"Tutorial.h"
 #include"Feed.h"
 #include"Tuna.h"
+#include"Egg.h"
 #include"CameraControl.h"
 TitleScene::TitleScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)

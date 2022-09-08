@@ -79,6 +79,9 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\Bench">
       <UniqueIdentifier>{f091267d-2466-4a88-b943-281e9ae830cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\gameobject\ゲームオブジェクト\配置物">
+      <UniqueIdentifier>{40412fc5-ef74-49b4-ba6d-cba4ee81a241}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -215,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="Egg.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaceObj.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\配置物</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +385,9 @@
     </ClInclude>
     <ClInclude Include="Egg.h">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaceObj.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\配置物</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

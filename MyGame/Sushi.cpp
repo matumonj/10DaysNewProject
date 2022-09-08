@@ -1,13 +1,36 @@
 #include "Sushi.h"
 #include"Collision.h"
 #include"mHelper.h"
+#include"CameraControl.h"
 using namespace DirectX;
 #define PI 3.14
 Sushi::~Sushi()
 {
 
 }
+void Sushi::TexSet()
+{
+	//‚Ü‚¾ƒtƒ@ƒCƒ‹‚Â‚­‚Á‚Ä‚È‚¢‚Å‚·
+	Texture::LoadTexture(1, L"Resources/HP/HP.png");
+	HPTex = Texture::Create(1, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
+	HPTex->CreateTexture();
+	HPTex->SetAnchorPoint({ 0,0.5f });
+}
 
+void Sushi::TexUp()
+{
+	HPTex->SetBillboard(true);
+	HPTex->SetPosition({ Position.x,Position.y + 10,Position.z });
+	HPTex->SetScale({ (float)HP / 20,2,1 });
+	HPTex->Update(CameraControl::GetInstance()->GetCamera());
+}
+
+void Sushi::TexDraw()
+{
+	Texture::PreDraw();
+	HPTex->Draw();
+	Texture::PostDraw();
+}
 void Sushi::Moves()
 {
 	switch (SMove)
@@ -52,7 +75,6 @@ void Sushi::RotState()
 		if (RotTime[0] <= 1.0f) {
 			Rot.y = Easing::EaseOut(RotTime[0], 0, 90);
 		}
-		//Rot.y = 90;
 	}
 	if (Collision::GetLength(Position, { 20,0,5 }) < 1.0f) {
 		RotTime[1] += 0.2f;

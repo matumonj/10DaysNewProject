@@ -15,7 +15,7 @@ void Egg::Initialize()
 
 void Egg::Update()
 {
-	bool death = HP <= 0;
+	bool death = (HP <= 0)||(Collision::GetLength(Position,GarbagepPos)<1);
 	Moves();//回転
 	Rebirth(3);//クールタイム設定
 	SushiObj->SetScale(Scale);

@@ -1,6 +1,7 @@
 #pragma once
 #include"Object3d.h"
 #include"Model.h"
+#include"Texture.h"
 #include<memory>
 class Sushi
 {
@@ -25,6 +26,10 @@ public:
 	void Rebirth(int cooltime);
 
 	void RotState();
+
+	void TexSet();
+	void TexUp();
+	void TexDraw();
 public:
 	enum SushiMove {
 		GATE,//ì¸èÍ
@@ -35,7 +40,7 @@ public:
 protected:
 	std::unique_ptr<Object3d>SushiObj;
 	Model* SushiModel;
-
+	Texture* HPTex;
 	XMFLOAT3 Position=GatePos;
 	XMFLOAT3 Scale={2,2,2};
 	XMFLOAT3 Rot;
@@ -50,11 +55,12 @@ protected:
 	int MaxHP;
 
 	int coolTime;
-private:
 	//ÉSÉ~î†
-	const XMFLOAT3 GarbagepPos = {20,0,-10};
+	const XMFLOAT3 GarbagepPos = { 20,0,-10 };
 	//ÉQÅ[Ég
-	const XMFLOAT3 GatePos={ 0,0,-30 };
+	const XMFLOAT3 GatePos = { 0,0,-30 };
+private:
+	
 	bool isDump;
 	bool isStart;
 };

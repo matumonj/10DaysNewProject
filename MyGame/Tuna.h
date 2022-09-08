@@ -11,7 +11,6 @@ public:
 
     void Draw()override;
 
-    XMVECTOR wDivision(XMVECTOR vec, XMMATRIX mat);
 private:
     POINT p;
     float x, y;
