@@ -21,6 +21,7 @@ public:
 	//instanceha‚Í“ü—Íˆ—•”•ª‚Åg‚¤
 	HWND GetHwnd() { return hwnd; }
 	HINSTANCE GetInstance() { return w.hInstance; }
+	static WinApp* GetIns(); 
 
 	//ƒƒ“ƒoŠÖ”
 	static LRESULT WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);

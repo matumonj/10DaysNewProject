@@ -71,3 +71,9 @@ int WinApp::CreateErrorWindow(bool errorjudg, LPCTSTR text)
 	return 0;
 	//id=
 }
+
+WinApp* WinApp::GetIns()
+{
+	static WinApp ins;
+	return&ins;
+}

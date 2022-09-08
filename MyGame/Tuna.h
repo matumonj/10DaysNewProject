@@ -10,5 +10,12 @@ public:
     void Update()override;
 
     void Draw()override;
+
+    XMVECTOR wDivision(XMVECTOR vec, XMMATRIX mat);
+private:
+    POINT p;
+    float x, y;
+    float mx, my, mz;
+    XMVECTOR Pos3d;
 };
 
