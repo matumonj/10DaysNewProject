@@ -15,16 +15,16 @@ void Tuna::Initialize()
 
 void Tuna::Update()
 {
-	bool death = (HP <= 0) || (Collision::GetLength(Position, GarbagepPos) < 1);
-
-	Rebirth(3);
-	Moves();
+	bool death = (HP <= 0);
+	bool isdump= (Collision::GetLength(Position, GarbagepPos) < 1);
+	//Rebirth(30);
+	Moves(5);
 	SushiObj->SetScale(Scale);
 	SushiObj->SetPosition(Position);
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
-	if (death) {
+	if (isdump) {
 		SMove = DUMP;
 	}
 }

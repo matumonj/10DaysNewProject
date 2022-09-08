@@ -21,10 +21,8 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw()=0;
 	//‰ñ“]‰^“®
-	void Moves();
-	//•œŠˆˆ—
-	void Rebirth(int cooltime);
-
+	void Moves(int cooltime);
+	
 	void RotState();
 
 	void TexSet();
@@ -35,12 +33,14 @@ public:
 		GATE,//“üê
 		LANE,//ƒŒ[ƒ“‰ñ‚é
 		DUMP,//”pŠü,
-		CREATE
+		CREATE,
+		DEAD
 	};
 protected:
 	std::unique_ptr<Object3d>SushiObj;
 	Model* SushiModel;
 	Texture* HPTex;
+protected:
 	XMFLOAT3 Position=GatePos;
 	XMFLOAT3 Scale={2,2,2};
 	XMFLOAT3 Rot;
@@ -56,11 +56,11 @@ protected:
 
 	int coolTime;
 	//ƒSƒ~” 
-	const XMFLOAT3 GarbagepPos = { 20,0,-10 };
+	const XMFLOAT3 GarbagepPos = { -5,0,5 };
 	//ƒQ[ƒg
-	const XMFLOAT3 GatePos = { 0,0,-30 };
+	const XMFLOAT3 GatePos = { 0,0,-10 };
 private:
-	
+	bool CoolEnd;
 	bool isDump;
 	bool isStart;
 };

@@ -31,11 +31,13 @@ void Sushi::TexDraw()
 	HPTex->Draw();
 	Texture::PostDraw();
 }
-void Sushi::Moves()
+void Sushi::Moves(int cooltime)
 {
 	switch (SMove)
 	{
 	case Sushi::GATE:
+		Rot.y = 0;
+		Position = GatePos;
 			SMove = LANE;
 		break;
 	case Sushi::LANE:
@@ -59,8 +61,18 @@ void Sushi::Moves()
 		for (int i = 0; i < 5; i++) {
 			RotTime[i] = 0;
 		}
-		Position = GatePos;
-		SMove = GATE;
+		Position.y -=0.2f;
+		if (Position.y < -10) {
+			SMove = DEAD;
+		}
+		break;
+	case Sushi::DEAD:
+		CoolEnd = coolTime > cooltime * 60;
+			coolTime++;
+			if (CoolEnd) {
+				coolTime = 0;
+				SMove = GATE;
+			}
 		break;
 	default:
 		break;
@@ -99,20 +111,5 @@ void Sushi::RotState()
 		if (RotTime[4] <= 1.0f) {
 			Rot.y = Easing::EaseOut(RotTime[4], -180, -270);
 		} 
-	}
-}
-
-void Sushi::Rebirth(int cooltime)
-{
-	bool CoolEnd = coolTime > cooltime*60;
-	if (SMove == DUMP) {
-		coolTime++;
-		if (CoolEnd) {
-			coolTime = 0;
-			SMove = CREATE;
-		}
-	}
-	if (SMove == CREATE) {
-		Position = GatePos;
 	}
 }
