@@ -194,8 +194,8 @@
     <ClCompile Include="Collisions\TouchableObject.cpp" />
     <ClCompile Include="GameObj\Bench.cpp" />
     <ClCompile Include="GameObj\Egg.cpp" />
+    <ClCompile Include="GameObj\Human.cpp" />
     <ClCompile Include="GameObj\Player.cpp" />
-    <ClCompile Include="GameObj\PlayerControl.cpp" />
     <ClCompile Include="GameObj\Sushi.cpp" />
     <ClCompile Include="GameObj\Tuna.cpp" />
     <ClCompile Include="main.cpp" />
@@ -203,8 +203,6 @@
     <ClCompile Include="PlaceObj.cpp" />
     <ClCompile Include="Scenes\ResultScene.cpp" />
     <ClCompile Include="Scenes\TitleScene.cpp" />
-    <ClCompile Include="Scenes\Tutorial.cpp" />
-    <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\Audio.h" />
@@ -254,16 +252,14 @@
     <ClInclude Include="Collisions\TouchableObject.h" />
     <ClInclude Include="GameObj\Bench.h" />
     <ClInclude Include="GameObj\Egg.h" />
+    <ClInclude Include="GameObj\Human.h" />
     <ClInclude Include="GameObj\Player.h" />
-    <ClInclude Include="GameObj\PlayerControl.h" />
     <ClInclude Include="GameObj\Sushi.h" />
     <ClInclude Include="GameObj\Tuna.h" />
     <ClInclude Include="MyGame.h" />
     <ClInclude Include="PlaceObj.h" />
     <ClInclude Include="Scenes\ResultScene.h" />
     <ClInclude Include="Scenes\TitleScene.h" />
-    <ClInclude Include="Scenes\Tutorial.h" />
-    <ClInclude Include="Score.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">

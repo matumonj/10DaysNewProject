@@ -10,6 +10,11 @@
 #include"imgui.h"
 #include"Destroy.h"
 #include"mHelper.h"
+#include<fstream>
+#include <algorithm>
+#include"ResultScene.h"
+
+
 TitleScene::TitleScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -47,7 +52,7 @@ void TitleScene::Initialize()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}
-	Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 
@@ -91,9 +96,9 @@ void TitleScene::Update()
 	}
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();
-	if (Input::GetInstance()->TriggerButton(Input::Button_B)) {//押されたら
-		BaseScene* scene = new Tutorial(sceneManager_);//次のシーンのインスタンス生成
-		SceneManager::GetInstance()->SetScene(SceneManager::TUTORIAL);
+	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
+		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
+		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
 }
@@ -206,4 +211,68 @@ void TitleScene::WaveCont()
 	default:
 		break;
 	}
+}
+
+
+void TitleScene::LoadRanking() {
+	std::ifstream file;
+	file.open("Resources/csv/Ranking.csv");
+	assert(file.is_open());
+
+	csvRanking << file.rdbuf();
+
+	file.close();
+}
+
+void TitleScene::PushBackRank() {
+	LoadRanking();
+	std::string line;
+
+	while (getline(csvRanking, line)) {
+		//解析しやすくする
+		std::istringstream line_stream(line);
+
+		std::string word;
+		//半角スペース区切りで行の先頭文字列を取得
+		getline(line_stream, word, ',');
+		//"//"から始まる行はコメント
+		if (word.find("//") == 0) {
+			//飛ばす
+			continue;
+		}
+		//各コマンド
+		if (word.find("FIRST") == 0) {
+			getline(line_stream, word, ',');
+			float F = (float)std::atof(word.c_str());
+			Rank.push_back(F);
+		} else if (word.find("SECOND") == 0) {
+			getline(line_stream, word, ',');
+			float S = (float)std::atof(word.c_str());
+			Rank.push_back(S);
+		} else if (word.find("THIRD") == 0) {
+			getline(line_stream, word, ',');
+			float T = (float)std::atof(word.c_str());
+			Rank.push_back(T);
+			break;
+		}
+	}
+
+}
+
+void TitleScene::ScoreSave(float Score) {
+	PushBackRank();
+	Rank.push_back(Score);
+	std::sort(Rank.begin(), Rank.end(), std::greater<float>());//降順ソート	
+	std::ofstream file("Resources/csv/Ranking.csv");
+	file << "FIRST" << ',';
+	file << Rank[0] << ',';
+	file << std::endl;
+	file << "SECOND" << ',';
+	file << Rank[1] << ',';
+	file << std::endl;
+	file << "THIRD" << ',';
+	file << Rank[2] << ',';
+	file << std::endl;
+	file.close();
+
 }

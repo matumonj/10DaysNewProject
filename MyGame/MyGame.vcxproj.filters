@@ -82,8 +82,8 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\配置物">
       <UniqueIdentifier>{40412fc5-ef74-49b4-ba6d-cba4ee81a241}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\gameobject\ゲームオブジェクト\スコア関連">
-      <UniqueIdentifier>{4b34c388-2197-4a68-9101-de122e7e3539}</UniqueIdentifier>
+    <Filter Include="Game\gameobject\ゲームオブジェクト\Player\Human">
+      <UniqueIdentifier>{0c54649b-d887-40dd-b546-3d3cc8e0f001}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,15 +104,6 @@
     </ClCompile>
     <ClCompile Include="Scenes\TitleScene.cpp">
       <Filter>Game\Scene\title,play</Filter>
-    </ClCompile>
-    <ClCompile Include="Scenes\Tutorial.cpp">
-      <Filter>Game\Scene\title,play</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObj\Player.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObj\PlayerControl.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClCompile>
     <ClCompile Include="GameObj\Egg.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
@@ -228,8 +219,11 @@
     <ClCompile Include="Base\Helper\Feed.cpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Score.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\スコア関連</Filter>
+    <ClCompile Include="GameObj\Player.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj\Human.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,15 +241,6 @@
     </ClInclude>
     <ClInclude Include="Scenes\TitleScene.h">
       <Filter>Game\Scene\title,play</Filter>
-    </ClInclude>
-    <ClInclude Include="Scenes\Tutorial.h">
-      <Filter>Game\Scene\title,play</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObj\Player.h">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObj\PlayerControl.h">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClInclude>
     <ClInclude Include="GameObj\Egg.h">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
@@ -401,8 +386,11 @@
     <ClInclude Include="Base\Helper\mHelper.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Score.h">
-      <Filter>Game\gameobject\ゲームオブジェクト\スコア関連</Filter>
+    <ClInclude Include="GameObj\Player.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj\Human.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,6 @@
 #include"WoodControl.h"
 #include"CameraControl.h"
 #include"Feed.h"
-#include"PlayerControl.h"
 //シーンのコンストラクタ
 Tutorial::Tutorial(SceneManager* sceneManager)
 	:BaseScene(sceneManager)

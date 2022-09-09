@@ -14,6 +14,7 @@
 #include"DirectXCommon.h"
 #include"Sushi.h"
 #include"Bench.h"
+#include <sstream>
 
 class TitleScene :public BaseScene
 {
@@ -28,7 +29,14 @@ private:
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	bool t, y;
-	//DirectXCommon* dxcomn;
+	//スコア関連
+	float score = 0;
+	std::stringstream csvRanking;
+	std::vector<float> Rank;
+	void LoadRanking();
+	void PushBackRank();
+	void ScoreSave(float Score);
+
 	int RandPlaceCount=200;
 	int placeC;
 	enum Fase {
