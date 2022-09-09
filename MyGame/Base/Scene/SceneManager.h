@@ -19,7 +19,8 @@ public:
 		TITLE,
 		TUTORIAL,
 		PLAY,
-		BOSS
+		BOSS,
+		RESULT,
 	};
 	NowScene GetScene() { return scene; }
 	void SetScene(NowScene scene) { this->scene=scene; }

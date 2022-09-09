@@ -6,9 +6,9 @@
 #include<string>
 #include<DirectXMath.h>
 #include<d3dcompiler.h>
-#include<dinput.h>
-#include<dinput.h>
-
+// DirectInputƒo[ƒWƒ‡ƒ“‚ÌéŒ¾
+#define DIRECTINPUT_VERSION 0x0800
+#include  <dinput.h>
 #include<DirectXTex.h>
 #include<wrl.h>
 
@@ -33,6 +33,7 @@
 #include"DebugCamera.h"
 #include"Framework.h"
 #include"TitleScene.h"
+#include"ResultScene.h"
 #include"DirectXCommon.h"
 
 using namespace DirectX;
@@ -41,7 +42,6 @@ using namespace Microsoft::WRL;
 class MyGame : public Framework
 {
 public:
-	void TitleInitialize();
 	void Initialize()override;
 	void Update()override;
 	void Draw()override;

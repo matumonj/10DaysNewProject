@@ -7,7 +7,6 @@
 #pragma comment(lib,"dxguid.lib")
 using namespace Microsoft::WRL;
 
-
 class Input
 {
 private:
