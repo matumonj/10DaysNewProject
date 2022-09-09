@@ -2,6 +2,7 @@
 #include"CameraControl.h"
 #include"WinApp.h"
 #include"imgui.h"
+#include"SushiMove.h"
 void Tuna::Initialize()
 {
 	TexSet();
@@ -16,7 +17,8 @@ void Tuna::Initialize()
 
 void Tuna::Update()
 {
-	Moves(5);
+	//SushiMove::GetInstance()->Wave1or2move(this);
+	//Moves();
 	if (SushiObj!=nullptr) {
 		TexUp();
 		bool death = (HP <= 0);

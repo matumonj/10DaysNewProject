@@ -205,6 +205,7 @@
     <ClCompile Include="Scenes\TitleScene.cpp" />
     <ClCompile Include="Scenes\Tutorial.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="SushiMove.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\Audio.h" />
@@ -264,6 +265,7 @@
     <ClInclude Include="Scenes\TitleScene.h" />
     <ClInclude Include="Scenes\Tutorial.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="SushiMove.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">

@@ -20,47 +20,47 @@ public:
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void Draw()=0;
+public:
+	enum Wave {
+		WAVE1or2,
+		WAVE3
+	};
+	Wave wave;
+	Wave GetWave() { return wave; }
+
 	//âÒì]â^ìÆ
-	void Moves(int cooltime);
+	void Moves(Wave wave);
 	
 	void RotState();
-
+	void RotState3();
 	void TexSet();
 	void TexUp();
 	void TexDraw();
 public:
-	enum SushiMove {
-		GATE,//ì¸èÍ
-		LANE,//ÉåÅ[ÉìâÒÇÈ
-		DUMP,//îpä¸,
-		CREATE,
-		DEAD
-	};
 	XMFLOAT3 GetPos() { return Position; }
-	SushiMove GetState() { return SMove; }
+	void SetPos(XMFLOAT3 Pos) { Position = Pos; }
+	XMFLOAT3 GetRot() { return Rot; }
+	void SetRot(XMFLOAT3 rot) { Rot = rot; }
 protected:
 	std::unique_ptr<Object3d>SushiObj;
 	Model* SushiModel;
 	Texture* HPTex;
 protected:
-	XMFLOAT3 Position=GatePos;
+	XMFLOAT3 Position;
 	XMFLOAT3 Scale={2,2,2};
 	XMFLOAT3 Rot;
 	//âÒì]ópÉAÉìÉOÉã
 	XMVECTOR move;
 
-	XMMATRIX matRot;
-	float RotTime[5];
-	SushiMove SMove;
-
 	int HP;
 	int MaxHP;
-
+	bool isDead;
 	int coolTime;
-	//ÉSÉ~î†
-	const XMFLOAT3 GarbagepPos = { -5,0,5 };
-	//ÉQÅ[Ég
-	const XMFLOAT3 GatePos = { 0,0,-10 };
+
+public:
+	void SetDead(bool f) { isDead = f; }
+	bool GetDead() { return isDead; }
+	
 private:
 	bool CoolEnd;
 	bool isDump;

@@ -10,6 +10,7 @@
 #include"imgui.h"
 #include"Destroy.h"
 #include"mHelper.h"
+#include"SushiMove.h"
 TitleScene::TitleScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -33,13 +34,17 @@ void TitleScene::Initialize()
 		WaveSprite[i]->SetSize({ 400,400 });
 	}
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
-	
-	//for (int i = 0; i < sushis.size(); i++) {
-		sushis[0]->Initialize();
-		activs.push_back(true);
-		sushinum.push_back(0);
-	//}
+	sushis[0]->Initialize();
+	//寿司の動き
+	smove.push_back(new SushiMove());
+	sushinum2.push_back(0);//最初はマグロ
+
+	sushis2.push_back(new Tuna());
+	sushis2[0]->Initialize();
+	//寿司の動き
+	smove2.push_back(new SushiMove());
 	std::unique_ptr<Bench> newBench;
 	Bench* newBench_ = new Bench();
 	newBench.reset(newBench_);
@@ -59,33 +64,9 @@ void TitleScene::Initialize()
 void TitleScene::Update()
 { 
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-	
-	placeC++;
-	
-	if (placeC%RandPlaceCount==0) {
-		sushinum.push_back(rand()%2);
-		if (sushinum.back() == 0) {
-			sushis.push_back(new Tuna());
-			sushis.back()->Initialize();
-		}
-		else if (sushinum.back() == 1) {
-			sushis.push_back(new Egg());
-			sushis.back()->Initialize();
-		}
-		RandPlaceCount = RetrandCount();
-		placeC = 0;
-	}
-		for (int i = 0; i < sushis.size(); i++) {
-			if (sushis[i] != nullptr) {
-				sushis[i]->Update();
+	Wave1or2();
+	Wave3();
 
-				if (sushis[i]->GetState() == sushis[i]->DEAD) {
-					SushiDeathCount++;
-					Destroy(sushis[i]);
-				}
-			}
-			
-		}
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update();
 	}
@@ -127,7 +108,7 @@ void TitleScene::Draw()
 	Sprite::PostDraw();
 	//やろうとしたがここでエラーを吐く
 	ImGui::Begin("siz");
-	ImGui::Text("size%d", SushiDeathCount);
+	ImGui::Text("size%d", sushis.size());
 	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
@@ -201,5 +182,67 @@ void TitleScene::WaveCont()
 		break;
 	default:
 		break;
+	}
+}
+
+void TitleScene::Wave1or2()
+{
+	placeC++;
+
+	if (placeC % RandPlaceCount == 0) {
+		sushinum.push_back(rand() % 2);
+		if (sushinum.back() == 0) {
+			sushis.push_back(new Tuna());
+			sushis.back()->Initialize();
+		} else if (sushinum.back() == 1) {
+			sushis.push_back(new Egg());
+			sushis.back()->Initialize();
+		}
+		smove.push_back(new SushiMove());
+		RandPlaceCount = RetrandCount();
+		placeC = 0;
+	}
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis[i] != nullptr) {
+			smove[i]->Wave1or2move(sushis[i]);
+			sushis[i]->Update();
+
+			if (sushis[i]->GetDead()) {
+				SushiDeathCount++;
+				Destroy(sushis[i]);
+			}
+		}
+	}
+}
+
+void TitleScene::Wave3()
+{
+	if (fase == WAVE2) {
+		placeC2++;
+	}
+
+	if (placeC2 % RandPlaceCount2 == 0&&placeC2!=0) {
+		sushinum2.push_back(rand() % 2);
+		if (sushinum2.back() == 0) {
+			sushis2.push_back(new Tuna());
+			sushis2.back()->Initialize();
+		} else if (sushinum2.back() == 1) {
+			sushis2.push_back(new Egg());
+			sushis2.back()->Initialize();
+		}
+		smove2.push_back(new SushiMove());
+		RandPlaceCount2 = RetrandCount();
+		placeC2 = 0;
+	}
+	for (int i = 0; i < sushis2.size(); i++) {
+		if (sushis2[i] != nullptr) {
+			smove2[i]->Wave3move(sushis2[i]);
+			sushis2[i]->Update();
+
+			if (sushis2[i]->GetDead()) {
+				SushiDeathCount++;
+				Destroy(sushis2[i]);
+			}
+		}
 	}
 }
