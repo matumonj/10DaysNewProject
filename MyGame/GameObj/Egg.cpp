@@ -2,6 +2,7 @@
 #include"CameraControl.h"
 #include"WinApp.h"
 #include"imgui.h"
+#include"SushiMove.h"
 void Egg::Initialize()
 {
 	SushiObj = std::make_unique<Object3d>();
@@ -15,9 +16,7 @@ void Egg::Initialize()
 
 void Egg::Update()
 {
-	bool death = (HP <= 0)||(Collision::GetLength(Position,GarbagepPos)<1);
-	Moves(3);//回転
-	if (SushiObj != nullptr) {
+		if (SushiObj != nullptr) {
 		//Rebirth(3);//クールタイム設定
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);

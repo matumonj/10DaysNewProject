@@ -1,4 +1,4 @@
-#include "TitleScene.h"
+#include "GameScene.h"
 #include"Input.h"
 #include"SceneManager.h"
 #include"Tutorial.h"
@@ -10,12 +10,12 @@
 #include"imgui.h"
 #include"Destroy.h"
 #include"mHelper.h"
+#include"SushiMove.h"
 #include<fstream>
 #include <algorithm>
 #include"ResultScene.h"
 
-
-TitleScene::TitleScene(SceneManager* sceneManager)
+GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
 
@@ -23,7 +23,7 @@ TitleScene::TitleScene(SceneManager* sceneManager)
 /// <summary>
 /// 初期化
 /// </summary>
-void TitleScene::Initialize()
+void GameScene::Initialize()
 {
 	Sprite::LoadTexture(2, L"Resources/2d/Wave/wave1.png");
 	Sprite::LoadTexture(3, L"Resources/2d/Wave/wave2.png");
@@ -38,13 +38,17 @@ void TitleScene::Initialize()
 		WaveSprite[i]->SetSize({ 400,400 });
 	}
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
-	
-	//for (int i = 0; i < sushis.size(); i++) {
-		sushis[0]->Initialize();
-		activs.push_back(true);
-		sushinum.push_back(0);
-	//}
+	sushis[0]->Initialize();
+	//寿司の動き
+	smove.push_back(new SushiMove());
+	sushinum2.push_back(0);//最初はマグロ
+
+	sushis2.push_back(new Tuna());
+	sushis2[0]->Initialize();
+	//寿司の動き
+	smove2.push_back(new SushiMove());
 	std::unique_ptr<Bench> newBench;
 	Bench* newBench_ = new Bench();
 	newBench.reset(newBench_);
@@ -61,36 +65,12 @@ void TitleScene::Initialize()
 /// <summary>
 /// 更新処理
 /// </summary>
-void TitleScene::Update()
+void GameScene::Update()
 { 
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-	
-	placeC++;
-	
-	if (placeC%RandPlaceCount==0) {
-		sushinum.push_back(rand()%2);
-		if (sushinum.back() == 0) {
-			sushis.push_back(new Tuna());
-			sushis.back()->Initialize();
-		}
-		else if (sushinum.back() == 1) {
-			sushis.push_back(new Egg());
-			sushis.back()->Initialize();
-		}
-		RandPlaceCount = RetrandCount();
-		placeC = 0;
-	}
-		for (int i = 0; i < sushis.size(); i++) {
-			if (sushis[i] != nullptr) {
-				sushis[i]->Update();
+	Wave1or2();
+	Wave3();
 
-				if (sushis[i]->GetState() == sushis[i]->DEAD) {
-					SushiDeathCount++;
-					Destroy(sushis[i]);
-				}
-			}
-			
-		}
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update();
 	}
@@ -108,7 +88,7 @@ void TitleScene::Update()
 /// スプライト描画
 /// </summary>
 /// <param name="cmdList"></param>
-void TitleScene::SpriteDraw()
+void GameScene::SpriteDraw()
 {
 }
 
@@ -116,7 +96,7 @@ void TitleScene::SpriteDraw()
 /// 描画
 /// </summary>
 /// <param name="cmdList"></param>
-void TitleScene::Draw()
+void GameScene::Draw()
 {
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
@@ -137,47 +117,47 @@ void TitleScene::Draw()
 	Sprite::PostDraw();
 	//やろうとしたがここでエラーを吐く
 	ImGui::Begin("siz");
-	ImGui::Text("size%d", SushiDeathCount);
+	ImGui::Text("size%d", sushis.size());
 	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 
 }
-void TitleScene::Finalize()
+void GameScene::Finalize()
 {
 	//delete postEffect;
-	delete titlesprite;
+	delete Gamesprite;
 }
 
-int TitleScene::RetrandCount()
+int GameScene::RetrandCount()
 {
 	switch (fase)
 	{
-	case TitleScene::WAVE1:
+	case GameScene::WAVE1:
 		
 		return rand() % 240 + 200;
 		break;
-	case TitleScene::WAVE2:
+	case GameScene::WAVE2:
 		
 		return rand() % 180 + 140;
 		break;
-	case TitleScene::WAVE3:
+	case GameScene::WAVE3:
 		
 		break;
-	case TitleScene::WAVE4:
+	case GameScene::WAVE4:
 		break;
-	case TitleScene::CLEAR:
+	case GameScene::CLEAR:
 		break;
 	default:
 		break;
 	}
 }
 
-void TitleScene::WaveCont()
+void GameScene::WaveCont()
 {
 	switch (fase)
 	{
-	case TitleScene::WAVE1:
+	case GameScene::WAVE1:
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
@@ -188,7 +168,7 @@ void TitleScene::WaveCont()
 		}
 		
 		break;
-	case TitleScene::WAVE2:
+	case GameScene::WAVE2:
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
@@ -200,22 +180,83 @@ void TitleScene::WaveCont()
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 100),100 });
 
 		break;
-	case TitleScene::WAVE3:
+	case GameScene::WAVE3:
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
 		break;
-	case TitleScene::WAVE4:
+	case GameScene::WAVE4:
 		break;
-	case TitleScene::CLEAR:
+	case GameScene::CLEAR:
 		break;
 	default:
 		break;
 	}
 }
 
+void GameScene::Wave1or2()
+{
+	placeC++;
 
-void TitleScene::LoadRanking() {
+	if (placeC % RandPlaceCount == 0) {
+		sushinum.push_back(rand() % 2);
+		if (sushinum.back() == 0) {
+			sushis.push_back(new Tuna());
+			sushis.back()->Initialize();
+		} else if (sushinum.back() == 1) {
+			sushis.push_back(new Egg());
+			sushis.back()->Initialize();
+		}
+		smove.push_back(new SushiMove());
+		RandPlaceCount = RetrandCount();
+		placeC = 0;
+	}
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis[i] != nullptr) {
+			smove[i]->Wave1or2move(sushis[i]);
+			sushis[i]->Update();
+
+			if (sushis[i]->GetDead()) {
+				SushiDeathCount++;
+				Destroy(sushis[i]);
+			}
+		}
+	}
+}
+
+void GameScene::Wave3()
+{
+	if (fase == WAVE2) {
+		placeC2++;
+	}
+
+	if (placeC2 % RandPlaceCount2 == 0&&placeC2!=0) {
+		sushinum2.push_back(rand() % 2);
+		if (sushinum2.back() == 0) {
+			sushis2.push_back(new Tuna());
+			sushis2.back()->Initialize();
+		} else if (sushinum2.back() == 1) {
+			sushis2.push_back(new Egg());
+			sushis2.back()->Initialize();
+		}
+		smove2.push_back(new SushiMove());
+		RandPlaceCount2 = RetrandCount();
+		placeC2 = 0;
+	}
+	for (int i = 0; i < sushis2.size(); i++) {
+		if (sushis2[i] != nullptr) {
+			smove2[i]->Wave3move(sushis2[i]);
+			sushis2[i]->Update();
+
+			if (sushis2[i]->GetDead()) {
+				SushiDeathCount++;
+				Destroy(sushis2[i]);
+			}
+		}
+	}
+}
+
+void GameScene::LoadRanking() {
 	std::ifstream file;
 	file.open("Resources/csv/Ranking.csv");
 	assert(file.is_open());
@@ -225,7 +266,7 @@ void TitleScene::LoadRanking() {
 	file.close();
 }
 
-void TitleScene::PushBackRank() {
+void GameScene::PushBackRank() {
 	LoadRanking();
 	std::string line;
 
@@ -265,7 +306,7 @@ void TitleScene::PushBackRank() {
 
 }
 
-void TitleScene::ScoreSave(float Score) {
+void GameScene::ScoreSave(float Score) {
 	PushBackRank();
 	Rank.push_back(Score);
 	std::sort(Rank.begin(), Rank.end(), std::greater<float>());//降順ソート	

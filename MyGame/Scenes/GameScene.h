@@ -14,18 +14,25 @@
 #include"DirectXCommon.h"
 #include"Sushi.h"
 #include"Bench.h"
+#include"SushiMove.h"
 #include <sstream>
 
-class TitleScene :public BaseScene
+class GameScene :public BaseScene
 {
 public:
-	TitleScene(SceneManager* sceneManager);
+	GameScene(SceneManager* sceneManager);
 private:
 	std::vector<Sushi*> sushis;
+	std::vector<Sushi*> sushis2;
+
+	std::vector< SushiMove*>smove;
+	std::vector< SushiMove*>smove2;
 	std::list<std::unique_ptr<Bench>> Benchs;
-	Sprite* titlesprite;
+	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;
+	std::vector<int> sushinum2;
+	//std::vector<bool>activs;
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	bool t, y;
@@ -39,6 +46,8 @@ private:
 
 	int RandPlaceCount=200;
 	int placeC;
+	int RandPlaceCount2 = 200;
+	int placeC2;
 	enum Fase {
 		WAVE1,
 		WAVE2,
@@ -50,6 +59,9 @@ private:
 	int RetrandCount();
 	void WaveCont();
 	int SushiDeathCount;
+
+	void Wave1or2();
+	void Wave3();
 public:
 	void Initialize()override;
 	void Update()override;
