@@ -45,7 +45,7 @@ void DirectXCommon::Initialize(WinApp* winapp)
 	//フェンス生成
 	InitializeFence();
 
-	wx = WinApp::window_width / 2; wy = WinApp::window_height / 2;
+	wx = WinApp::window_width / 2.0f; wy = WinApp::window_height / 2.0f;
 	
 }
 #pragma region デバイスの生成
@@ -224,7 +224,7 @@ void DirectXCommon::BeginDraw()
 	
 	cmdList->RSSetViewports(1, &CD3DX12_VIEWPORT(0.0f, 0.0f,wx,wy));
 	//シザー短形の設定
-	cmdList->RSSetScissorRects(1, &CD3DX12_RECT(0, 0, wx, wy));
+	cmdList->RSSetScissorRects(1, &CD3DX12_RECT(0, 0, (LONG)wx, (LONG)wy));
 	ImguiDraw();
 }
 #pragma endregion

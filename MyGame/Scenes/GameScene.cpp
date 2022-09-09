@@ -134,21 +134,22 @@ int GameScene::RetrandCount()
 	switch (fase)
 	{
 	case GameScene::WAVE1:
-		
 		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE2:
-		
 		return rand() % 180 + 140;
 		break;
 	case GameScene::WAVE3:
-		
+		return 0;
 		break;
 	case GameScene::WAVE4:
+		return 0;
 		break;
 	case GameScene::CLEAR:
+		return 0;
 		break;
 	default:
+		return 0;
 		break;
 	}
 }
