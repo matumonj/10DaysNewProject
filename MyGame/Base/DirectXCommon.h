@@ -46,8 +46,8 @@ private:
 	D3D12_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
 	UINT64 fenceVal = 0;
 	//ウィンドウサイズの指定
-	int window_width = 1900;
-	int  window_height = 1020;
+	int window_width = 1280;
+	int  window_height = 720;
 	float wx, wy;
 	//深度テスト用
 public:

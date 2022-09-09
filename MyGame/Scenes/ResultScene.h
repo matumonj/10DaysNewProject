@@ -4,6 +4,7 @@
 #include"Input.h"
 #include"BaseScene.h"
 #include <sstream>
+#include "mhelper.h"
 
 class ResultScene :public BaseScene {
 public:
@@ -11,18 +12,21 @@ public:
 private:
 	void LoadRanking();
 	void PushBackRank();
-
-	void ScoreSave(float Score);
+	void ResultInit();
 
 
 	std::stringstream csvRanking;
 
 	std::vector<float> Rank;
-	Sprite* num[3][5][10];
-	std::vector<float> First;
-	std::vector<float> Second;
-	std::vector<float> Third;
+	Sprite* num[4][5][10];
+	std::vector<int> First;
+	std::vector<int> Second;
+	std::vector<int> Third;
+	std::vector<int> Now;
 
+
+	float ETime[4] = {};
+	float EaseX[4] = { 640,640,640,640 }; //640
 public:
 	void Initialize()override;
 	void Update()override;

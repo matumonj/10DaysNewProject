@@ -3,7 +3,6 @@
 #include<windows.h>
 #include"Feed.h"
 #include"SceneManager.h"
-#include"PlayerControl.h"
 CameraControl* CameraControl::GetInstance()
 {
 	static CameraControl instance;

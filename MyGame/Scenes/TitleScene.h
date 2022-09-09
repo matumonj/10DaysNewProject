@@ -14,7 +14,12 @@
 #include"DirectXCommon.h"
 #include"Sushi.h"
 #include"Bench.h"
+<<<<<<< HEAD
 #include"SushiMove.h"
+=======
+#include <sstream>
+
+>>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f
 class TitleScene :public BaseScene
 {
 public:
@@ -34,7 +39,14 @@ private:
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	bool t, y;
-	//DirectXCommon* dxcomn;
+	//スコア関連
+	float score = 10;
+	std::stringstream csvRanking;
+	std::vector<float> Rank;
+	void LoadRanking();
+	void PushBackRank();
+	void ScoreSave(float Score);
+
 	int RandPlaceCount=200;
 	int placeC;
 	int RandPlaceCount2 = 200;

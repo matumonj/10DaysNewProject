@@ -47,64 +47,17 @@ void ResultScene::PushBackRank() {
 			getline(line_stream, word, ',');
 			float T = (float)std::atof(word.c_str());
 			Rank.push_back(T);
+		} else if (word.find("NOW") == 0) {
+			getline(line_stream, word, ',');
+			float N = (float)std::atof(word.c_str());
+			Rank.push_back(N);
 			break;
 		}
 	}
 
 }
 
-void ResultScene::ScoreSave(float Score) {
-	PushBackRank();
-	Rank.push_back(Score);
-	std::sort(Rank.begin(), Rank.end(), std::greater<float>());//ç~èáÉ\Å[Ég	
-	std::ofstream file("Resources/csv/Ranking.csv");
-	file << "FIRST" << ',';
-	file << Rank[0] << ',';
-	file << std::endl;
-	file << "SECOND" << ',';
-	file << Rank[1] << ',';
-	file << std::endl;
-	file << "THIRD" << ',';
-	file << Rank[2] << ',';
-	file << std::endl;
-	file.close();
-
-}
-
-void ResultScene::Initialize() {
-	ScoreSave(50);
-	const int w = 32;
-	const int h = 64;
-	const int l = 10;
-	const float onePos = WinApp::window_width - 208.0f;
-	Sprite::LoadTexture(10, L"Resources/2d/Num.png");
-	for (int k = 0; k < 3; k++) {
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 10; j++) {
-				num[k][i][j] = Sprite::Create(10,{0.0f,0.0f});
-				int number_index_y = j / l;
-				int number_index_x = j % l;
-				num[k][i][j]->SetTextureRect(
-					{ static_cast<float>(number_index_x) * w, static_cast<float>(number_index_y) * h },
-					{ static_cast<float>(w), static_cast<float>(h) });
-				num[k][i][j]->SetSize({ w,h });
-				num[k][i][j]->SetAnchorPoint({ 0,0 });
-				num[k][i][j]->SetSize({ w*2,h*2 });
-				num[k][i][j]->SetPosition({ (float)WinApp::window_width - 93.0f - 55.0f * i ,128.0f* k});
-			}
-		}
-	}
-
-	int a = 0;
-	a++;
-	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
-	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
-
-}
-
-void ResultScene::Update() {
-	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-
+void ResultScene::ResultInit() {
 	First.clear();
 	for (int tmp = (int)Rank[0]; tmp > 0;) {
 		First.push_back(tmp % 10);
@@ -119,6 +72,77 @@ void ResultScene::Update() {
 	for (int tmp = (int)Rank[2]; tmp > 0;) {
 		Third.push_back(tmp % 10);
 		tmp /= 10;
+	}
+	Now.clear();
+	for (int tmp = (int)Rank[3]; tmp > 0;) {
+		Now.push_back(tmp % 10);
+		tmp /= 10;
+	}
+}
+
+void ResultScene::Initialize() {
+	PushBackRank();
+	ResultInit();
+	const int w = 32;
+	const int h = 64;
+	const int l = 10;
+	const float onePos = WinApp::window_width - 208.0f;
+	Sprite::LoadTexture(10, L"Resources/2d/Num.png");
+	for (int k = 0; k < 4; k++) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				num[k][i][j] = Sprite::Create(10,{0.0f,0.0f});
+				int number_index_y = j / l;
+				int number_index_x = j % l;
+				num[k][i][j]->SetTextureRect(
+					{ static_cast<float>(number_index_x) * w, static_cast<float>(number_index_y) * h },
+					{ static_cast<float>(w), static_cast<float>(h) });
+				num[k][i][j]->SetSize({ w,h });
+				num[k][i][j]->SetAnchorPoint({ 0,0 });
+				num[k][i][j]->SetSize({ w*2,h*2 });
+				num[k][i][j]->SetPosition({ (float)(WinApp::window_width/2.0f) - (70.0f * i) ,(128.0f* k)+200.0f});
+			}
+		}
+	}
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 10; j++) {
+			num[0][i][j]->SetPosition({ EaseX[0] - (70.0f * i) , 200.0f });
+			num[1][i][j]->SetPosition({ EaseX[1] - (70.0f * i) , 360.0f });
+			num[2][i][j]->SetPosition({ EaseX[2] - (70.0f * i) , 520.0f });
+			num[3][i][j]->SetPosition({ 640 - (70.0f * i) , 40.0f });
+		}
+	}
+	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
+}
+
+void ResultScene::Update() {
+	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
+	
+	if (ETime[0] <= 1.0f) {
+		ETime[0] += 0.02f;
+	}
+	if (ETime[0] >= 0.3f) {
+		if (ETime[1] <= 1.0f) {
+			ETime[1] += 0.02f;
+		}
+	}
+	if (ETime[1] >= 0.3f) {
+		if (ETime[2] <= 1.0f) {
+			ETime[2] += 0.02f;
+		}
+	}
+
+
+	EaseX[0] = Easing::EaseOut(ETime[0], 1600, 700);
+	EaseX[1] = Easing::EaseOut(ETime[1], 1600, 700);
+	EaseX[2] = Easing::EaseOut(ETime[2], 1600, 700);
+	for (int i = 0; i < 5; i++) {
+		for (int j = 0; j < 10; j++) {
+			num[0][i][j]->SetPosition({ EaseX[0] - (70.0f * i) , 200.0f });
+			num[1][i][j]->SetPosition({ EaseX[1] - (70.0f * i) , 360.0f });
+			num[2][i][j]->SetPosition({ EaseX[2] - (70.0f * i) , 520.0f });
+		}
 	}
 }
 
@@ -136,6 +160,10 @@ void ResultScene::Draw() {
 	for (int i = 0; i < Third.size() && i < 5; i++) {
 		num[2][i][(int)Third[i]]->Draw();
 	}
+	for (int i = 0; i < Now.size() && i < 5; i++) {
+		num[3][i][(int)Now[i]]->Draw();
+	}
+
 	Sprite::PostDraw();
 	DirectXCommon::GetInstance()->EndDraw();
 

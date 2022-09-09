@@ -121,8 +121,8 @@ void DirectXCommon::InitializeSwapchain()
 
 	//スワップチェーンの生成
 	DXGI_SWAP_CHAIN_DESC1 swapchainDesc{};
-	swapchainDesc.Width = 1900;
-	swapchainDesc.Height = 1020;
+	swapchainDesc.Width = 1280;
+	swapchainDesc.Height = 720;
 	swapchainDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	swapchainDesc.SampleDesc.Count = 1;
 	swapchainDesc.BufferUsage = DXGI_USAGE_BACK_BUFFER;
@@ -224,7 +224,7 @@ void DirectXCommon::BeginDraw()
 	
 	cmdList->RSSetViewports(1, &CD3DX12_VIEWPORT(0.0f, 0.0f,wx,wy));
 	//シザー短形の設定
-	cmdList->RSSetScissorRects(1, &CD3DX12_RECT(0.0f, 0.0f, wx, wy));
+	cmdList->RSSetScissorRects(1, &CD3DX12_RECT(0, 0, wx, wy));
 	ImguiDraw();
 }
 #pragma endregion

@@ -11,8 +11,8 @@ private:
 	HWND hwnd = nullptr;
 public:
 	//window横幅・縦幅
-	static const int window_width = 1900;
-	static const int window_height = 1020;
+	static const int window_width = 1280;
+	static const int window_height = 720;
 	RECT wrc;
 
 	//ゲッター 

@@ -26,17 +26,17 @@ private:
     DebugCamera*camera;
     int pointsindex = 6;
    
-    size_t startindex = 1;
-    long long startCount = 0;
-    long long nowCount = 0;
-    long long elapsedCount = 0;
+    //size_t startindex = 1;
+    //long long startCount = 0;
+    //long long nowCount = 0;
+    //long long elapsedCount = 0;
     //XMFLOAT3 start(-100, 0, 0);
     //XMFLOAT3 end(100, 0, 0);
     float maxtime = 6;
     float timerate;
 
-    long long time = 0.00000f;
-    long long j = time;
+    //long long time = 0.00000f;
+    //long long j = time;
 
 private:
     bool splinef;
