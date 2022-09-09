@@ -203,12 +203,7 @@
     <ClCompile Include="PlaceObj.cpp" />
     <ClCompile Include="Scenes\ResultScene.cpp" />
     <ClCompile Include="Scenes\TitleScene.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="Scenes\Tutorial.cpp" />
-    <ClCompile Include="Score.cpp" />
     <ClCompile Include="SushiMove.cpp" />
-=======
->>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\Audio.h" />
@@ -266,12 +261,7 @@
     <ClInclude Include="PlaceObj.h" />
     <ClInclude Include="Scenes\ResultScene.h" />
     <ClInclude Include="Scenes\TitleScene.h" />
-<<<<<<< HEAD
-    <ClInclude Include="Scenes\Tutorial.h" />
-    <ClInclude Include="Score.h" />
     <ClInclude Include="SushiMove.h" />
-=======
->>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DirectXTex\DirectXTex_Desktop_2019_Win10.vcxproj">
