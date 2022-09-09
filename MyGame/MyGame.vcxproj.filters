@@ -82,6 +82,9 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\配置物">
       <UniqueIdentifier>{40412fc5-ef74-49b4-ba6d-cba4ee81a241}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\gameobject\ゲームオブジェクト\スコア関連">
+      <UniqueIdentifier>{4b34c388-2197-4a68-9101-de122e7e3539}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -224,6 +227,9 @@
     </ClCompile>
     <ClCompile Include="Base\Helper\Feed.cpp">
       <Filter>ヘッダー ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\スコア関連</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -394,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="Base\Helper\mHelper.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\スコア関連</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

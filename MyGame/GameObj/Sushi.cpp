@@ -2,16 +2,17 @@
 #include"Collision.h"
 #include"mHelper.h"
 #include"CameraControl.h"
+#include"Destroy.h"
 using namespace DirectX;
 #define PI 3.14
 Sushi::~Sushi()
 {
-
+	Destroy_unique(SushiObj);
 }
 void Sushi::TexSet()
 {
 	//‚Ü‚¾ƒtƒ@ƒCƒ‹‚Â‚­‚Á‚Ä‚È‚¢‚Å‚·
-	Texture::LoadTexture(1, L"Resources/HP/HP.png");
+	Texture::LoadTexture(1, L"Resources/2d/SushiHP/HP.png");
 	HPTex = Texture::Create(1, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
 	HPTex->CreateTexture();
 	HPTex->SetAnchorPoint({ 0,0.5f });
@@ -19,17 +20,21 @@ void Sushi::TexSet()
 
 void Sushi::TexUp()
 {
-	HPTex->SetBillboard(true);
-	HPTex->SetPosition({ Position.x,Position.y + 10,Position.z });
-	HPTex->SetScale({ (float)HP / 20,2,1 });
-	HPTex->Update(CameraControl::GetInstance()->GetCamera());
+	if (SushiObj != nullptr) {
+		HPTex->SetBillboard(true);
+		HPTex->SetPosition({ Position.x,Position.y + 3,Position.z });
+		HPTex->SetScale({ (float)HP / 20,1,1 });
+		HPTex->Update(CameraControl::GetInstance()->GetCamera());
+	}
 }
 
 void Sushi::TexDraw()
 {
-	Texture::PreDraw();
-	HPTex->Draw();
-	Texture::PostDraw();
+	if (SushiObj) {
+		Texture::PreDraw();
+		HPTex->Draw();
+		Texture::PostDraw();
+	}
 }
 void Sushi::Moves(int cooltime)
 {
@@ -67,12 +72,13 @@ void Sushi::Moves(int cooltime)
 		}
 		break;
 	case Sushi::DEAD:
-		CoolEnd = coolTime > cooltime * 60;
-			coolTime++;
-			if (CoolEnd) {
-				coolTime = 0;
-				SMove = GATE;
-			}
+		Scale.x -= 0.2f;
+		Scale.y -= 0.2f;
+		Scale.z -= 0.2f;
+		if (Scale.x<0) {
+			//delete HPTex;
+			//Destroy_unique(SushiObj);
+		}
 		break;
 	default:
 		break;

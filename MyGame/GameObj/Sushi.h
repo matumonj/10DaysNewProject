@@ -37,6 +37,7 @@ public:
 		DEAD
 	};
 	XMFLOAT3 GetPos() { return Position; }
+	SushiMove GetState() { return SMove; }
 protected:
 	std::unique_ptr<Object3d>SushiObj;
 	Model* SushiModel;

@@ -4,6 +4,7 @@
 #include"imgui.h"
 void Tuna::Initialize()
 {
+	TexSet();
 	SushiObj = std::make_unique<Object3d>();
 	SushiModel = Model::CreateFromOBJ("Tuna");
 	SushiObj->SetModel(SushiModel);
@@ -15,20 +16,25 @@ void Tuna::Initialize()
 
 void Tuna::Update()
 {
-	bool death = (HP <= 0);
-	//Rebirth(30);
 	Moves(5);
-	SushiObj->SetScale(Scale);
-	SushiObj->SetPosition(Position);
-	SushiObj->SetRotation(Rot);
-	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	if (SushiObj!=nullptr) {
+		TexUp();
+		bool death = (HP <= 0);
+		//Rebirth(30);
+		SushiObj->SetScale(Scale);
+		SushiObj->SetPosition(Position);
+		SushiObj->SetRotation(Rot);
+		SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
+	}
 }
 
 void Tuna::Draw()
 {
-	SushiObj->PreDraw();
-	SushiObj->Draw();
-	SushiObj->PostDraw();
-
+	if (SushiObj != nullptr) {
+		TexDraw();
+		SushiObj->PreDraw();
+		SushiObj->Draw();
+		SushiObj->PostDraw();
+	}
 }

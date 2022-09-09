@@ -25,11 +25,23 @@ private:
 	Sprite* titlesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;
-	Sprite* titlesprite2;
+	Sprite* WaveSprite[4];
+	float ETime[4];
 	bool t, y;
 	//DirectXCommon* dxcomn;
 	int RandPlaceCount=200;
 	int placeC;
+	enum Fase {
+		WAVE1,
+		WAVE2,
+		WAVE3,
+		WAVE4,
+		CLEAR
+	};
+	Fase fase;
+	int RetrandCount();
+	void WaveCont();
+	int SushiDeathCount;
 public:
 	void Initialize()override;
 	void Update()override;
