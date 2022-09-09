@@ -1,4 +1,4 @@
-#include "TitleScene.h"
+#include "GameScene.h"
 #include"Input.h"
 #include"SceneManager.h"
 #include"Tutorial.h"
@@ -10,16 +10,12 @@
 #include"imgui.h"
 #include"Destroy.h"
 #include"mHelper.h"
-<<<<<<< HEAD
 #include"SushiMove.h"
-=======
 #include<fstream>
 #include <algorithm>
 #include"ResultScene.h"
 
-
->>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f
-TitleScene::TitleScene(SceneManager* sceneManager)
+GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
 
@@ -27,7 +23,7 @@ TitleScene::TitleScene(SceneManager* sceneManager)
 /// <summary>
 /// 初期化
 /// </summary>
-void TitleScene::Initialize()
+void GameScene::Initialize()
 {
 	Sprite::LoadTexture(2, L"Resources/2d/Wave/wave1.png");
 	Sprite::LoadTexture(3, L"Resources/2d/Wave/wave2.png");
@@ -69,7 +65,7 @@ void TitleScene::Initialize()
 /// <summary>
 /// 更新処理
 /// </summary>
-void TitleScene::Update()
+void GameScene::Update()
 { 
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	Wave1or2();
@@ -92,7 +88,7 @@ void TitleScene::Update()
 /// スプライト描画
 /// </summary>
 /// <param name="cmdList"></param>
-void TitleScene::SpriteDraw()
+void GameScene::SpriteDraw()
 {
 }
 
@@ -100,7 +96,7 @@ void TitleScene::SpriteDraw()
 /// 描画
 /// </summary>
 /// <param name="cmdList"></param>
-void TitleScene::Draw()
+void GameScene::Draw()
 {
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
@@ -127,41 +123,41 @@ void TitleScene::Draw()
 	DirectXCommon::GetInstance()->EndDraw();
 
 }
-void TitleScene::Finalize()
+void GameScene::Finalize()
 {
 	//delete postEffect;
-	delete titlesprite;
+	delete Gamesprite;
 }
 
-int TitleScene::RetrandCount()
+int GameScene::RetrandCount()
 {
 	switch (fase)
 	{
-	case TitleScene::WAVE1:
+	case GameScene::WAVE1:
 		
 		return rand() % 240 + 200;
 		break;
-	case TitleScene::WAVE2:
+	case GameScene::WAVE2:
 		
 		return rand() % 180 + 140;
 		break;
-	case TitleScene::WAVE3:
+	case GameScene::WAVE3:
 		
 		break;
-	case TitleScene::WAVE4:
+	case GameScene::WAVE4:
 		break;
-	case TitleScene::CLEAR:
+	case GameScene::CLEAR:
 		break;
 	default:
 		break;
 	}
 }
 
-void TitleScene::WaveCont()
+void GameScene::WaveCont()
 {
 	switch (fase)
 	{
-	case TitleScene::WAVE1:
+	case GameScene::WAVE1:
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
@@ -172,7 +168,7 @@ void TitleScene::WaveCont()
 		}
 		
 		break;
-	case TitleScene::WAVE2:
+	case GameScene::WAVE2:
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
@@ -184,22 +180,21 @@ void TitleScene::WaveCont()
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 100),100 });
 
 		break;
-	case TitleScene::WAVE3:
+	case GameScene::WAVE3:
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
 		break;
-	case TitleScene::WAVE4:
+	case GameScene::WAVE4:
 		break;
-	case TitleScene::CLEAR:
+	case GameScene::CLEAR:
 		break;
 	default:
 		break;
 	}
 }
 
-<<<<<<< HEAD
-void TitleScene::Wave1or2()
+void GameScene::Wave1or2()
 {
 	placeC++;
 
@@ -229,7 +224,7 @@ void TitleScene::Wave1or2()
 	}
 }
 
-void TitleScene::Wave3()
+void GameScene::Wave3()
 {
 	if (fase == WAVE2) {
 		placeC2++;
@@ -260,9 +255,8 @@ void TitleScene::Wave3()
 		}
 	}
 }
-=======
 
-void TitleScene::LoadRanking() {
+void GameScene::LoadRanking() {
 	std::ifstream file;
 	file.open("Resources/csv/Ranking.csv");
 	assert(file.is_open());
@@ -272,7 +266,7 @@ void TitleScene::LoadRanking() {
 	file.close();
 }
 
-void TitleScene::PushBackRank() {
+void GameScene::PushBackRank() {
 	LoadRanking();
 	std::string line;
 
@@ -312,7 +306,7 @@ void TitleScene::PushBackRank() {
 
 }
 
-void TitleScene::ScoreSave(float Score) {
+void GameScene::ScoreSave(float Score) {
 	PushBackRank();
 	Rank.push_back(Score);
 	std::sort(Rank.begin(), Rank.end(), std::greater<float>());//降順ソート	
@@ -332,4 +326,3 @@ void TitleScene::ScoreSave(float Score) {
 	file.close();
 
 }
->>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f

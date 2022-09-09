@@ -182,6 +182,7 @@
     <ClCompile Include="Base\Scene\BaseScene.cpp" />
     <ClCompile Include="Base\Scene\SceneManager.cpp" />
     <ClCompile Include="Base\WinApp.cpp" />
+    <ClCompile Include="Cat.cpp" />
     <ClCompile Include="Collisions\BaseCollider.cpp" />
     <ClCompile Include="Collisions\Collision.cpp" />
     <ClCompile Include="Collisions\CollisionManager.cpp" />
@@ -202,7 +203,7 @@
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="PlaceObj.cpp" />
     <ClCompile Include="Scenes\ResultScene.cpp" />
-    <ClCompile Include="Scenes\TitleScene.cpp" />
+    <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="SushiMove.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +237,7 @@
     <ClInclude Include="Base\Scene\BaseScene.h" />
     <ClInclude Include="Base\Scene\SceneManager.h" />
     <ClInclude Include="Base\WinApp.h" />
+    <ClInclude Include="Cat.h" />
     <ClInclude Include="Collisions\BaseCollider.h" />
     <ClInclude Include="Collisions\Collision.h" />
     <ClInclude Include="Collisions\CollisionAttribute.h" />
@@ -260,7 +262,7 @@
     <ClInclude Include="MyGame.h" />
     <ClInclude Include="PlaceObj.h" />
     <ClInclude Include="Scenes\ResultScene.h" />
-    <ClInclude Include="Scenes\TitleScene.h" />
+    <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="SushiMove.h" />
   </ItemGroup>
   <ItemGroup>

@@ -14,16 +14,13 @@
 #include"DirectXCommon.h"
 #include"Sushi.h"
 #include"Bench.h"
-<<<<<<< HEAD
 #include"SushiMove.h"
-=======
 #include <sstream>
 
->>>>>>> 7462e226febaf65a0008333e59e51dc11af6168f
-class TitleScene :public BaseScene
+class GameScene :public BaseScene
 {
 public:
-	TitleScene(SceneManager* sceneManager);
+	GameScene(SceneManager* sceneManager);
 private:
 	std::vector<Sushi*> sushis;
 	std::vector<Sushi*> sushis2;
@@ -31,7 +28,7 @@ private:
 	std::vector< SushiMove*>smove;
 	std::vector< SushiMove*>smove2;
 	std::list<std::unique_ptr<Bench>> Benchs;
-	Sprite* titlesprite;
+	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;
 	std::vector<int> sushinum2;

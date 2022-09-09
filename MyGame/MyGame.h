@@ -32,7 +32,7 @@
 #include"LightGroup.h"
 #include"DebugCamera.h"
 #include"Framework.h"
-#include"TitleScene.h"
+#include"GameScene.h"
 #include"ResultScene.h"
 #include"DirectXCommon.h"
 

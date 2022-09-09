@@ -102,7 +102,7 @@
     <ClCompile Include="Scenes\ResultScene.cpp">
       <Filter>Game\Scene\title,play</Filter>
     </ClCompile>
-    <ClCompile Include="Scenes\TitleScene.cpp">
+    <ClCompile Include="Scenes\GameScene.cpp">
       <Filter>Game\Scene\title,play</Filter>
     </ClCompile>
     <ClCompile Include="GameObj\Egg.cpp">
@@ -228,6 +228,9 @@
     <ClCompile Include="SushiMove.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
+    <ClCompile Include="Cat.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -242,7 +245,7 @@
     <ClInclude Include="Scenes\ResultScene.h">
       <Filter>Game\Scene\title,play</Filter>
     </ClInclude>
-    <ClInclude Include="Scenes\TitleScene.h">
+    <ClInclude Include="Scenes\GameScene.h">
       <Filter>Game\Scene\title,play</Filter>
     </ClInclude>
     <ClInclude Include="GameObj\Egg.h">
@@ -397,6 +400,9 @@
     </ClInclude>
     <ClInclude Include="SushiMove.h">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClInclude>
+    <ClInclude Include="Cat.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
