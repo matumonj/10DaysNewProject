@@ -30,7 +30,7 @@ private:
 	float ETime[4];
 	bool t, y;
 	//スコア関連
-	float score = 0;
+	float score = 10;
 	std::stringstream csvRanking;
 	std::vector<float> Rank;
 	void LoadRanking();

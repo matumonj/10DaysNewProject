@@ -97,6 +97,7 @@ void TitleScene::Update()
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
+		ScoreSave(score);
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
@@ -253,8 +254,13 @@ void TitleScene::PushBackRank() {
 			getline(line_stream, word, ',');
 			float T = (float)std::atof(word.c_str());
 			Rank.push_back(T);
+		} else if (word.find("NOW") == 0) {
+			getline(line_stream, word, ',');
+			float N = (float)std::atof(word.c_str());
+			Rank.push_back(N);
 			break;
 		}
+
 	}
 
 }
@@ -272,6 +278,9 @@ void TitleScene::ScoreSave(float Score) {
 	file << std::endl;
 	file << "THIRD" << ',';
 	file << Rank[2] << ',';
+	file << std::endl;
+	file << "NOW" << ',';
+	file << Score << ',';
 	file << std::endl;
 	file.close();
 
