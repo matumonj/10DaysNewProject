@@ -158,7 +158,7 @@ int TitleScene::RetrandCount()
 		break;
 	case TitleScene::WAVE2:
 		
-		return rand() % 240 + 120;
+		return rand() % 180 + 140;
 		break;
 	case TitleScene::WAVE3:
 		
@@ -181,7 +181,7 @@ void TitleScene::WaveCont()
 			ETime[WAVE1] += 0.01f;
 		}
 		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], -300, 100),100 });
-		if (SushiDeathCount > 6) {
+		if (SushiDeathCount > 1) {
 			ETime[WAVE1] = 0;
 			fase = WAVE2;
 		}
