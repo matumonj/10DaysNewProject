@@ -23,10 +23,13 @@ private:
 	std::vector<Sushi*> sushis;
 	std::list<std::unique_ptr<Bench>> Benchs;
 	Sprite* titlesprite;
-
+	std::vector<int> sushinum;
+	std::vector<bool>activs;
 	Sprite* titlesprite2;
 	bool t, y;
 	//DirectXCommon* dxcomn;
+	int RandPlaceCount=200;
+	int placeC;
 public:
 	void Initialize()override;
 	void Update()override;

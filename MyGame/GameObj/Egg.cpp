@@ -5,7 +5,7 @@
 void Egg::Initialize()
 {
 	SushiObj = std::make_unique<Object3d>();
-	SushiModel = Model::CreateFromOBJ("Tuna");
+	SushiModel = Model::CreateFromOBJ("Egg");
 	SushiObj->SetModel(SushiModel);
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
 

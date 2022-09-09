@@ -16,7 +16,6 @@ void Tuna::Initialize()
 void Tuna::Update()
 {
 	bool death = (HP <= 0);
-	bool isdump= (Collision::GetLength(Position, GarbagepPos) < 1);
 	//Rebirth(30);
 	Moves(5);
 	SushiObj->SetScale(Scale);
@@ -24,9 +23,6 @@ void Tuna::Update()
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
-	if (isdump) {
-		SMove = DUMP;
-	}
 }
 
 void Tuna::Draw()

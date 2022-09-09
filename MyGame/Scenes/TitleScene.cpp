@@ -7,7 +7,7 @@
 #include"Egg.h"
 #include"CameraControl.h"
 #include"Player.h"
-
+#include"imgui.h"
 TitleScene::TitleScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -20,9 +20,12 @@ void TitleScene::Initialize()
 {
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushis.push_back(new Tuna());
-	for (int i = 0; i < sushis.size(); i++) {
-		sushis[i]->Initialize();
-	}
+	
+	//for (int i = 0; i < sushis.size(); i++) {
+		sushis[0]->Initialize();
+		activs.push_back(true);
+		sushinum.push_back(0);
+	//}
 	std::unique_ptr<Bench> newBench;
 	Bench* newBench_ = new Bench();
 	newBench.reset(newBench_);
@@ -42,9 +45,36 @@ void TitleScene::Initialize()
 void TitleScene::Update()
 { 
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-	for (int i = 0; i < sushis.size(); i++) {
-		sushis[i]->Update();
+	
+
+	for (int i = 0; i < activs.size(); i++) {
+		if (activs[i]) {
+			
+		}
 	}
+	placeC++;
+	
+	if (placeC%RandPlaceCount==0) {
+		activs.push_back(true);
+		sushinum.push_back(rand()%2);
+		if (sushinum.back() == 0) {
+			sushis.push_back(new Tuna());
+			sushis.back()->Initialize();
+		}
+		else if (sushinum.back() == 1) {
+			sushis.push_back(new Egg());
+			sushis.back()->Initialize();
+		}
+		RandPlaceCount = rand() % 240 + 120;
+		placeC = 0;
+	}
+		for (int i = 0; i < sushis.size(); i++) {
+			if (sushis[i] != nullptr) {
+				
+				sushis[i]->Update();
+			}
+			
+		}
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update();
 	}
@@ -78,9 +108,13 @@ void TitleScene::Draw()
 		bench->Draw();
 	}
 	for (int i = 0; i < sushis.size(); i++) {
-		sushis[i]->Draw();
+			sushis[i]->Draw();
+		
 	}
 	//‚â‚ë‚¤‚Æ‚µ‚½‚ª‚±‚±‚ÅƒGƒ‰[‚ð“f‚­
+	ImGui::Begin("siz");
+	ImGui::Text("size%d", activs.size());
+	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 

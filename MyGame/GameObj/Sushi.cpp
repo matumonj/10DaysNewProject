@@ -51,7 +51,7 @@ void Sushi::Moves(int cooltime)
 
 		Position={Position.x + move.m128_f32[0],Position.y,	Position.z + move.m128_f32[2] };
 		//”pŠüğŒ
-		isDump = Collision::GetLength(Position, GarbagepPos) < 5.0f;
+		isDump = Collision::GetLength(Position, GarbagepPos) < 2.0f;
 		//‰ñ“]”¼Œa
 		if (isDump) {
 			SMove = DUMP;
