@@ -18,6 +18,11 @@ private:
 	std::stringstream csvRanking;
 
 	std::vector<float> Rank;
+	Sprite* num[3][5][10];
+	std::vector<float> First;
+	std::vector<float> Second;
+	std::vector<float> Third;
+
 public:
 	void Initialize()override;
 	void Update()override;
