@@ -22,12 +22,22 @@ class GameScene :public BaseScene
 public:
 	GameScene(SceneManager* sceneManager);
 private:
+	using XMFLOAT2 = DirectX::XMFLOAT2;
+	using XMFLOAT3 = DirectX::XMFLOAT3;
+private:
 	std::vector<Sushi*> sushis;
 	std::vector<Sushi*> sushis2;
 
 	std::vector< SushiMove*>smove;
 	std::vector< SushiMove*>smove2;
+	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 	std::list<std::unique_ptr<Bench>> Benchs;
+	XMFLOAT3 BenchPos[2][3]
+	= {
+	{ {15,0,20}, {0,0,20}, {-15,0,20}},
+	{ {15,0,0}, {15,0,0}, {-15,0,0}},
+	};
+
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;

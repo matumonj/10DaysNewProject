@@ -50,9 +50,14 @@ void GameScene::Initialize()
 	//ŽõŽi‚Ì“®‚«
 	smove2.push_back(new SushiMove());
 	std::unique_ptr<Bench> newBench;
-	Bench* newBench_ = new Bench();
-	newBench.reset(newBench_);
-	Benchs.push_back(std::move(newBench));
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			Bench* newBench_ = new Bench();
+			newBench_->SetPosition(BenchPos[j][i]);
+			newBench.reset(newBench_);
+			Benchs.push_back(std::move(newBench));
+		}
+	}
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}

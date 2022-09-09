@@ -85,6 +85,9 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\Player\Human">
       <UniqueIdentifier>{0c54649b-d887-40dd-b546-3d3cc8e0f001}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\gameobject\ゲームオブジェクト\Player\Cat">
+      <UniqueIdentifier>{3c82e8d2-7526-430c-a58f-518475f2198c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -225,11 +228,14 @@
     <ClCompile Include="GameObj\Human.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClCompile>
-    <ClCompile Include="SushiMove.cpp">
+    <ClCompile Include="GameObj\Cat.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Cat</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj\SushiMove.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
-    <ClCompile Include="Cat.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
+    <ClCompile Include="Scenes\TitleScene.cpp">
+      <Filter>Game\Scene\title,play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -398,11 +404,14 @@
     <ClInclude Include="GameObj\Human.h">
       <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClInclude>
-    <ClInclude Include="SushiMove.h">
+    <ClInclude Include="GameObj\Cat.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Cat</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj\SushiMove.h">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClInclude>
-    <ClInclude Include="Cat.h">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
+    <ClInclude Include="Scenes\TitleScene.h">
+      <Filter>Game\Scene\title,play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

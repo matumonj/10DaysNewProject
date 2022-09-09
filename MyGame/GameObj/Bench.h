@@ -20,8 +20,13 @@ public:
 	void Initialize();
 	void Update();
 	void Draw();
-
 public:
+
+
+	const XMFLOAT3& GetPosition() { return Position; }
+	void SetPosition(const XMFLOAT3& position) { Position = position; }
+
+
 private:
 	std::unique_ptr<Object3d>BenchObj;
 	Model* BenchModel;

@@ -33,7 +33,7 @@
 #include"DebugCamera.h"
 #include"Framework.h"
 #include"GameScene.h"
-#include"ResultScene.h"
+#include"TitleScene.h"
 #include"DirectXCommon.h"
 
 using namespace DirectX;
