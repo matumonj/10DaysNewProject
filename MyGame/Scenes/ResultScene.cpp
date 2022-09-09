@@ -1,5 +1,6 @@
 #include"ResultScene.h"
 #include<fstream>
+#include <algorithm>
 
 ResultScene::ResultScene(SceneManager* sceneManager) 
 	:BaseScene(sceneManager) {
@@ -50,8 +51,26 @@ void ResultScene::PushBackRank() {
 
 }
 
-void ResultScene::Initialize() {
+void ResultScene::ScoreSave(float Score) {
 	PushBackRank();
+	Rank.push_back(Score);
+	std::sort(Rank.begin(), Rank.end(), std::greater<float>());//ç~èáÉ\Å[Ég	
+	std::ofstream file("Resources/csv/Ranking.csv");
+	file << "FIRST" << ',';
+	file << Rank[0] << ',';
+	file << std::endl;
+	file << "SECOND" << ',';
+	file << Rank[1] << ',';
+	file << std::endl;
+	file << "THIRD" << ',';
+	file << Rank[2] << ',';
+	file << std::endl;
+	file.close();
+
+}
+
+void ResultScene::Initialize() {
+	ScoreSave(55);
 	int a = 0;
 	a++;
 }

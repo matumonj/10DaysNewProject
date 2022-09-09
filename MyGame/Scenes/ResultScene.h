@@ -12,12 +12,12 @@ private:
 	void LoadRanking();
 	void PushBackRank();
 
-
+	void ScoreSave(float Score);
 
 
 	std::stringstream csvRanking;
 
-	std::list<float> Rank;
+	std::vector<float> Rank;
 public:
 	void Initialize()override;
 	void Update()override;
