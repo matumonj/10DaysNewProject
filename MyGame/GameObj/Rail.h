@@ -25,6 +25,8 @@ public:
 
 	const XMFLOAT3& GetPosition() { return Position; }
 	void SetPosition(const XMFLOAT3& position) { Position = position; }
+	const XMFLOAT3& GetRotation() { return Rot; }
+	void SetRotation(const XMFLOAT3& rotation) { Rot = rotation; }
 
 
 private:

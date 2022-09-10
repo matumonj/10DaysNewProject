@@ -61,14 +61,15 @@ void GameScene::Initialize()
 		bench->Initialize();
 	}
 	std::unique_ptr<Rail> newRail;
-	//for (int i = 0; i < 3; i++) {
-		//for (int j = 0; j < 2; j++) {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
 			Rail* newRail_ = new Rail();
-			///newRail_->SetPosition(BenchPos[j][i]);
+			newRail_->SetPosition(RailPos[j][i]);
+			newRail_->SetRotation(RailRot[j][i]);
 			newRail.reset(newRail_);
 			Rails.push_back(std::move(newRail));
-		//}
-	//}
+		}
+	}
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();
 	}

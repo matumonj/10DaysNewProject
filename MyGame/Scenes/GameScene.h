@@ -41,6 +41,16 @@ private:
 	};
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 	std::list<std::unique_ptr<Rail>> Rails;
+	XMFLOAT3 RailPos[2][3]
+		= {
+		{ {0,-3,0},  {21,-3,13},{-21,-3,13}},
+		{ {0,-3,21}, {10,-3,7}, {-10,-3,7}},
+	};
+	XMFLOAT3 RailRot[2][3]
+		= {
+		{ {0,-180,0}, {0,-180,0}, {0,0,0}},
+		{ {0,90,0}, {0,-90,0}, {0,-90,0}},
+	};
 
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;
