@@ -2,6 +2,7 @@
 #include"BaseScene.h"
 #include"Sprite.h"
 #include <sstream>
+#include"sushi.h"
 
 
 class TitleScene :public BaseScene {
@@ -10,7 +11,7 @@ public:
 private:
 	std::unique_ptr<Sprite> BackGround{};
 
-	//std::list<std::unique_ptr<Sushi*>> sushis;
+	std::vector<Sushi*> sushis;
 
 
 public:
