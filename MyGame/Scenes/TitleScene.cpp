@@ -14,6 +14,7 @@ void TitleScene::Initialize() {
 	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
 	BackGround.reset(BackGround_);
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 
 }
 
