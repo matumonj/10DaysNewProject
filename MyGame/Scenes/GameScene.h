@@ -16,6 +16,8 @@
 #include"Bench.h"
 #include"SushiMove.h"
 #include <sstream>
+#include <Base/Camera/CameraControl.h>
+#include "Rail.h"
 
 class GameScene :public BaseScene
 {
@@ -37,6 +39,8 @@ private:
 	{ {15,0,20}, {0,0,20}, {-15,0,20}},
 	{ {15,0,0}, {15,0,0}, {-15,0,0}},
 	};
+	//ƒxƒ“ƒ`ƒLƒƒƒ‰
+	std::list<std::unique_ptr<Rail>> Rails;
 
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;

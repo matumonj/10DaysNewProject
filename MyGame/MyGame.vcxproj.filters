@@ -237,6 +237,9 @@
     <ClCompile Include="Scenes\TitleScene.cpp">
       <Filter>Game\Scene\title,play</Filter>
     </ClCompile>
+    <ClCompile Include="GameObj\Rail.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -412,6 +415,9 @@
     </ClInclude>
     <ClInclude Include="Scenes\TitleScene.h">
       <Filter>Game\Scene\title,play</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj\Rail.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,6 @@
 #include"Feed.h"
 #include"Tuna.h"
 #include"Egg.h"
-#include"CameraControl.h"
 #include"Player.h"
 #include"imgui.h"
 #include"Destroy.h"
@@ -61,6 +60,19 @@ void GameScene::Initialize()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}
+	std::unique_ptr<Rail> newRail;
+	//for (int i = 0; i < 3; i++) {
+		//for (int j = 0; j < 2; j++) {
+			Rail* newRail_ = new Rail();
+			///newRail_->SetPosition(BenchPos[j][i]);
+			newRail.reset(newRail_);
+			Rails.push_back(std::move(newRail));
+		//}
+	//}
+	for (std::unique_ptr< Rail>& rail : Rails) {
+		rail->Initialize();
+	}
+
 	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
@@ -79,6 +91,10 @@ void GameScene::Update()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update();
 	}
+	for (std::unique_ptr<Rail>& rail : Rails) {
+		rail->Update();
+	}
+
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
@@ -108,6 +124,9 @@ void GameScene::Draw()
 	SpriteDraw();
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Draw();
+	}
+	for (std::unique_ptr<Rail>& rail : Rails) {
+		rail->Draw();
 	}
 	for (int i = 0; i < sushis.size(); i++) {
 		if (sushis[i] != nullptr) {

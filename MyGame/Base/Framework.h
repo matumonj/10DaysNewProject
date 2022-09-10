@@ -1,5 +1,4 @@
 #pragma once
-
 #include"Audio.h"
 #include"Sprite.h"
 #include"Input.h"
@@ -8,6 +7,7 @@
 #include"Object3d.h"
 #include"SceneManager.h"
 #include "FbxLoader.h"
+
 class Framework
 {
 public:

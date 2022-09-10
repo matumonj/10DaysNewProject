@@ -1,5 +1,4 @@
 #include "TitleScene.h"
-#include"CameraControl.h"
 #include"Input.h"
 #include"SceneManager.h"
 #include "GameScene.h"
@@ -15,7 +14,10 @@ void TitleScene::Initialize() {
 	BackGround.reset(BackGround_);
 
 	sushis.push_back(new Tuna());
+	for (int i = 0; i < sushis.size(); i++) {
+			sushis[i]->Initialize();
 
+	}
 
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
@@ -25,9 +27,7 @@ void TitleScene::Initialize() {
 void TitleScene::Update() {
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	for (int i = 0; i < sushis.size(); i++) {
-		if (sushis[i] != nullptr) {
 			sushis[i]->Update();
-		}
 
 	}
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//‰Ÿ‚³‚ê‚½‚ç
@@ -43,9 +43,7 @@ void TitleScene::Draw() {
 	BackGround->Draw();
 	Sprite::PostDraw();
 	for (int i = 0; i < sushis.size(); i++) {
-		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
-		}
 	}
 
 	DirectXCommon::GetInstance()->EndDraw();
