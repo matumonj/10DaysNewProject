@@ -43,13 +43,7 @@ void GameScene::Initialize()
 	sushis[0]->Initialize();
 	//ŽõŽi‚Ì“®‚«
 	smove.push_back(new SushiMove());
-	sushinum2.push_back(0);//Å‰‚Íƒ}ƒOƒ
-
-	sushis2.push_back(new Tuna());
-	sushis2[0]->Initialize();
-	//ŽõŽi‚Ì“®‚«
-	smove2.push_back(new SushiMove());
-
+	
 	std::unique_ptr<Rail> newRail;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 2; j++) {
@@ -208,6 +202,12 @@ void GameScene::WaveCont()
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 100),100 });
 		if (SushiDeathCount > 3) {
 			ETime[WAVE2] = 0;
+			sushinum2.push_back(0);//Å‰‚Íƒ}ƒOƒ
+			sushis2.push_back(new Tuna());
+			sushis2[0]->Initialize();
+			//ŽõŽi‚Ì“®‚«
+			smove2.push_back(new SushiMove());
+
 			fase = WAVE3;
 		}
 		break;
@@ -269,7 +269,7 @@ void GameScene::Wave3()
 		placeC2++;
 	}
 
-	if (placeC2 % RandPlaceCount2 == 0) {
+	if (placeC2 % RandPlaceCount2 == 0&&placeC2!=0) {
 		sushinum2.push_back(rand() % 2);
 		if (sushinum2.back() == 0) {
 			sushis2.push_back(new Tuna());
