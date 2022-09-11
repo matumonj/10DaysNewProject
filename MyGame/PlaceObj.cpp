@@ -216,7 +216,7 @@ void PlaceObj::Draw()
 }
 XMVECTOR PlaceObj::wDivision(XMVECTOR vec, XMMATRIX mat)
 {
-
+	return vec;
 }
 
 void PlaceObj::SpriteStartPos(int charanum)
