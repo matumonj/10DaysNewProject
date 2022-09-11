@@ -1,6 +1,7 @@
 #include "Bench.h"
 #include"CameraControl.h"
-
+#include"Human.h"
+#include"PlaceObj.h"
 Bench::Bench() {
 }
 
@@ -21,11 +22,42 @@ void Bench::Update() {
 	BenchObj->SetRotation(Rot);
 	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
+	SetChara();
+	if (player != nullptr) {
+		player->Update();
+		player->SetPosition(Position);
+	}
 }
 
 void Bench::Draw() {
 	BenchObj->PreDraw();
 	BenchObj->Draw();
 	BenchObj->PostDraw();
+	if (player != nullptr) {
+		player->Draw();
+	}
+}
 
+void Bench::SetChara()
+{
+	if (CharaCreate_P) {
+		player = new Human();
+		player->Initialize();
+		CharaCreate_P = false;
+	}
+	if (CharaCreate_C) {
+		player = new Human();
+		player->Initialize();
+		CharaCreate_C = false;
+	}
+	if (CharaCreate_D) {
+		player = new Human();
+		player->Initialize();
+		CharaCreate_D = false;
+	}
+	if (CharaCreate_B) {
+		player = new Human();
+		player->Initialize();
+		CharaCreate_B = false;
+	}
 }

@@ -222,9 +222,6 @@
     <ClCompile Include="Base\Helper\Feed.cpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameObj\Player.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
-    </ClCompile>
     <ClCompile Include="GameObj\Human.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClCompile>
@@ -239,6 +236,9 @@
     </ClCompile>
     <ClCompile Include="GameObj\Rail.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObj\Player.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,7 @@
 #include <algorithm>
 #include"ResultScene.h"
 #include"PlaceObj.h"
+#include"Human.h"
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -48,22 +49,7 @@ void GameScene::Initialize()
 	sushis2[0]->Initialize();
 	//寿司の動き
 	smove2.push_back(new SushiMove());
-	std::unique_ptr<Bench> newBench;
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 2; j++) {
-			Bench* newBench_ = new Bench();
-			newBench_->SetPosition(BenchPos[j][i]);
-			newBench.reset(newBench_);
-			Benchs.push_back(std::move(newBench));
-		}
-	}
-	for (std::unique_ptr<Bench>& bench : Benchs) {
-		bench->Initialize();
-	}
-<<<<<<< HEAD
 
-	PlaceObj::GetInstance()->Init();
-=======
 	std::unique_ptr<Rail> newRail;
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 2; j++) {
@@ -78,12 +64,19 @@ void GameScene::Initialize()
 		rail->Initialize();
 	}
 
->>>>>>> 44df77ae313d08cb51e96a4807f7a68b3faeec53
 	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 
+	//カメラをセット
+	f_Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
+	//グラフィックパイプライン生成
+	f_Object3d::CreateGraphicsPipeline();
+	PlaceObj::GetInstance()->Init();
+	player = new Human();
+	player->Initialize();
 }
+
 
 /// <summary>
 /// 更新処理
@@ -94,13 +87,11 @@ void GameScene::Update()
 	Wave1or2();
 	Wave3();
 
-	for (std::unique_ptr<Bench>& bench : Benchs) {
-		bench->Update();
-	}
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
-
+	PlaceObj::GetInstance()->Update();
+	PlaceObj::GetInstance()->SetIconSpritePos();
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
@@ -109,8 +100,7 @@ void GameScene::Update()
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
-
-	PlaceObj::GetInstance()->Update();
+	player->Update();
 }
 
 /// <summary>
@@ -130,9 +120,6 @@ void GameScene::Draw()
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
 	SpriteDraw();
-	for (std::unique_ptr<Bench>& bench : Benchs) {
-		bench->Draw();
-	}
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Draw();
 	}
@@ -141,17 +128,19 @@ void GameScene::Draw()
 			sushis[i]->Draw();
 		}
 	}
+	player->Draw();
 	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
+	player->IconDraw();
 	//やろうとしたがここでエラーを吐く
 	ImGui::Begin("siz");
-	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	ImGui::Text("size%f",x);
-	ImGui::End();
+//	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
+	///ImGui::Text("size%f",x);
+	//ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 

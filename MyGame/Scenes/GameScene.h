@@ -4,7 +4,7 @@
 #include"Sprite.h"
 #include"Input.h"
 #include"WinApp.h"
-
+#include"Player.h"
 #include"Object3d.h"
 #include"Model.h"
 #include"Collision.h"
@@ -32,19 +32,13 @@ private:
 
 	std::vector< SushiMove*>smove;
 	std::vector< SushiMove*>smove2;
-	//ベンチキャラ
-	std::list<std::unique_ptr<Bench>> Benchs;
-	XMFLOAT3 BenchPos[2][3]
-	= {
-	{ {15,0,20}, {0,0,20}, {-15,0,20}},
-	{ {15,0,0}, {15,0,0}, {-15,0,0}},
-	};
+	
 	//ベンチキャラ
 	std::list<std::unique_ptr<Rail>> Rails;
 	XMFLOAT3 RailPos[2][3]
 		= {
-		{ {0,-3,0},  {21,-3,13},{-21,-3,13}},
-		{ {0,-3,21}, {10,-3,7}, {-10,-3,7}},
+		{ {0,-41,-3},  {21,-41,13-3},{-21,-41,13-3}},
+		{ {0,-41,21-3}, {10,-41,7-3}, {-10,-41,7-3}},
 	};
 	XMFLOAT3 RailRot[2][3]
 		= {
@@ -52,11 +46,12 @@ private:
 		{ {0,90,0}, {0,-90,0}, {0,-90,0}},
 	};
 
+	Player* player;
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;
 	std::vector<int> sushinum2;
-	//std::vector<bool>activs;
+
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	bool t, y;

@@ -9,6 +9,7 @@ public:
 	static bool Collision::CheckSphere2Box(const Sphere& sphere, const Box& box);
 
 	static float GetLength(XMFLOAT3 position, XMFLOAT3 position2);
+	static float GetLength2(XMFLOAT2 position, XMFLOAT2 position2);
 	struct BoxVertex
 	{
 		float Up;

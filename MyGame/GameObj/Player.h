@@ -9,6 +9,7 @@
 #include"f_Object3d.h"
 #include"ObjectManager.h"
 #include"Input.h"
+#include"Sprite.h"
 class Player {
 protected:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -25,14 +26,26 @@ public:
 	virtual void Initialize() = 0;
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
+	virtual void IconDraw() = 0;
 public:
 	enum PlayerMove {
 	WAIT,//ë“ã@
 	EATING,//çUåÇíÜ
 	};
+	enum CharaTag {
+		TPLAYER,
+		TCAT,
+		TDOG,
+		TBIRD
+	};
 	XMFLOAT3 GetPos() { return Position; }
 	PlayerMove GetState() { return SMove; }
+	void SetPosition(XMFLOAT3 pos) { Position = pos; }
+	Sprite* GetSprite() { return iconSprite; }
+	CharaTag GetCharaTag() { return ctag; }
 protected:
+	CharaTag ctag;
+	Sprite* iconSprite;
 	std::unique_ptr<f_Object3d>m_fbxObject;
 	f_Model* m_fbxModel;
 protected:

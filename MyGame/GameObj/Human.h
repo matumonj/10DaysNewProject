@@ -11,7 +11,7 @@ class Human :public  Player {
 
     void Draw()override;
 
-
+    void IconDraw()override;
 
 
 

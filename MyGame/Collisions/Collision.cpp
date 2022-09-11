@@ -11,6 +11,14 @@ float Collision::GetLength(XMFLOAT3 position, XMFLOAT3 position2)
 	len = sqrtf((position.x - position2.x) * (position.x - position2.x) + (position.y - position2.y) * (position.y - position2.y)+ (position.z - position2.z) * (position.z - position2.z));
 	return len;
 }
+
+float Collision::GetLength2(XMFLOAT2 position, XMFLOAT2 position2)
+{
+
+	float len;
+	len = sqrtf((position.x - position2.x) * (position.x - position2.x) + (position.y - position2.y) * (position.y - position2.y) );
+	return len;
+}
 bool Collision::CheckPoint2Rect(const Point& point, const Box& rect)
 {
 	if (point.x >= rect.position.x && point.x <= (rect.position.x + rect.scale.x) &&

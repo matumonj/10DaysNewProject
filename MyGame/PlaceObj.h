@@ -1,7 +1,9 @@
 #include"WinApp.h"
 #include"Object3d.h"
 #include"Model.h"
-
+#include"Sprite.h"
+#include"Player.h"
+#include"Bench.h"
 class PlaceObj
 {
 private:
@@ -15,17 +17,69 @@ private:
 public:
 	static PlaceObj* GetInstance();
 	void Init();
-
 	void Update();
-
+	XMFLOAT3 SetCharaPosition();
+	void PlaceChara(int charanum);
+	
+	void SetIconSpritePos();
 	void Draw();
 	XMVECTOR wDivision(XMVECTOR vec, XMMATRIX mat);
 private:
 	Object3d* obj;
 	Model* mod;
+	Sprite* CharaSprite[4];
+	bool Createf;
 	XMVECTOR Pos3d;
+	XMVECTOR Pos3dz;
 	POINT p;
 	float x, y;
-public:
+	bool Clickf[4];
+
+	std::vector<Player*>players;
+private:
+	enum  {
+		ONE_GIRL,
+		TWO_CAT,
+		THREE_DOG,
+		FOUR_BIRD
+	};
+	enum SittingChara {
+		NON,
+		PLAYER,
+		CAT,
+		DOG,
+		BIRD
+	};
+	enum ClickChara {
+		CNON,
+		CPLAYER,
+		CCAT,
+		CDOG,
+		CBIRD
+	};
+	struct BenchState {
+		XMFLOAT2 Position_2d;
+		XMFLOAT3 Position_3d;
+		SittingChara schara=NON;
+	};
+	ClickChara cChara;
+
+	BenchState Bench_LU;
+	BenchState Bench_LB;
+	BenchState Bench_RU; 
+	BenchState Bench_RB;
+	
+	public:
+
 	XMVECTOR Getpos() { return Pos3d; }
+	void CreateObj(int charanum);
+	void SpriteStartPos(int charanum);
+	//ƒxƒ“ƒ`ƒLƒƒƒ‰
+private:
+	std::vector<std::unique_ptr<Bench>> Benchs;
+	XMFLOAT3 BenchPos[2][3]
+		= {
+		{ {15,-43,20}, {0,-43,20}, {-15,-43,20}},
+		{ {15,-43,0}, {15,-43,0}, {-15,-43,0}},
+	};
 };

@@ -2,6 +2,7 @@
 #include"Object3d.h"
 #include"Model.h"
 #include<memory>
+#include"Player.h"
 class Bench {
 private:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -12,6 +13,12 @@ private:
 	using XMMATRIX = DirectX::XMMATRIX;
 	using XMVECTOR = DirectX::XMVECTOR;
 
+private:
+	bool CharaCreate_P;
+	bool CharaCreate_C;
+	bool CharaCreate_D;
+	bool CharaCreate_B;
+	Player* player;
 public:
 	Bench();
 
@@ -20,6 +27,11 @@ public:
 	void Initialize();
 	void Update();
 	void Draw();
+	void SetChara();
+	void SetCaharaCreate_P(bool f) { CharaCreate_P = f; }
+	void SetCaharaCreate_C(bool f) { CharaCreate_C = f; }
+	void SetCaharaCreate_D(bool f) { CharaCreate_D = f; }
+	void SetCaharaCreate_B(bool f) { CharaCreate_B = f; }
 public:
 
 
