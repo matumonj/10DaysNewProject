@@ -14,7 +14,7 @@
 #include<fstream>
 #include <algorithm>
 #include"ResultScene.h"
-
+#include"PlaceObj.h"
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -56,6 +56,8 @@ void GameScene::Initialize()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}
+
+	PlaceObj::GetInstance()->Init();
 	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
@@ -82,6 +84,8 @@ void GameScene::Update()
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
+
+	PlaceObj::GetInstance()->Update();
 }
 
 /// <summary>
@@ -108,8 +112,8 @@ void GameScene::Draw()
 		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
 		}
-		
 	}
+	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
@@ -117,7 +121,8 @@ void GameScene::Draw()
 	Sprite::PostDraw();
 	//やろうとしたがここでエラーを吐く
 	ImGui::Begin("siz");
-	ImGui::Text("size%d", sushis.size());
+	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
+	ImGui::Text("size%f",x);
 	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();

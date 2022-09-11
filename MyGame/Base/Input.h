@@ -98,7 +98,7 @@ public:
 	/// </summary>
 	/// <returns>マウス移動量</returns>
 	MouseMove GetMouseMove();
-
+	POINT mpoint;
 public:
 	//ゲームパッド
 	bool LeftTiltStick(int stick);
@@ -109,6 +109,7 @@ public:
 	bool TriggerButton(int Button);
 	bool PushCrossKey(int CrossKey);
 	bool TriggerCrossKey(int CrossKey);
+	POINT GetMousePoint();
 public:
 	const LONG& GetPositionX() { return  gamePadState2.lX; }
 	const LONG& GetPositionY() { return  gamePadState2.lY; }

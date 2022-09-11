@@ -116,7 +116,15 @@ void Input::update()
 		}
 	}
 }
+POINT Input::GetMousePoint()
+{
+	GetCursorPos(&mpoint);
+	
+	HWND hwnd = winapp->GetHwnd();
+	ScreenToClient(hwnd, &mpoint);
 
+	return mpoint;
+}
 bool Input::Pushkey(BYTE keyNumber)
 {
 	//w’èƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚ê‚Îtrue‚ğ•Ô‚·

@@ -13,11 +13,19 @@ private:
 	using XMMATRIX = DirectX::XMMATRIX;
 	using XMVECTOR = DirectX::XMVECTOR;
 public:
+	static PlaceObj* GetInstance();
 	void Init();
 
 	void Update();
 
+	void Draw();
 	XMVECTOR wDivision(XMVECTOR vec, XMMATRIX mat);
 private:
+	Object3d* obj;
+	Model* mod;
+	XMVECTOR Pos3d;
 	POINT p;
+	float x, y;
+public:
+	XMVECTOR Getpos() { return Pos3d; }
 };

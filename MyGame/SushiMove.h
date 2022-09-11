@@ -28,10 +28,10 @@ private:
 	XMFLOAT3 position= GatePos, rot,scale;
 	bool isDump;
 	//ÉSÉ~î†
-	const XMFLOAT3 GarbagepPos = { -5,0,5 };
+	const XMFLOAT3 GarbagepPos = { -5,-20,5 };
 	//ÉQÅ[Ég
-	const XMFLOAT3 GatePos = { 0,0,-10 };
-	const XMFLOAT3 GatePos_Right = { -30, 0, 10 };
+	const XMFLOAT3 GatePos = { 0,-20,-10 };
+	const XMFLOAT3 GatePos_Right = { -30, -20, 10 };
 
 public:
 	void Wave1or2move(Sushi*sushi);
