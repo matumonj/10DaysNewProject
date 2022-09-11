@@ -214,11 +214,6 @@ void PlaceObj::Draw()
 	}
 	Sprite::PostDraw();
 }
-XMVECTOR PlaceObj::wDivision(XMVECTOR vec, XMMATRIX mat)
-{
-	return vec;
-}
-
 void PlaceObj::SpriteStartPos(int charanum)
 {
 	if (charanum == ONE_GIRL) {

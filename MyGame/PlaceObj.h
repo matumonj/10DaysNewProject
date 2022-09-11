@@ -18,12 +18,7 @@ public:
 	static PlaceObj* GetInstance();
 	void Init();
 	void Update();
-	XMFLOAT3 SetCharaPosition();
-	void PlaceChara(int charanum);
-	
-	void SetIconSpritePos();
 	void Draw();
-	XMVECTOR wDivision(XMVECTOR vec, XMMATRIX mat);
 private:
 	Object3d* obj;
 	Model* mod;
@@ -74,6 +69,8 @@ private:
 	XMVECTOR Getpos() { return Pos3d; }
 	void CreateObj(int charanum);
 	void SpriteStartPos(int charanum);
+	void PlaceChara(int charanum);
+	void SetIconSpritePos();
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 private:
 	std::vector<std::unique_ptr<Bench>> Benchs;
