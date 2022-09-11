@@ -145,7 +145,7 @@ void GameScene::Draw()
 	ImGui::Begin("siz");
 //	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
 	///ImGui::Text("size%f",x);
-	//ImGui::End();
+	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 
