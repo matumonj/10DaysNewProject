@@ -20,13 +20,13 @@ void PlaceObj::Init()
 	Sprite::LoadTexture(23, L"Resources/2d/CharaIcon/inu.png");
 	Sprite::LoadTexture(24, L"Resources/2d/CharaIcon/inu.png");
 
-	CharaSprite[0] = Sprite::Create(21, { 700,200 });
+	CharaSprite[0] = Sprite::Create(21, { 1100,200 });
 	CharaSprite[0]->SetSize({ 100,100 });
-	CharaSprite[1] = Sprite::Create(21, { 700,300 });
+	CharaSprite[1] = Sprite::Create(21, { 1100,300 });
 	CharaSprite[1]->SetSize({ 100,100 });
-	CharaSprite[2] = Sprite::Create(21, { 700,400 });
+	CharaSprite[2] = Sprite::Create(21, { 1100,400 });
 	CharaSprite[2]->SetSize({ 100,100 });
-	CharaSprite[3] = Sprite::Create(21, { 700,500 });
+	CharaSprite[3] = Sprite::Create(21, { 1100,500 });
 	CharaSprite[3]->SetSize({ 100,100 });
 	for (int i = 0; i < 4; i++) {
 		CharaSprite[i]->setcolor({ 1,1,1,1 });
@@ -222,15 +222,15 @@ XMVECTOR PlaceObj::wDivision(XMVECTOR vec, XMMATRIX mat)
 void PlaceObj::SpriteStartPos(int charanum)
 {
 	if (charanum == ONE_GIRL) {
-		CharaSprite[charanum]->SetPosition({ 700,200 });
+		CharaSprite[charanum]->SetPosition({ 1100,200 });
 	}
 	if (charanum == TWO_CAT) {
-		CharaSprite[charanum]->SetPosition({ 700,300 });
+		CharaSprite[charanum]->SetPosition({ 1100,300 });
 	}
 	if (charanum == THREE_DOG) {
-		CharaSprite[charanum]->SetPosition({ 700,400 });
+		CharaSprite[charanum]->SetPosition({ 1100,400 });
 	}
 	if (charanum == FOUR_BIRD) {
-		CharaSprite[charanum]->SetPosition({ 700,500 });
+		CharaSprite[charanum]->SetPosition({ 1100,500 });
 	}
 }

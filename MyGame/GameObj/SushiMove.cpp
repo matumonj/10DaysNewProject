@@ -66,11 +66,12 @@ void SushiMove::Wave3move(Sushi* sushi)
 	switch (SMove)
 	{
 	case SushiMove::GATE:
-		rot.y = 0;
+		rot.y = -90;
 		position = GatePos_Right;
 		SMove = LANE;
 		break;
 	case SushiMove::LANE:
+		Wave3Rot();
 		//移動ベクトルをy軸周りの角度で回転
 		//RotState();
 		move = { 0,0,0.1f,0 };

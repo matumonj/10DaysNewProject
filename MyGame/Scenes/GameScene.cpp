@@ -128,6 +128,11 @@ void GameScene::Draw()
 			sushis[i]->Draw();
 		}
 	}
+	for (int i = 0; i < sushis2.size(); i++) {
+		if (sushis2[i] != nullptr) {
+			sushis2[i]->Draw();
+		}
+	}
 	player->Draw();
 	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
@@ -201,12 +206,23 @@ void GameScene::WaveCont()
 			ETime[WAVE2] += 0.01f;
 		}
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 100),100 });
-
+		if (SushiDeathCount > 3) {
+			ETime[WAVE2] = 0;
+			fase = WAVE3;
+		}
 		break;
 	case GameScene::WAVE3:
+		if (ETime[WAVE2] <= 1.0f) {
+			ETime[WAVE2] += 0.01f;
+		}
+		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], 100, -300),100 });
+
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
+
+		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 100),100 });
+
 		break;
 	case GameScene::WAVE4:
 		break;
@@ -249,11 +265,11 @@ void GameScene::Wave1or2()
 
 void GameScene::Wave3()
 {
-	if (fase == WAVE2) {
+	if (fase == WAVE3) {
 		placeC2++;
 	}
 
-	if (placeC2 % RandPlaceCount2 == 0&&placeC2!=0) {
+	if (placeC2 % RandPlaceCount2 == 0) {
 		sushinum2.push_back(rand() % 2);
 		if (sushinum2.back() == 0) {
 			sushis2.push_back(new Tuna());
