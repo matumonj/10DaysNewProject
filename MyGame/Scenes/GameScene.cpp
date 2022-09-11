@@ -5,7 +5,6 @@
 #include"Feed.h"
 #include"Tuna.h"
 #include"Egg.h"
-#include"CameraControl.h"
 #include"Player.h"
 #include"imgui.h"
 #include"Destroy.h"
@@ -50,14 +49,36 @@ void GameScene::Initialize()
 	//寿司の動き
 	smove2.push_back(new SushiMove());
 	std::unique_ptr<Bench> newBench;
-	Bench* newBench_ = new Bench();
-	newBench.reset(newBench_);
-	Benchs.push_back(std::move(newBench));
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			Bench* newBench_ = new Bench();
+			newBench_->SetPosition(BenchPos[j][i]);
+			newBench.reset(newBench_);
+			Benchs.push_back(std::move(newBench));
+		}
+	}
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}
+<<<<<<< HEAD
 
 	PlaceObj::GetInstance()->Init();
+=======
+	std::unique_ptr<Rail> newRail;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			Rail* newRail_ = new Rail();
+			newRail_->SetPosition(RailPos[j][i]);
+			newRail_->SetRotation(RailRot[j][i]);
+			newRail.reset(newRail_);
+			Rails.push_back(std::move(newRail));
+		}
+	}
+	for (std::unique_ptr< Rail>& rail : Rails) {
+		rail->Initialize();
+	}
+
+>>>>>>> 44df77ae313d08cb51e96a4807f7a68b3faeec53
 	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
@@ -76,6 +97,10 @@ void GameScene::Update()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update();
 	}
+	for (std::unique_ptr<Rail>& rail : Rails) {
+		rail->Update();
+	}
+
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
@@ -108,6 +133,9 @@ void GameScene::Draw()
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Draw();
 	}
+	for (std::unique_ptr<Rail>& rail : Rails) {
+		rail->Draw();
+	}
 	for (int i = 0; i < sushis.size(); i++) {
 		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
@@ -139,21 +167,22 @@ int GameScene::RetrandCount()
 	switch (fase)
 	{
 	case GameScene::WAVE1:
-		
 		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE2:
-		
 		return rand() % 180 + 140;
 		break;
 	case GameScene::WAVE3:
-		
+		return 0;
 		break;
 	case GameScene::WAVE4:
+		return 0;
 		break;
 	case GameScene::CLEAR:
+		return 0;
 		break;
 	default:
+		return 0;
 		break;
 	}
 }

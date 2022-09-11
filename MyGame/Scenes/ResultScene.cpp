@@ -169,8 +169,5 @@ void ResultScene::Draw() {
 
 }
 
-void ResultScene::SpriteDraw() {
-}
-
 void ResultScene::Finalize() {
 }

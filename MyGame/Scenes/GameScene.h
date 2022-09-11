@@ -16,18 +16,42 @@
 #include"Bench.h"
 #include"SushiMove.h"
 #include <sstream>
+#include <Base/Camera/CameraControl.h>
+#include "Rail.h"
 
 class GameScene :public BaseScene
 {
 public:
 	GameScene(SceneManager* sceneManager);
 private:
+	using XMFLOAT2 = DirectX::XMFLOAT2;
+	using XMFLOAT3 = DirectX::XMFLOAT3;
+private:
 	std::vector<Sushi*> sushis;
 	std::vector<Sushi*> sushis2;
 
 	std::vector< SushiMove*>smove;
 	std::vector< SushiMove*>smove2;
+	//ベンチキャラ
 	std::list<std::unique_ptr<Bench>> Benchs;
+	XMFLOAT3 BenchPos[2][3]
+	= {
+	{ {15,0,20}, {0,0,20}, {-15,0,20}},
+	{ {15,0,0}, {15,0,0}, {-15,0,0}},
+	};
+	//ベンチキャラ
+	std::list<std::unique_ptr<Rail>> Rails;
+	XMFLOAT3 RailPos[2][3]
+		= {
+		{ {0,-3,0},  {21,-3,13},{-21,-3,13}},
+		{ {0,-3,21}, {10,-3,7}, {-10,-3,7}},
+	};
+	XMFLOAT3 RailRot[2][3]
+		= {
+		{ {0,-180,0}, {0,-180,0}, {0,0,0}},
+		{ {0,90,0}, {0,-90,0}, {0,-90,0}},
+	};
+
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;

@@ -2,7 +2,7 @@
 #include"Object3d.h"
 #include"Model.h"
 #include<memory>
-class Bench {
+class Rail {
 private:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
 	// DirectX::を省略
@@ -13,9 +13,9 @@ private:
 	using XMVECTOR = DirectX::XMVECTOR;
 
 public:
-	Bench();
+	Rail();
 
-	~Bench();
+	~Rail();
 
 	void Initialize();
 	void Update();
@@ -25,15 +25,17 @@ public:
 
 	const XMFLOAT3& GetPosition() { return Position; }
 	void SetPosition(const XMFLOAT3& position) { Position = position; }
+	const XMFLOAT3& GetRotation() { return Rot; }
+	void SetRotation(const XMFLOAT3& rotation) { Rot = rotation; }
 
 
 private:
-	std::unique_ptr<Object3d>BenchObj;
-	Model* BenchModel;
+	std::unique_ptr<Object3d>RailObj;
+	Model* RailModel;
 
-	XMFLOAT3 Position = {};
-	XMFLOAT3 Scale = { 2,2,2 };
-	XMFLOAT3 Rot;
+	XMFLOAT3 Position = {0,-3,0};
+	XMFLOAT3 Scale = { 1,1,1 };
+	XMFLOAT3 Rot={0,-180,0};
 	//回転用アングル
 	//移動ベクトルをy軸周りの角度で回転
 	XMVECTOR move;
@@ -41,9 +43,4 @@ private:
 	XMMATRIX matRot;
 private:
 };
-
-
-
-
-
 
