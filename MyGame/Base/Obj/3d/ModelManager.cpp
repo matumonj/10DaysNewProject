@@ -1,5 +1,4 @@
 #include "ModelManager.h"
-
 #include "FbxLoader.h"
 
 std::map<ModelManager::ModelName, Model*> ModelManager::model;
@@ -12,7 +11,8 @@ ModelManager* ModelManager::GetIns() {
 
 void ModelManager::Initialize() {
 	//LoadFBXModel(Player, "Player");
-	//LoadModel(Field, "ground");
+	LoadModel(Tuna, "Tuna");
+	LoadModel(Egg, "Egg");
 	//LoadFBXModel(Enemy_Alpha, "enmeyAlpha");
 	//LoadFBXModel(Enemy_Beta, "enemyBeta");
 	//LoadFBXModel(Enemy_Camma, "enemyCamma");

@@ -8,11 +8,6 @@ PlaceObj* PlaceObj::GetInstance() {
 	return &ins;
 }
 void PlaceObj::Init() {
-	mod = Model::CreateFromOBJ("Tuna");
-	obj = new Object3d();
-	obj->SetModel(mod);
-	obj->Initialize(CameraControl::GetInstance()->GetCamera());
-
 	Sprite::LoadTexture(21, L"Resources/2d/CharaIcon/girl.png");
 	Sprite::LoadTexture(22, L"Resources/2d/CharaIcon/cat.png");
 	Sprite::LoadTexture(23, L"Resources/2d/CharaIcon/inu.png");
@@ -20,7 +15,7 @@ void PlaceObj::Init() {
 
 	CharaSprite[ONE_GIRL] = Sprite::Create(21, { 1100,200 });
 	CharaSprite[ONE_GIRL]->SetSize({ 100,100 });
-	CharaSprite[TWO_CAT] = Sprite::Create(21, { 1100,300 });
+	CharaSprite[TWO_CAT] = Sprite::Create(22, { 1100,300 });
 	CharaSprite[TWO_CAT]->SetSize({ 100,100 });
 	CharaSprite[THREE_DOG] = Sprite::Create(21, { 1100,400 });
 	CharaSprite[THREE_DOG]->SetSize({ 100,100 });
@@ -67,10 +62,6 @@ void PlaceObj::Update(Sushi* sushis) {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update(sushis);
 	}
-	DebPos.y = -43;
-	obj->SetPosition(DebPos);
-	obj->SetScale({ 2,2,2 });
-	obj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 }
 
 void PlaceObj::SetIconSpritePos() {
@@ -167,20 +158,11 @@ void PlaceObj::Draw() {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Draw();
 	}
-	obj->PreDraw();
-	obj->Draw();
-	obj->PostDraw();
 	Sprite::PreDraw();
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
-
-	ImGui::Begin("deb");
-	ImGui::SliderFloat("x", &DebPos.x, -100, 100);
-	ImGui::SliderFloat("y", &DebPos.z, -100, 100);
-
-	ImGui::End();
 
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {

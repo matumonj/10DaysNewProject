@@ -14,7 +14,8 @@ private:
 public:
 
 	enum ModelName {
-		Field
+		Tuna,
+		Egg,
 	};
 	enum FBXName {
 		Player,
