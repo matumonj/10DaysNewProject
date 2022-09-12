@@ -83,7 +83,7 @@ public:
 	bool InitImgui();
 	void ImguiDraw();
 public:
-	void ClearDepthBuffer(ID3D12GraphicsCommandList* cmdList);
+	void ClearDepthBuffer(ID3D12GraphicsCommandList* cmdList=nullptr);
 
 };
 
