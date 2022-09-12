@@ -12,19 +12,23 @@ void PlaceObj::Init() {
 	Sprite::LoadTexture(22, L"Resources/2d/CharaIcon/cat.png");
 	Sprite::LoadTexture(23, L"Resources/2d/CharaIcon/inu.png");
 	Sprite::LoadTexture(24, L"Resources/2d/CharaIcon/inu.png");
+	Sprite::LoadTexture(25, L"Resources/2d/CharaIcon/charaIconB.png");
 
-	CharaSprite[ONE_GIRL] = Sprite::Create(21, { 1100,200 });
+	CharaSprite[ONE_GIRL] = Sprite::Create(21, { 1150,200 });
 	CharaSprite[ONE_GIRL]->SetSize({ 100,100 });
-	CharaSprite[TWO_CAT] = Sprite::Create(22, { 1100,300 });
+	CharaSprite[TWO_CAT] = Sprite::Create(22, { 1150,400 });
 	CharaSprite[TWO_CAT]->SetSize({ 100,100 });
-	CharaSprite[THREE_DOG] = Sprite::Create(21, { 1100,400 });
+	CharaSprite[THREE_DOG] = Sprite::Create(21, { 1150,500 });
 	CharaSprite[THREE_DOG]->SetSize({ 100,100 });
-	CharaSprite[FOUR_BIRD] = Sprite::Create(21, { 1100,500 });
+	CharaSprite[FOUR_BIRD] = Sprite::Create(21, { 1150,600 });
 	CharaSprite[FOUR_BIRD]->SetSize({ 100,100 });
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->setcolor({ 1,1,1,1 });
 		CharaSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
 	}
+
+	Sprite* CharaBack_ = Sprite::Create(25, { 1100,0 });
+	CharaBack.reset(CharaBack_);
 
 	benchState[LEFT_BOTTOM].Position_2d = { 418,500 };
 	benchState[LEFT_BOTTOM].Position_3d = { -15,-43,0 };
@@ -92,8 +96,8 @@ void PlaceObj::SetIconSpritePos() {
 
 
 void PlaceObj::CreateObj(const int& charanum) {
-	float x = Input::GetInstance()->GetMousePoint().x;
-	float y = Input::GetInstance()->GetMousePoint().y;
+	float x = (float)Input::GetInstance()->GetMousePoint().x;
+	float y = (float)Input::GetInstance()->GetMousePoint().y;
 	if (Clickf[charanum]) {
 		CharaSprite[charanum]->SetPosition({ x,y });
 		if (!Input::GetInstance()->PushMouseLeft()) {
@@ -149,6 +153,7 @@ void PlaceObj::Draw() {
 		bench->Draw();
 	}
 	Sprite::PreDraw();
+	CharaBack->Draw();
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->Draw();
 	}
@@ -157,16 +162,16 @@ void PlaceObj::Draw() {
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {
-		CharaSprite[charanum]->SetPosition({ 1100,200 });
+		CharaSprite[charanum]->SetPosition({ 1200,100 });
 	}
 	if (charanum == TWO_CAT) {
-		CharaSprite[charanum]->SetPosition({ 1100,300 });
+		CharaSprite[charanum]->SetPosition({ 1200,250 });
 	}
 	if (charanum == THREE_DOG) {
-		CharaSprite[charanum]->SetPosition({ 1100,400 });
+		CharaSprite[charanum]->SetPosition({ 1200,400 });
 	}
 	if (charanum == FOUR_BIRD) {
-		CharaSprite[charanum]->SetPosition({ 1100,500 });
+		CharaSprite[charanum]->SetPosition({ 1200,550 });
 	}
 }
 

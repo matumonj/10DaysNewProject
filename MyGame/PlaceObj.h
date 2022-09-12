@@ -4,6 +4,7 @@
 #include"Sprite.h"
 #include"Player.h"
 #include"Bench.h"
+
 class PlaceObj
 {
 private:
@@ -43,11 +44,12 @@ private:
 
 private:
 	Sprite* CharaSprite[MAX_CHARA];
+	std::unique_ptr<Sprite> CharaBack;
+
 	POINT p;
 	bool Clickf[MAX_CHARA];
 
 	std::vector<Player*>players;
-
 
 	struct BenchState {
 		XMFLOAT2 Position_2d;
@@ -70,8 +72,9 @@ private:
 	std::vector<std::unique_ptr<Bench>> Benchs;
 	XMFLOAT3 BenchPos[MAXBENCH]
 		= {
- {-15,-43,20},{-15,-43,10}, {-15,-43,0}
-,{ 15,-43,20},{ 15,-43,10}, { 15,-43,0},
- {0,-43,20},{0,-43,0}};
+ {-15,-43,23},{-15,-43,10}, {-15,-43,0}
+,{ 15,-43,23},{ 15,-43,10}, { 15,-43,0},
+ {  0,-43,23},{0,-43,0}};
+
 
 };

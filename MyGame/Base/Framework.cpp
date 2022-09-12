@@ -30,9 +30,9 @@ void Framework::Initialize()
 	input = Input::GetInstance();
 	input->Initialize(winapp);
 	audio = new Audio();
-	ModelManager::GetIns()->Initialize();
 	// ƒ‰ƒCƒgÃ“I‰Šú‰»
 	Object3d::StaticInitialize(WinApp::window_width, WinApp::window_height);
+	ModelManager::GetIns()->Initialize();
 	//MyGame* MyGame = new MyGame();
 	sceneManger = new SceneManager();
 	
