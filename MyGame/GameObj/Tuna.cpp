@@ -31,6 +31,19 @@ void Tuna::Update()
 	}
 }
 
+void Tuna::TitleUpda() {
+	SushiObj->SetScale(Scale);
+	XMFLOAT3 pos = SushiObj->GetPosition();
+	if (pos.x <= -25) {
+		pos.x = 25;
+	}
+	pos = { pos.x - 0.1f,-20,0 };
+	SushiObj->SetPosition(pos);
+	SushiObj->SetRotation(Rot);
+	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+
+}
+
 void Tuna::Draw()
 {
 	if (SushiObj != nullptr) {
