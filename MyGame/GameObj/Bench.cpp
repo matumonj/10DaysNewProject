@@ -33,13 +33,12 @@ void Bench::Update(Sushi* sushis) {
 	BenchObj->SetRotation(Rot);
 	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
-	if (Input::GetInstance()->TriggerKey(DIK_S)) {
-		SitChara = true;
-	}
 	SetChara();
 	if (player != nullptr) {
 		player->Update();
-		player->Attack(sushis);
+		if (Palha > 0.0f) {
+			player->Attack(sushis);
+		}
 		player->SetPosition(Position);
 	}
 

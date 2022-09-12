@@ -29,6 +29,8 @@ public:
 	virtual void Draw() = 0;
 	virtual void IconDraw() = 0;
 	virtual void Attack(Sushi*sushis) = 0;
+
+	
 	void AttackJudg(Sushi*sushis);
 public:
 	enum PlayerMove {

@@ -41,6 +41,8 @@ public:
 	void SetPos(XMFLOAT3 Pos) { Position = Pos; }
 	XMFLOAT3 GetRot() { return Rot; }
 	void SetRot(XMFLOAT3 rot) { Rot = rot; }
+	void SetScale(XMFLOAT3 scale) { Scale = scale; }
+	XMFLOAT3 GetScale() { return Scale; }
 protected:
 	std::unique_ptr<Object3d>SushiObj;
 	Model* SushiModel;

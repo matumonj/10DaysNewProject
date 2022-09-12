@@ -11,6 +11,7 @@ Player::~Player() {
 
 void Player::AttackJudg(Sushi* sushis)
 {
+	if (this == nullptr)return;
 	if (Collision::GetLength(sushis->GetPos(), Position) < 20.0f) {
 		if (CoolTime == 0) {
 			AtkFlag = true;
@@ -22,6 +23,7 @@ void Player::AttackJudg(Sushi* sushis)
 		sushis->RecvDamage(Damage);
 		Cool = true;
 		AtkFlag = false;
+
 	}
 
 	if (Cool) {
@@ -33,22 +35,4 @@ void Player::AttackJudg(Sushi* sushis)
 	else {
 		CoolTime = 0;
 	}
-
-	EatAction(sushis);
-}
-
-void Player::EatAction(Sushi* sushis)
-{
-	float Speed = 0.1f;
-	 float angleX = ( Position.x- sushis->GetPos().x);
-	float angleZ = ( Position.z- sushis->GetPos().z);
-
-	//敵とプレイヤーの距離求め
-	float dis = sqrtf((Position.x - sushis->GetPos().x) * (Position.x - sushis->GetPos().x)
-		+ (Position.z - sushis->GetPos().z) * (Position.z - sushis->GetPos().z));
-
-	//座標のセット
-	XMFLOAT3 sushipos= { Position.x + (angleX / dis) * Speed,Position.y,Position.z + (angleZ / dis) * Speed };
-
-	sushis->SetPos(sushipos);
 }

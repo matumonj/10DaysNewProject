@@ -83,6 +83,7 @@ void GameScene::Update()
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	Wave1or2();
 	Wave3();
+	WaveCont();
 
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
@@ -100,7 +101,6 @@ void GameScene::Update()
 	}
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-	WaveCont();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
 		ScoreSave(score);
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
@@ -272,7 +272,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-			if (sushis[i]->GetDead() || sushis[i]->GetHP() <= 0) {
+			if ( sushis[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}
@@ -303,7 +303,7 @@ void GameScene::Wave3()
 		if (sushis2[i] != nullptr) {
 			smove2[i]->Wave3move(sushis2[i]);
 			sushis2[i]->Update();
-		if (sushis2[i]->GetDead()||sushis2[i]->GetHP() <= 0) {
+		if (sushis2[i]->GetScale().x<=0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis2[i]);
 			}
