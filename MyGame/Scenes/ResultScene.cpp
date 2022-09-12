@@ -4,7 +4,7 @@
 #include <Base/Obj/3d/Object3d.h>
 #include <Base/Camera/CameraControl.h>
 
-ResultScene::ResultScene(SceneManager* sceneManager) 
+ResultScene::ResultScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager) {
 }
 
@@ -91,16 +91,17 @@ void ResultScene::Initialize() {
 	for (int k = 0; k < 4; k++) {
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 10; j++) {
-				num[k][i][j] = Sprite::Create(10,{0.0f,0.0f});
+				num[k][i][j] = Sprite::Create(10, { 0.0f,0.0f });
 				int number_index_y = j / l;
 				int number_index_x = j % l;
 				num[k][i][j]->SetTextureRect(
 					{ static_cast<float>(number_index_x) * w, static_cast<float>(number_index_y) * h },
 					{ static_cast<float>(w), static_cast<float>(h) });
 				num[k][i][j]->SetSize({ w,h });
-				num[k][i][j]->SetAnchorPoint({ 0,0 });
-				num[k][i][j]->SetSize({ w*2,h*2 });
-				num[k][i][j]->SetPosition({ (float)(WinApp::window_width/2.0f) - (70.0f * i) ,(128.0f* k)+200.0f});
+				num[k][i][j]->SetAnchorPoint({ 0,0.5f });
+				num[k][i][j]->SetSize({ w * 2,h * 2 });
+				num[k][i][j]->setcolor({0.0f,0.0f,0.0f,1.0f});
+				num[k][i][j]->SetPosition({ (float)(WinApp::window_width / 2.0f) - (70.0f * i) ,(128.0f * k) + 200.0f });
 			}
 		}
 	}
@@ -109,16 +110,20 @@ void ResultScene::Initialize() {
 			num[0][i][j]->SetPosition({ EaseX[0] - (70.0f * i) , 200.0f });
 			num[1][i][j]->SetPosition({ EaseX[1] - (70.0f * i) , 360.0f });
 			num[2][i][j]->SetPosition({ EaseX[2] - (70.0f * i) , 520.0f });
-			num[3][i][j]->SetPosition({ 640 - (70.0f * i) , 40.0f });
+			num[3][i][j]->SetPosition({ EaseX[3] - (70.0f * i) , 40.0f });
 		}
 	}
+	Sprite::LoadTexture(11, L"Resources/2d/Result.png");
+	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	BackGround.reset(BackGround_);
+
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 }
 
 void ResultScene::Update() {
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
-	
+
 	if (ETime[0] <= 1.0f) {
 		ETime[0] += 0.02f;
 	}
@@ -133,10 +138,34 @@ void ResultScene::Update() {
 		}
 	}
 
+	if (Rank[3]==Rank[0]) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				num[0][i][j]->setcolor({1,0,0,1});
+				num[3][i][j]->setcolor({1,0,0,1});
+			}
+		}
+	}
+	if (Rank[3] == Rank[1]) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				num[1][i][j]->setcolor({ 1,0,0,1 });
+				num[3][i][j]->setcolor({ 1,0,0,1 });
+			}
+		}
+	}
+	if (Rank[3] == Rank[2]) {
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 10; j++) {
+				num[2][i][j]->setcolor({ 1,0,0,1 });
+				num[3][i][j]->setcolor({ 1,0,0,1 });
+			}
+		}
+	}
 
-	EaseX[0] = Easing::EaseOut(ETime[0], 1600, 700);
-	EaseX[1] = Easing::EaseOut(ETime[1], 1600, 700);
-	EaseX[2] = Easing::EaseOut(ETime[2], 1600, 700);
+	EaseX[0] = Easing::EaseOut(ETime[0], 1600, 780);
+	EaseX[1] = Easing::EaseOut(ETime[1], 1600, 780);
+	EaseX[2] = Easing::EaseOut(ETime[2], 1600, 780);
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 10; j++) {
 			num[0][i][j]->SetPosition({ EaseX[0] - (70.0f * i) , 200.0f });
@@ -151,6 +180,7 @@ void ResultScene::Draw() {
 	DirectXCommon::GetInstance()->BeginDraw();//•`‰æƒRƒ}ƒ“ƒh‚Ìã‚ç‚Ö‚ñ‚É
 
 	Sprite::PreDraw();
+	BackGround->Draw();
 	for (int i = 0; i < First.size() && i < 5; i++) {
 		num[0][i][(int)First[i]]->Draw();
 	}
