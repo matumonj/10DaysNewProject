@@ -4,6 +4,7 @@
 #include<memory>
 #include"Player.h"
 #include"Sushi.h"
+#include"Texture.h"
 class Bench {
 private:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -21,6 +22,12 @@ private:
 	bool CharaCreate_B;
 	bool DestroyChara;
 	Player* player;
+	Texture*SiTGauge;
+
+	float EsitTime;
+	float sitTime;
+	bool LeaveF;
+	bool SitChara;
 public:
 	Bench();
 
@@ -35,6 +42,10 @@ public:
 	void SetCaharaCreate_D(bool f) { CharaCreate_D = f; }
 	void SetCaharaCreate_B(bool f) { CharaCreate_B = f; }
 	void SetDestroyCahara(bool f) { DestroyChara = f; }
+	void SetCharaSitF(bool f) { SitChara = f; }
+	bool GetCharaSitF() { return SitChara; }
+	bool GetLeaveF() { return LeaveF; }
+	void SetLeaveF(bool f) { LeaveF = f; }
 public:
 
 

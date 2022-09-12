@@ -31,7 +31,6 @@ public:
 
 	//‰ñ“]‰^“®
 	void Moves(Wave wave);
-	
 	void RotState();
 	void RotState3();
 	void TexSet();
@@ -57,12 +56,13 @@ protected:
 	int MaxHP;
 	bool isDead;
 	int coolTime;
-
+	int ScorePoint;
 public:
 	int GetHP() { return HP; }
 	void SetDead(bool f) { isDead = f; }
 	bool GetDead() { return isDead; }
 	void RecvDamage(int Damage) { HP = HP - Damage; }
+	int GetScorepoint() { return ScorePoint; }
 private:
 	bool CoolEnd;
 	bool isDump;

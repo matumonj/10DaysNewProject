@@ -264,8 +264,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-
-			if (sushis[i]->GetDead()) {
+			if (sushis[i]->GetDead() || sushis[i]->GetHP() <= 0) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}
@@ -296,8 +295,7 @@ void GameScene::Wave3()
 		if (sushis2[i] != nullptr) {
 			smove2[i]->Wave3move(sushis2[i]);
 			sushis2[i]->Update();
-
-			if (sushis2[i]->GetDead()) {
+		if (sushis2[i]->GetDead()||sushis2[i]->GetHP() <= 0) {
 				SushiDeathCount++;
 				Destroy(sushis2[i]);
 			}
