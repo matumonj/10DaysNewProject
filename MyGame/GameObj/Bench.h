@@ -19,6 +19,7 @@ private:
 	bool CharaCreate_C;
 	bool CharaCreate_D;
 	bool CharaCreate_B;
+	bool DestroyChara;
 	Player* player;
 public:
 	Bench();
@@ -33,6 +34,7 @@ public:
 	void SetCaharaCreate_C(bool f) { CharaCreate_C = f; }
 	void SetCaharaCreate_D(bool f) { CharaCreate_D = f; }
 	void SetCaharaCreate_B(bool f) { CharaCreate_B = f; }
+	void SetDestroyCahara(bool f) { DestroyChara = f; }
 public:
 
 

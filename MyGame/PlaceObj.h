@@ -23,6 +23,7 @@ private:
 	Object3d* obj;
 	Model* mod;
 	Sprite* CharaSprite[4];
+	XMFLOAT3 DebPos;
 	bool Createf;
 	XMVECTOR Pos3d;
 	XMVECTOR Pos3dz;
@@ -56,6 +57,8 @@ private:
 		XMFLOAT2 Position_2d;
 		XMFLOAT3 Position_3d;
 		SittingChara schara=NON;
+		float LeaveLimit;
+		float LeaveLimit_Max;
 	};
 	ClickChara cChara;
 
@@ -76,10 +79,11 @@ private:
 	void SpriteStartPos(int charanum);
 	void PlaceChara(int charanum);
 	void SetIconSpritePos();
+	void LeaveStore();
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 private:
 	std::vector<std::unique_ptr<Bench>> Benchs;
-	XMFLOAT3 BenchPos[2][3]
+	XMFLOAT3 BenchPos[2][4]
 		= {
 		{ {15,-43,20}, {0,-43,20}, {-15,-43,20}},
 		{ {15,-43,0}, {15,-43,0}, {-15,-43,0}},

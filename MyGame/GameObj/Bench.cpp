@@ -2,6 +2,7 @@
 #include"CameraControl.h"
 #include"Human.h"
 #include"PlaceObj.h"
+#include"Cat.h"
 Bench::Bench() {
 }
 
@@ -47,7 +48,7 @@ void Bench::SetChara()
 		CharaCreate_P = false;
 	}
 	if (CharaCreate_C) {
-		player = new Human();
+		player = new Cat();
 		player->Initialize();
 		CharaCreate_C = false;
 	}
@@ -60,5 +61,9 @@ void Bench::SetChara()
 		player = new Human();
 		player->Initialize();
 		CharaCreate_B = false;
+	}
+	if (DestroyChara) {
+		player = nullptr;
+		DestroyChara = false;
 	}
 }
