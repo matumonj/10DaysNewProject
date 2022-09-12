@@ -59,7 +59,7 @@ private:
 
 	XMFLOAT3 Position = {};
 	XMFLOAT3 Scale = { 2,2,2 };
-	XMFLOAT3 Rot;
+	XMFLOAT3 Rot={0,0,180};
 	//回転用アングル
 	//移動ベクトルをy軸周りの角度で回転
 	XMVECTOR move;

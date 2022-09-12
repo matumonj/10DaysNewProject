@@ -20,72 +20,67 @@ public:
 	void Update(Sushi* sushis);
 	void Draw();
 private:
+	enum {
+		NON_CHARA = 0,
+		ONE_GIRL,
+		TWO_CAT,
+		THREE_DOG,
+		FOUR_BIRD,
+		MAX_CHARA
+	};
+
+	enum {
+		LEFT_UP = 0,
+		LEFT_CENTER,
+		LEFT_BOTTOM,
+		RIGHT_UP,
+		RIGHT_CENTER,
+		RIGHT_BOTTOM,
+		CENTER_UP,
+		CENTER_BOTTOM,
+		MAXBENCH,
+	};
+
+private:
 	Object3d* obj;
 	Model* mod;
-	Sprite* CharaSprite[4];
+	Sprite* CharaSprite[MAX_CHARA];
 	XMFLOAT3 DebPos;
 	bool Createf;
 	XMVECTOR Pos3d;
 	XMVECTOR Pos3dz;
 	POINT p;
 	float x, y;
-	bool Clickf[4];
+	bool Clickf[MAX_CHARA];
 
 	std::vector<Player*>players;
-private:
-	enum  {
-		ONE_GIRL,
-		TWO_CAT,
-		THREE_DOG,
-		FOUR_BIRD
-	};
-	enum SittingChara {
-		NON,
-		PLAYER,
-		CAT,
-		DOG,
-		BIRD
-	};
-	enum ClickChara {
-		CNON,
-		CPLAYER,
-		CCAT,
-		CDOG,
-		CBIRD
-	};
+
+
 	struct BenchState {
 		XMFLOAT2 Position_2d;
 		XMFLOAT3 Position_3d;
-		SittingChara schara=NON;
+		int SitChara=NON_CHARA;
 		float LeaveLimit;
 		float LeaveLimit_Max;
 	};
-	ClickChara cChara;
+	int ClickChara;
 
-	BenchState Bench_LU;//ç∂è„
-	BenchState Bench_LB;//
-	BenchState Bench_LC;//
-	BenchState Bench_RU;// 
-	BenchState Bench_RB;//
-	BenchState Bench_RC;//
-	BenchState Bench_CU;//
-	BenchState Bench_CB;//
-
-	
-	public:
+	BenchState benchState[MAXBENCH];
+public:
 
 	XMVECTOR Getpos() { return Pos3d; }
-	void CreateObj(int charanum);
-	void SpriteStartPos(int charanum);
-	void PlaceChara(int charanum);
+	void CreateObj(const int& charanum);
+	void SpriteStartPos(const int& charanum);
+	void PlaceChara(const int& charanum);
 	void SetIconSpritePos();
 	void LeaveStore();
 	//ÉxÉìÉ`ÉLÉÉÉâ
 private:
 	std::vector<std::unique_ptr<Bench>> Benchs;
-	XMFLOAT3 BenchPos[2][4]
+	XMFLOAT3 BenchPos[MAXBENCH]
 		= {
-		{ {15,-43,20}, {0,-43,20}, {-15,-43,20}},
-		{ {15,-43,0}, {15,-43,0}, {-15,-43,0}},
-	};
+ {-15,-43,20},{-15,-43,10}, {-15,-43,0}
+,{ 15,-43,20},{ 15,-43,10}, { 15,-43,0},
+ {0,-43,20},{0,-43,0}};
+
 };
