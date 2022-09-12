@@ -45,7 +45,7 @@ void GameScene::Initialize()
 	smove.push_back(new SushiMove());
 	
 	std::unique_ptr<Rail> newRail;
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 2; j++) {
 			Rail* newRail_ = new Rail();
 			newRail_->SetPosition(RailPos[j][i]);
