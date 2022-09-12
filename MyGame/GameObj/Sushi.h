@@ -59,6 +59,7 @@ protected:
 	int coolTime;
 
 public:
+	int GetHP() { return HP; }
 	void SetDead(bool f) { isDead = f; }
 	bool GetDead() { return isDead; }
 	void RecvDamage(int Damage) { HP = HP - Damage; }

@@ -29,6 +29,8 @@ void Tuna::Update()
 		SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 
 	}
+	HP = min(HP, MaxHP);
+	HP = max(HP, 0);
 }
 
 void Tuna::TitleUpda() {

@@ -90,7 +90,7 @@ void GameScene::Update()
 		}
 	}
 
-	for (int i = 0; i < sushis.size(); i++) {
+	for (int i = 0; i < sushis2.size(); i++) {
 		if (sushis2[i] != nullptr) {
 			PlaceObj::GetInstance()->Update(sushis2[i]);
 		}
@@ -147,8 +147,9 @@ void GameScene::Draw()
 	player->IconDraw();
 	//‚â‚ë‚¤‚Æ‚µ‚½‚ª‚±‚±‚ÅƒGƒ‰[‚ð“f‚­
 	ImGui::Begin("siz");
+
 //	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	///ImGui::Text("size%f",x);
+	ImGui::Text("size%d",sushis[0]->GetHP());
 	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
