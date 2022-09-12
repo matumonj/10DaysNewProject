@@ -3,7 +3,8 @@
 #include <algorithm>
 #include <Base/Obj/3d/Object3d.h>
 #include <Base/Camera/CameraControl.h>
-
+#include"SceneManager.h"
+#include"TitleScene.h"
 ResultScene::ResultScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager) {
 }
@@ -173,6 +174,15 @@ void ResultScene::Update() {
 			num[2][i][j]->SetPosition({ EaseX[2] - (70.0f * i) , 520.0f });
 		}
 	}
+
+	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
+		BaseScene* scene = new TitleScene(sceneManager_);//次のシーンのインスタンス生成
+		SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
+		sceneManager_->SetnextScene(scene);//シーンのセット
+	}
+
+
+
 }
 
 void ResultScene::Draw() {
