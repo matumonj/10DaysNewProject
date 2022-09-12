@@ -161,7 +161,7 @@ int GameScene::RetrandCount()
 		return rand() % 180 + 140;
 		break;
 	case GameScene::WAVE3:
-		return 0;
+		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE4:
 		return 0;

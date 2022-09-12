@@ -13,8 +13,8 @@ class Human :public  Player {
 
     void IconDraw()override;
 
+    void Attack(Sushi* sushis)override;
 
 
-
-
+private:
 };

@@ -10,6 +10,7 @@
 #include"ObjectManager.h"
 #include"Input.h"
 #include"Sprite.h"
+#include"Sushi.h"
 class Player {
 protected:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -27,6 +28,8 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 	virtual void IconDraw() = 0;
+	virtual void Attack(Sushi*sushis) = 0;
+	 void AttackJudg(Sushi*sushis);
 public:
 	enum PlayerMove {
 	WAIT,//‘Ò‹@
@@ -48,6 +51,9 @@ protected:
 	Sprite* iconSprite;
 	std::unique_ptr<f_Object3d>m_fbxObject;
 	f_Model* m_fbxModel;
+	int Damage;
+	float AtkCool;
+	bool AtkFlag;
 protected:
 	XMFLOAT3 Position = {0,0,5};
 	XMFLOAT3 Scale = { 1,1,1 };
@@ -63,6 +69,8 @@ protected:
 	int MaxHP;
 
 	int coolTime;
+	float CoolTime;
+	bool Cool;
 private:
 	bool CoolEnd;
 	bool isDump;

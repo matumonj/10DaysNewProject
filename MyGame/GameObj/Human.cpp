@@ -2,6 +2,7 @@
 #include"PlaceObj.h"
 #include"Sprite.h"
 #include"imgui.h"
+#include"Collision.h"
 void Human::Initialize() {
 	Sprite::LoadTexture(20, L"Resources/2d/icon/human.png");
 	
@@ -20,6 +21,8 @@ void Human::Initialize() {
 	ctag = TPLAYER;
 //	FbxAnimationControl();
 
+	Damage = 10;
+	AtkCool = 120.0f;
 }
 
 void Human::Update() {
@@ -71,3 +74,8 @@ void Human::IconDraw() {
 //
 //	m_fbxObject->SetFbxTime(f_time);
 //}
+
+void Human::Attack(Sushi* sushis)
+{
+	AttackJudg(sushis);
+}

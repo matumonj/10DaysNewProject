@@ -60,7 +60,7 @@ protected:
 public:
 	void SetDead(bool f) { isDead = f; }
 	bool GetDead() { return isDead; }
-	
+	void RecvDamage(int Damage) { HP = HP - Damage; }
 private:
 	bool CoolEnd;
 	bool isDump;
