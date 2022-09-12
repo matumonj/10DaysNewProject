@@ -36,7 +36,7 @@ void TitleScene::Update() {
 			sushis[i]->TitleUpda();
 
 	}
-	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
+	if (Input::GetInstance()->TriggerKey(DIK_SPACE)||Input::GetInstance()->PushMouseLeft()) {//押されたら
 		BaseScene* scene = new GameScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
 		sceneManager_->SetnextScene(scene);//シーンのセット

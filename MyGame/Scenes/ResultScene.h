@@ -24,9 +24,10 @@ private:
 	std::vector<int> Third;
 	std::vector<int> Now;
 
+	std::unique_ptr<Sprite> BackGround{};
 
 	float ETime[4] = {};
-	float EaseX[4] = { 640,640,640,640 }; //640
+	float EaseX[4] = { 780, 780, 780, 780 }; //640
 public:
 	void Initialize()override;
 	void Update()override;
