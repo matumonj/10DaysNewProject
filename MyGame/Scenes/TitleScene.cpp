@@ -3,6 +3,7 @@
 #include"SceneManager.h"
 #include "GameScene.h"
 #include"Tuna.h"
+#include "Egg.h"
 
 TitleScene::TitleScene(SceneManager* sceneManager) 
 	:BaseScene(sceneManager) {
@@ -14,8 +15,9 @@ void TitleScene::Initialize() {
 	BackGround.reset(BackGround_);
 
 	sushis.push_back(new Tuna());
+	sushis.push_back(new Egg());
 	for (int i = 0; i < sushis.size(); i++) {
-			sushis[i]->SetPos({ 0,-20,0 });
+			sushis[i]->SetPos({ i * 25.0f,-20.0f,0 });
 			sushis[i]->Initialize();
 	}
 
@@ -27,7 +29,7 @@ void TitleScene::Initialize() {
 void TitleScene::Update() {
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	for (int i = 0; i < sushis.size(); i++) {
-			sushis[i]->Update();
+			sushis[i]->TitleUpda();
 
 	}
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//‰Ÿ‚³‚ê‚½‚ç
@@ -40,9 +42,9 @@ void TitleScene::Update() {
 void TitleScene::Draw() {
 	DirectXCommon::GetInstance()->BeginDraw();//•`‰æƒRƒ}ƒ“ƒh‚Ìã‚ç‚Ö‚ñ‚É
 	Sprite::PreDraw();
-	DirectXCommon::GetInstance()->ClearDepthBuffer();
-	//BackGround->Draw();
+//	BackGround->Draw();
 	Sprite::PostDraw();
+	DirectXCommon::GetInstance()->ClearDepthBuffer();
 	for (int i = 0; i < sushis.size(); i++) {
 			sushis[i]->Draw();
 	}

@@ -16,7 +16,7 @@ void Egg::Initialize()
 
 void Egg::Update()
 {
-		if (SushiObj != nullptr) {
+	if (SushiObj != nullptr) {
 		//Rebirth(3);//クールタイム設定
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);
@@ -25,12 +25,26 @@ void Egg::Update()
 	}
 }
 
+void Egg::TitleUpda() {
+	SushiObj->SetScale(Scale);
+	XMFLOAT3 pos = SushiObj->GetPosition();
+	if (pos.x <= -25) {
+		pos.x = 25;
+	}
+	pos = { pos.x - 0.1f,-20,0 };
+	SushiObj->SetPosition(pos);
+	SushiObj->SetRotation(Rot);
+	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+
+}
+
 void Egg::Draw()
 {
-	SushiObj->PreDraw();
 	if (SushiObj != nullptr) {
+		//TexDraw();
+		SushiObj->PreDraw();
 		SushiObj->Draw();
+		SushiObj->PostDraw();
 	}
-	SushiObj->PostDraw();
 
 }
