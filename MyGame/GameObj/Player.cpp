@@ -11,7 +11,7 @@ Player::~Player() {
 
 void Player::AttackJudg(Sushi* sushis)
 {
-	if (Collision::GetLength(sushis->GetPos(), Position) < 2.0f) {
+	if (Collision::GetLength(sushis->GetPos(), Position) < 20.0f) {
 		if (CoolTime == 0) {
 			AtkFlag = true;
 		}
@@ -21,6 +21,7 @@ void Player::AttackJudg(Sushi* sushis)
 	if (AtkFlag) {
 		sushis->RecvDamage(Damage);
 		Cool = true;
+		AtkFlag = false;
 	}
 
 	if (Cool) {
@@ -28,7 +29,8 @@ void Player::AttackJudg(Sushi* sushis)
 		if (CoolTime >= AtkCool) {
 			Cool = false;
 		}
-	} else {
+	} 
+	else {
 		CoolTime = 0;
 	}
 }
