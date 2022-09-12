@@ -97,6 +97,9 @@ void PlaceObj::SetIconSpritePos() {
 	CreateObj(THREE_DOG);
 	CreateObj(FOUR_BIRD);
 
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->SitGaugeUp();
+	}
 }
 
 
@@ -116,6 +119,7 @@ void PlaceObj::PlaceChara(const int& charanum) {
 	for (int i = 0; i < MAXBENCH; i++) {
 		if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), benchState[i].Position_2d) < 50) {
 			if (!Clickf[charanum]) {
+				
 				if (benchState[i].SitChara != NON_CHARA) { return; }
 				if (charanum == ONE_GIRL) {
 					Benchs[i]->SetCaharaCreate_P(true);
@@ -136,11 +140,17 @@ void PlaceObj::PlaceChara(const int& charanum) {
 				SpriteStartPos(charanum);
 			}
 		}
+		if (Benchs[i]->GetLeaveF()) {
+			benchState[i].SitChara = NON_CHARA;
+			Benchs[i]->SetLeaveF(false);
+		}
+		if (benchState[i].SitChara != NON_CHARA) {
+			Benchs[i]->SetCharaSitF(true);
+		}
 	}
-	//こ　れ　は　ひ　ど　い
 
 	for (int i = 0; i < MAXBENCH; i++) {
-		if (!Collision::GetLength2(CharaSprite[charanum]->GetPosition(), benchState[i].Position_2d) >= 50) {
+		if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), benchState[i].Position_2d) < 50) {
 			break;
 		}
 		if (i == (MAXBENCH - 1)) {

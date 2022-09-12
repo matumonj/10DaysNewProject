@@ -22,7 +22,9 @@ void Bench::Initialize() {
 	SiTGauge->CreateTexture();
 	SiTGauge->SetAnchorPoint({ 0,0.5f });
 
-
+	LeaveF = false;
+	SitChara = false;
+	Palha = 1.0f;
 }
 
 void Bench::Update(Sushi* sushis) {
@@ -41,14 +43,17 @@ void Bench::Update(Sushi* sushis) {
 		player->SetPosition(Position);
 	}
 
+}
+
+void Bench::SitGaugeUp()
+{
 	if (SitChara) {
 		EsitTime += 1.0f / 600.0f;
 		if (EsitTime >= 1.0f) {
 			LeaveF = true;
 			SitChara = false;
 		}
-	}
-	else {
+	} else {
 		EsitTime = 0.0f;
 	}
 	SiTGauge->SetBillboard(true);
@@ -56,10 +61,22 @@ void Bench::Update(Sushi* sushis) {
 
 	SiTGauge->SetPosition({ Position.x,Position.y + 3,Position.z });
 	SiTGauge->Update(CameraControl::GetInstance()->GetCamera());
-	
-}
 
+	if (SitChara) {
+		Palha += 0.02f;
+	}
+	else {
+		Palha -= 0.02f;
+	}
+	if (player != nullptr) {
+		player->SetColor({ 1,1,1,Palha });
+	}
+	Palha = min(Palha, 1.0f);
+	Palha = max(Palha, 0.0f);
+}
 void Bench::Draw() {
+
+	
 	BenchObj->PreDraw();
 	BenchObj->Draw();
 	BenchObj->PostDraw();
@@ -97,7 +114,9 @@ void Bench::SetChara()
 		CharaCreate_B = false;
 	}
 	if (LeaveF) {
-		player = nullptr;
-		LeaveF = false;
+		if (Palha <= 0.0f) {
+			delete player;
+			player = nullptr;
+		}
 	}
 }

@@ -28,6 +28,8 @@ private:
 	float sitTime;
 	bool LeaveF;
 	bool SitChara;
+
+	float Palha=1.0f;
 public:
 	Bench();
 
@@ -35,6 +37,7 @@ public:
 
 	void Initialize();
 	void Update(Sushi*sushis);
+	void SitGaugeUp();
 	void Draw();
 	void SetChara();
 	void SetCaharaCreate_P(bool f) { CharaCreate_P = f; }
@@ -46,6 +49,7 @@ public:
 	bool GetCharaSitF() { return SitChara; }
 	bool GetLeaveF() { return LeaveF; }
 	void SetLeaveF(bool f) { LeaveF = f; }
+	
 public:
 
 
