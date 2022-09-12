@@ -3,7 +3,7 @@
 #include"Sprite.h"
 #include"imgui.h"
 void Cat::Initialize() {
-	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Cat");
+	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("monster_golem_demo");
 
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();

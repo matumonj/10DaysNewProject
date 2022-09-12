@@ -19,7 +19,6 @@ void Human::Initialize() {
 	m_fbxObject->PlayAnimation();
 
 	ctag = TPLAYER;
-//	FbxAnimationControl();
 
 	Damage = 10;
 	AtkCool = 120.0f;
@@ -29,7 +28,7 @@ void Human::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
-	f_time += 0.02f;
+	//f_time += 0.02f;
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 
