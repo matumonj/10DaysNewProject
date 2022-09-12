@@ -24,7 +24,7 @@ void Bench::Initialize() {
 
 	LeaveF = false;
 	SitChara = false;
-	Palha = 1.0f;
+	Palpha = 1.0f;
 }
 
 void Bench::Update(Sushi* sushis) {
@@ -36,7 +36,7 @@ void Bench::Update(Sushi* sushis) {
 	SetChara();
 	if (player != nullptr) {
 		player->Update();
-		if (Palha > 0.0f) {
+		if (Palpha > 0.0f) {
 			player->Attack(sushis);
 		}
 		player->SetPosition(Position);
@@ -62,16 +62,16 @@ void Bench::SitGaugeUp()
 	SiTGauge->Update(CameraControl::GetInstance()->GetCamera());
 
 	if (SitChara) {
-		Palha += 0.02f;
+		Palpha += 0.02f;
 	}
 	else {
-		Palha -= 0.02f;
+		Palpha -= 0.02f;
 	}
 	if (player != nullptr) {
-		player->SetColor({ 1,1,1,Palha });
+		player->SetColor({ 1,1,1,Palpha });
 	}
-	Palha = min(Palha, 1.0f);
-	Palha = max(Palha, 0.0f);
+	Palpha = min(Palpha, 1.0f);
+	Palpha = max(Palpha, 0.0f);
 }
 void Bench::Draw() {
 
@@ -113,7 +113,7 @@ void Bench::SetChara()
 		CharaCreate_B = false;
 	}
 	if (LeaveF) {
-		if (Palha <= 0.0f) {
+		if (Palpha <= 0.0f) {
 			delete player;
 			player = nullptr;
 		}

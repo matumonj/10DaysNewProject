@@ -29,7 +29,7 @@ private:
 	bool LeaveF;
 	bool SitChara;
 
-	float Palha=1.0f;
+	float Palpha=1.0f;
 public:
 	Bench();
 
