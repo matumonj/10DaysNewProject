@@ -10,6 +10,7 @@ void Tuna::Initialize()
 	SushiModel = Model::CreateFromOBJ("Tuna");
 	SushiObj->SetModel(SushiModel);
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
+	SushiObj->SetPosition(Position);
 
 	MaxHP = 30;
 	HP = MaxHP;

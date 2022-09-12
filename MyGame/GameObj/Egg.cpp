@@ -9,6 +9,7 @@ void Egg::Initialize()
 	SushiModel = Model::CreateFromOBJ("Egg");
 	SushiObj->SetModel(SushiModel);
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
+	SushiObj->SetPosition(Position);
 
 	MaxHP = 50;
 	HP = MaxHP;
