@@ -34,6 +34,10 @@ void GameScene::Initialize()
 	WaveSprite[1] = Sprite::Create(3, { -300,0 });
 	WaveSprite[2] = Sprite::Create(4, { -300,0 });
 	WaveSprite[3] = Sprite::Create(5, { -300,0 });
+	Sprite::LoadTexture(11, L"Resources/2d/BG.png");
+	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	BackGround.reset(BackGround_);
+
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->SetSize({ 400,400 });
 	}
@@ -113,6 +117,11 @@ void GameScene::Update()
 /// <param name="cmdList"></param>
 void GameScene::SpriteDraw()
 {
+	Sprite::PreDraw();
+	BackGround->Draw();
+	Sprite::PostDraw();
+	DirectXCommon::GetInstance()->ClearDepthBuffer();
+
 }
 
 /// <summary>

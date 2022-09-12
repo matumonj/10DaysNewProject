@@ -32,7 +32,9 @@ private:
 
 	std::vector< SushiMove*>smove;
 	std::vector< SushiMove*>smove2;
-	
+
+	std::unique_ptr<Sprite> BackGround{};
+
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 	std::list<std::unique_ptr<Rail>> Rails;
 	XMFLOAT3 RailPos[2][4]
