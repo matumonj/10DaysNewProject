@@ -84,7 +84,17 @@ void GameScene::Update()
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
-	PlaceObj::GetInstance()->Update();
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis[i] != nullptr) {
+			PlaceObj::GetInstance()->Update(sushis[i]);
+		}
+	}
+
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis2[i] != nullptr) {
+			PlaceObj::GetInstance()->Update(sushis2[i]);
+		}
+	}
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	WaveCont();

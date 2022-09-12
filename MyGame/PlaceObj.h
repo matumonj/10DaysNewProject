@@ -17,7 +17,7 @@ private:
 public:
 	static PlaceObj* GetInstance();
 	void Init();
-	void Update();
+	void Update(Sushi* sushis);
 	void Draw();
 private:
 	Object3d* obj;
@@ -59,10 +59,15 @@ private:
 	};
 	ClickChara cChara;
 
-	BenchState Bench_LU;
-	BenchState Bench_LB;
-	BenchState Bench_RU; 
-	BenchState Bench_RB;
+	BenchState Bench_LU;//ç∂è„
+	BenchState Bench_LB;//
+	BenchState Bench_LC;//
+	BenchState Bench_RU;// 
+	BenchState Bench_RB;//
+	BenchState Bench_RC;//
+	BenchState Bench_CU;//
+	BenchState Bench_CB;//
+
 	
 	public:
 
