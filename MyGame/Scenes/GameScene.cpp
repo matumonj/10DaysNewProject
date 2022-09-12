@@ -49,14 +49,13 @@ void GameScene::Initialize()
 	smove.push_back(new SushiMove());
 	
 	std::unique_ptr<Rail> newRail;
-	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 2; j++) {
+	for (int i = 0; i < 8; i++) {
 			Rail* newRail_ = new Rail();
-			newRail_->SetPosition(RailPos[j][i]);
-			newRail_->SetRotation(RailRot[j][i]);
+			newRail_->SetPosition(RailPos[i]);
+			newRail_->SetRotation(RailRot[i]);
 			newRail.reset(newRail_);
 			Rails.push_back(std::move(newRail));
-		}
+		
 	}
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();

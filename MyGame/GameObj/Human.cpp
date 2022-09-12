@@ -3,6 +3,7 @@
 #include"Sprite.h"
 #include"imgui.h"
 #include"Collision.h"
+
 void Human::Initialize() {
 	Sprite::LoadTexture(20, L"Resources/2d/icon/human.png");
 	
@@ -72,7 +73,6 @@ void Human::IconDraw() {
 //		}
 //	}
 //
-//	
 //}
 
 void Human::Attack(Sushi* sushis)

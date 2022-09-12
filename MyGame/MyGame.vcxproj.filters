@@ -240,6 +240,9 @@
     <ClCompile Include="GameObj\Player.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Base\Easing.cpp">
+      <Filter>Game\base %28Dxcmn  Winapp  Input%29</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -418,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="GameObj\Rail.h">
       <Filter>Game\gameobject\ゲームオブジェクト\Bench</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Easing.h">
+      <Filter>Game\base %28Dxcmn  Winapp  Input%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -163,6 +163,7 @@
     <ClCompile Include="Base\Camera\CameraControl.cpp" />
     <ClCompile Include="Base\Camera\DebugCamera.cpp" />
     <ClCompile Include="Base\DirectXCommon.cpp" />
+    <ClCompile Include="Base\Easing.cpp" />
     <ClCompile Include="Base\Framework.cpp" />
     <ClCompile Include="Base\Helper\Feed.cpp" />
     <ClCompile Include="Base\Input.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Base\Camera\CameraControl.h" />
     <ClInclude Include="Base\Camera\DebugCamera.h" />
     <ClInclude Include="Base\DirectXCommon.h" />
+    <ClInclude Include="Base\Easing.h" />
     <ClInclude Include="Base\Framework.h" />
     <ClInclude Include="Base\Helper\Destroy.h" />
     <ClInclude Include="Base\Helper\Feed.h" />
