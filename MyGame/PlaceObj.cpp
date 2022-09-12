@@ -67,10 +67,10 @@ void PlaceObj::Init()
 
 }
 
-void PlaceObj::Update()
+void PlaceObj::Update(Sushi* sushis)
 {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
-		bench->Update();
+		bench->Update(sushis);
 	}
  }
 
@@ -148,7 +148,8 @@ void PlaceObj::PlaceChara(int charanum)
 			SpriteStartPos(charanum);
 		}
 	}
-	else if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_LB.Position_2d) < 50) {
+	
+	if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_LB.Position_2d) < 50) {
 		if (!Clickf[charanum]) {
 			if (charanum == ONE_GIRL) {
 				Benchs[5]->SetCaharaCreate_P(true);
@@ -165,7 +166,8 @@ void PlaceObj::PlaceChara(int charanum)
 			SpriteStartPos(charanum);
 		}
 	}
-	else if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_RB.Position_2d) < 50) {
+	
+	 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_RB.Position_2d) < 50) {
 		if (!Clickf[charanum]) {
 			if (charanum == ONE_GIRL) {
 				Benchs[1]->SetCaharaCreate_P(true);
@@ -182,7 +184,8 @@ void PlaceObj::PlaceChara(int charanum)
 			SpriteStartPos(charanum);
 		}
 	}
-	else if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_RU.Position_2d) < 50) {
+	
+	 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(),Bench_RU.Position_2d) < 50) {
 		if (!Clickf[charanum]) {
 			if (charanum == ONE_GIRL) {
 				Benchs[0]->SetCaharaCreate_P(true);
@@ -199,6 +202,20 @@ void PlaceObj::PlaceChara(int charanum)
 			SpriteStartPos(charanum);
 		}
 	}
+	 //こ　れ　は　ひ　ど　い
+	 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), Bench_LU.Position_2d) >= 50) {
+		 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), Bench_LB.Position_2d) >= 50) {
+			 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), Bench_RU.Position_2d) >= 50) {
+				 if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), Bench_RB.Position_2d) >= 50) {
+					 {
+						 if (!Clickf[charanum]) {
+							 SpriteStartPos(charanum);
+						 }
+					 }
+				 }
+			 }
+		 }
+	 }
 }
 
 

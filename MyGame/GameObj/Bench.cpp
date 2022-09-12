@@ -16,7 +16,7 @@ void Bench::Initialize() {
 
 }
 
-void Bench::Update() {
+void Bench::Update(Sushi* sushis) {
 	BenchObj->SetScale(Scale);
 	BenchObj->SetPosition(Position);
 	BenchObj->SetRotation(Rot);
@@ -25,6 +25,7 @@ void Bench::Update() {
 	SetChara();
 	if (player != nullptr) {
 		player->Update();
+		player->Attack(sushis);
 		player->SetPosition(Position);
 	}
 }

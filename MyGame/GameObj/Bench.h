@@ -3,6 +3,7 @@
 #include"Model.h"
 #include<memory>
 #include"Player.h"
+#include"Sushi.h"
 class Bench {
 private:
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
@@ -25,7 +26,7 @@ public:
 	~Bench();
 
 	void Initialize();
-	void Update();
+	void Update(Sushi*sushis);
 	void Draw();
 	void SetChara();
 	void SetCaharaCreate_P(bool f) { CharaCreate_P = f; }
