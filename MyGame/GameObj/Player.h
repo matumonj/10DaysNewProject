@@ -29,7 +29,7 @@ public:
 	virtual void Draw() = 0;
 	virtual void IconDraw() = 0;
 	virtual void Attack(Sushi*sushis) = 0;
-	 void AttackJudg(Sushi*sushis);
+	void AttackJudg(Sushi*sushis);
 public:
 	enum PlayerMove {
 	WAIT,//待機
@@ -51,8 +51,12 @@ protected:
 	Sprite* iconSprite;
 	std::unique_ptr<f_Object3d>m_fbxObject;
 	f_Model* m_fbxModel;
+	float f_time;
+	//プレイヤーから寿司に対してのアプロ
 	int Damage;
 	float AtkCool;
+	float Range;
+
 	bool AtkFlag;
 protected:
 	XMFLOAT3 Position = {0,0,5};
