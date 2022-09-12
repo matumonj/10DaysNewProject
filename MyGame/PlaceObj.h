@@ -42,15 +42,8 @@ private:
 	};
 
 private:
-	Object3d* obj;
-	Model* mod;
 	Sprite* CharaSprite[MAX_CHARA];
-	XMFLOAT3 DebPos;
-	bool Createf;
-	XMVECTOR Pos3d;
-	XMVECTOR Pos3dz;
 	POINT p;
-	float x, y;
 	bool Clickf[MAX_CHARA];
 
 	std::vector<Player*>players;
@@ -67,8 +60,6 @@ private:
 
 	BenchState benchState[MAXBENCH];
 public:
-
-	XMVECTOR Getpos() { return Pos3d; }
 	void CreateObj(const int& charanum);
 	void SpriteStartPos(const int& charanum);
 	void PlaceChara(const int& charanum);

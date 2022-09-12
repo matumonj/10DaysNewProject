@@ -3,10 +3,11 @@
 #include"WinApp.h"
 #include"imgui.h"
 #include"SushiMove.h"
+#include <Base/Obj/3d/ModelManager.h>
 void Egg::Initialize()
 {
 	SushiObj = std::make_unique<Object3d>();
-	SushiModel = Model::CreateFromOBJ("Egg");
+	SushiModel = ModelManager::GetIns()->GetModel(ModelManager::Egg);
 	SushiObj->SetModel(SushiModel);
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
 	SushiObj->SetPosition(Position);

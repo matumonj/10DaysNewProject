@@ -1,4 +1,6 @@
 #include "Framework.h"
+#include "ModelManager.h"
+
 void Framework::Run()
 {
 	Initialize();
@@ -28,7 +30,7 @@ void Framework::Initialize()
 	input = Input::GetInstance();
 	input->Initialize(winapp);
 	audio = new Audio();
-
+	ModelManager::GetIns()->Initialize();
 	// ƒ‰ƒCƒgÃ“I‰Šú‰»
 	Object3d::StaticInitialize(WinApp::window_width, WinApp::window_height);
 	//MyGame* MyGame = new MyGame();
