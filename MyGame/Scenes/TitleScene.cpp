@@ -15,8 +15,8 @@ void TitleScene::Initialize() {
 
 	sushis.push_back(new Tuna());
 	for (int i = 0; i < sushis.size(); i++) {
+			sushis[i]->SetPos({ 0,-20,0 });
 			sushis[i]->Initialize();
-
 	}
 
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
@@ -40,7 +40,8 @@ void TitleScene::Update() {
 void TitleScene::Draw() {
 	DirectXCommon::GetInstance()->BeginDraw();//•`‰æƒRƒ}ƒ“ƒh‚Ìã‚ç‚Ö‚ñ‚É
 	Sprite::PreDraw();
-	BackGround->Draw();
+	DirectXCommon::GetInstance()->ClearDepthBuffer();
+	//BackGround->Draw();
 	Sprite::PostDraw();
 	for (int i = 0; i < sushis.size(); i++) {
 			sushis[i]->Draw();
