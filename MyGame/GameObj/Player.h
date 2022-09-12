@@ -46,6 +46,7 @@ public:
 	void SetPosition(XMFLOAT3 pos) { Position = pos; }
 	Sprite* GetSprite() { return iconSprite; }
 	CharaTag GetCharaTag() { return ctag; }
+	void SetColor(XMFLOAT4 color) { m_fbxObject->SetColor(color); }
 protected:
 	CharaTag ctag;
 	Sprite* iconSprite;
