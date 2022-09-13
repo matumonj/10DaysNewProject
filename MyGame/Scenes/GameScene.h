@@ -18,6 +18,7 @@
 #include <sstream>
 #include <Base/Camera/CameraControl.h>
 #include "Rail.h"
+#include "Score.h"
 
 class GameScene :public BaseScene
 {
@@ -76,7 +77,7 @@ private:
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	//スコア関連
-	float score = 10;
+	//float score = 10;
 	std::stringstream csvRanking;
 	std::vector<float> Rank;
 	void LoadRanking();

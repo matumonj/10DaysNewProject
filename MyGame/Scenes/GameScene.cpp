@@ -83,9 +83,7 @@ void GameScene::Initialize()
 	Gate2->SetPosition({ 0.5f, -38, 40 });
 	Gate2->SetScale({ 5,5,5 });
 
-
-
-
+	Score::GetIns()->ResetScore();
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 	//カメラをセット
@@ -124,7 +122,7 @@ void GameScene::Update()
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
-		ScoreSave(score);
+		ScoreSave(Score::GetIns()->GetScore());
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット

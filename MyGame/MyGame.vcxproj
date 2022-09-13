@@ -202,6 +202,7 @@
     <ClCompile Include="GameObj\Human.cpp" />
     <ClCompile Include="GameObj\Player.cpp" />
     <ClCompile Include="GameObj\Rail.cpp" />
+    <ClCompile Include="GameObj\Score.cpp" />
     <ClCompile Include="GameObj\Sushi.cpp" />
     <ClCompile Include="GameObj\SushiMove.cpp" />
     <ClCompile Include="GameObj\Tuna.cpp" />
@@ -267,6 +268,7 @@
     <ClInclude Include="GameObj\Human.h" />
     <ClInclude Include="GameObj\Player.h" />
     <ClInclude Include="GameObj\Rail.h" />
+    <ClInclude Include="GameObj\Score.h" />
     <ClInclude Include="GameObj\Sushi.h" />
     <ClInclude Include="GameObj\SushiMove.h" />
     <ClInclude Include="GameObj\Tuna.h" />
