@@ -30,9 +30,11 @@ private:
 private:
 	std::vector<Sushi*> sushis;
 	std::vector<Sushi*> sushis2;
+	std::vector<Sushi*> sushis3;
 
 	std::vector< SushiMove*>smove;
-	std::vector< SushiMove*>smove2;
+	std::vector< SushiMove*>smove2; 
+	std::vector< SushiMove*>smove3;
 
 	std::unique_ptr<Sprite> BackGround{};
 
@@ -73,7 +75,7 @@ private:
 	std::vector<int> sushinum;
 	std::vector<bool>activs;
 	std::vector<int> sushinum2;
-
+	std::vector<int> sushinum3;
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	//スコア関連
@@ -87,7 +89,9 @@ private:
 	int RandPlaceCount=200;
 	int placeC;
 	int RandPlaceCount2 = 200;
+	int RandPlaceCount3 = 300;
 	int placeC2;
+	int placeC3;
 	enum Fase {
 		WAVE1=0,
 		WAVE2,
@@ -104,6 +108,7 @@ private:
 
 	void Wave1or2();
 	void Wave3();
+	void Wave4();
 public:
 	void Initialize()override;
 	void Update()override;
