@@ -37,15 +37,20 @@ private:
 
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 	std::list<std::unique_ptr<Rail>> Rails;
-	XMFLOAT3 RailPos[8]
+	XMFLOAT3 RailPos[12]
 		= {
 		{0,  -41,-3},{20,-41,13 - 3},{-20,-41,13 - 3},{29,-41,10},
 		{-10,-41,15},{ 10, -41, 15},{ 10, -41,7 - 3},{-13,-41,7-3},
 	};
-	XMFLOAT3 RailRot[8]
+	XMFLOAT3 RailRot[12]
 		= {
 		 {0,-180,0},{0,-180,0},{0,  0,0}, {0,90,0},
 		 {0,  90,0},{0,  90,0},{0,-90,0}, {0,-90,0},
+	};
+	XMFLOAT3 RailSca[12]
+		= {
+		 {1,1,1},{1,1,1},{1,1,1},{1,1,1},{1,1,1},{1,1,1},
+		 {1,1,1},{1,1,1},{1,1,1},{1,1,1},{1,1,1},{1,1,1}
 	};
 
 	Player* player;
@@ -70,7 +75,7 @@ private:
 	int RandPlaceCount2 = 200;
 	int placeC2;
 	enum Fase {
-		WAVE1,
+		WAVE1=0,
 		WAVE2,
 		WAVE3,
 		WAVE4,

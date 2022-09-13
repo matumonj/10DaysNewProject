@@ -23,7 +23,7 @@ void Human::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
-	//f_time += 0.02f;
+	f_time += 0.02f;
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 

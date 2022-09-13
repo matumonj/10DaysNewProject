@@ -49,7 +49,7 @@ void GameScene::Initialize()
 	smove.push_back(new SushiMove());
 	
 	std::unique_ptr<Rail> newRail;
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 12; i++) {
 			Rail* newRail_ = new Rail();
 			newRail_->SetPosition(RailPos[i]);
 			newRail_->SetRotation(RailRot[i]);
@@ -154,9 +154,9 @@ void GameScene::Draw()
 	Sprite::PostDraw();
 	player->IconDraw();
 	//‚â‚ë‚¤‚Æ‚µ‚½‚ª‚±‚±‚ÅƒGƒ‰[‚ð“f‚­
-	ImGui::Begin("siz");
-
-//	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
+//	ImGui::Begin("siz");
+//
+////	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
 	ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
