@@ -3,6 +3,8 @@
 #include"mHelper.h"
 #include"CameraControl.h"
 #include"Destroy.h"
+#include "ImageManager.h"
+
 using namespace DirectX;
 Sushi::~Sushi()
 {
@@ -10,9 +12,7 @@ Sushi::~Sushi()
 }
 void Sushi::TexSet()
 {
-	//‚Ü‚¾ƒtƒ@ƒCƒ‹‚Â‚­‚Á‚Ä‚È‚¢‚Å‚·
-	Texture::LoadTexture(1, L"Resources/2d/SushiHP/HP.png");
-	HPTex = Texture::Create(1, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
+	HPTex = Texture::Create(ImageManager::Sushi, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
 	HPTex->CreateTexture();
 	HPTex->SetAnchorPoint({ 0,0.5f });
 }

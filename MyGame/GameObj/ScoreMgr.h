@@ -1,13 +1,14 @@
 #pragma once
 #include "Sprite.h"
 #include <vector>
+#include <memory>
 
 class ScoreMgr final {
 private:
 	int score = 100;
-	Sprite* num[5][10];
+	Sprite* num[5][10]={};
+	std::unique_ptr<Sprite> Doll;
 	std::vector<int> First;
-
 public:
 	ScoreMgr();
 

@@ -19,6 +19,8 @@ public:
 		Samon,
 		Dust,
 		Gate,
+		Bench,
+		Conveyor,
 	};
 	enum FBXName {
 	Human,

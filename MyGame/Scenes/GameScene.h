@@ -79,7 +79,7 @@ private:
 	Sprite* WaveSprite[4];
 	float ETime[4];
 	//スコア関連
-	ScoreMgr* scoreMgr;
+	ScoreMgr* scoreMgr=nullptr;
 	std::stringstream csvRanking;
 	std::vector<float> Rank;
 	void LoadRanking();

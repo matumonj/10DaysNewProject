@@ -10,8 +10,7 @@ TitleScene::TitleScene(SceneManager* sceneManager)
 }
 
 void TitleScene::Initialize() {
-	Sprite::LoadTexture(11, L"Resources/2d/title.png");
-	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	Sprite* BackGround_ = Sprite::Create(ImageManager::Title, { 0,0 });
 	BackGround.reset(BackGround_);
 
 	sushis.push_back(new Tuna());

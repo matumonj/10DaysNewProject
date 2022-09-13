@@ -60,7 +60,6 @@ public:
 
 private:
 	std::unique_ptr<Object3d>BenchObj;
-	Model* BenchModel;
 
 	XMFLOAT3 Position = {};
 	XMFLOAT3 Scale = { 2,2,2 };

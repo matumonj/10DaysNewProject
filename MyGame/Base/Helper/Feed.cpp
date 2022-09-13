@@ -1,5 +1,7 @@
 #include "Feed.h"
 #include"WinApp.h"
+#include "ImageManager.h"
+
 Feed* Feed::GetInstance()
 {
 	static Feed instance;
@@ -11,8 +13,7 @@ Feed::~Feed()
 }
 void Feed::initialize()
 {
-	Sprite::LoadTexture(150, L"Resources/white1x1.png");
-	FeedSprite = Sprite::Create(150, { 0,0 });
+	FeedSprite = Sprite::Create(ImageManager::White, {0,0});
 	FeedSprite->SetSize({WinApp::window_width, WinApp::window_height
 });
 }

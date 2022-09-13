@@ -27,19 +27,14 @@ GameScene::GameScene(SceneManager* sceneManager)
 /// </summary>
 void GameScene::Initialize()
 {
-	Sprite::LoadTexture(2, L"Resources/2d/Wave/wave1.png");
-	Sprite::LoadTexture(3, L"Resources/2d/Wave/wave2.png");
-	Sprite::LoadTexture(4, L"Resources/2d/Wave/wave3.png");
-	Sprite::LoadTexture(5, L"Resources/2d/Wave/wave4.png");
-	Sprite::LoadTexture(11, L"Resources/2d/BG.png");
+	WaveSprite[0] = Sprite::Create(ImageManager::Wave1, { -300,0 });
+	WaveSprite[1] = Sprite::Create(ImageManager::Wave2, { -300,0 });
+	WaveSprite[2] = Sprite::Create(ImageManager::Wave3, { -300,0 });
+	WaveSprite[3] = Sprite::Create(ImageManager::Wave4, { -300,0 });
 
-	WaveSprite[0] = Sprite::Create(2, { -300,0 });
-	WaveSprite[1] = Sprite::Create(3, { -300,0 });
-	WaveSprite[2] = Sprite::Create(4, { -300,0 });
-	WaveSprite[3] = Sprite::Create(5, { -300,0 });
-
-	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
 	BackGround.reset(BackGround_);
+	scoreMgr = new ScoreMgr();
 	scoreMgr->Init();
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//Å‰‚Íƒ}ƒOƒ

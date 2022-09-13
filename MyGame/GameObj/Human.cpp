@@ -3,16 +3,13 @@
 #include"Sprite.h"
 #include"imgui.h"
 #include"Collision.h"
+#include <Base/Obj/3d/ModelManager.h>
 
 void Human::Initialize() {
-	
-	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Cat");
-
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();
-	m_fbxObject->SetModel(m_fbxModel);
+	m_fbxObject->SetModel(ModelManager::GetIns()->GetFBXModel(ModelManager::Human));
 	m_fbxObject->PlayAnimation();
-
 	ctag = TPLAYER;
 
 	Damage = 10;
@@ -39,7 +36,6 @@ void Human::Update() {
 	}
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
-
 	//PlaceObj::GetInstance()->SetIconSpritePos(iconSprite);
 }
 
@@ -55,27 +51,7 @@ void Human::IconDraw() {
 
 }
 
-//void Player::FbxAnimationControl() {
-//	if (AttackFlag) {
-//		f_time = AttackTime;
-//		AttackFlag = false;
-//		nowattack = true;
-//	}
-//
-//
-//	f_time += 0.02f;
-//	if (nowattack) {
-//		if (f_time >= DeathTime) {
-//			f_time = 0;
-//			nowattack = false;
-//		}
-//	} else {
-//		if (f_time > AttackTime) {
-//			f_time = 0;
-//		}
-//	}
-//
-//}
+
 
 void Human::Attack(Sushi* sushis)
 {

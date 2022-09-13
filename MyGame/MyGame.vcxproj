@@ -171,6 +171,7 @@
     <ClCompile Include="Base\Input.cpp" />
     <ClCompile Include="Base\Light\LightGroup.cpp" />
     <ClCompile Include="Base\Obj\2d\DebugTxt.cpp" />
+    <ClCompile Include="Base\Obj\2d\ImageManager.cpp" />
     <ClCompile Include="Base\Obj\2d\PostEffect.cpp" />
     <ClCompile Include="Base\Obj\2d\Sprite.cpp" />
     <ClCompile Include="Base\Obj\2d\Texture.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="Base\Light\PointLight.h" />
     <ClInclude Include="Base\Light\SpotLight.h" />
     <ClInclude Include="Base\Obj\2d\DebugTxt.h" />
+    <ClInclude Include="Base\Obj\2d\ImageManager.h" />
     <ClInclude Include="Base\Obj\2d\PostEffect.h" />
     <ClInclude Include="Base\Obj\2d\Sprite.h" />
     <ClInclude Include="Base\Obj\2d\Texture.h" />

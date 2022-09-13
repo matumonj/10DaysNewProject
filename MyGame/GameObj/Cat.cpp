@@ -2,12 +2,12 @@
 #include"PlaceObj.h"
 #include"Sprite.h"
 #include"imgui.h"
-void Cat::Initialize() {
-	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Beckoning cat");
+#include"ModelManager.h"
 
+void Cat::Initialize() {
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();
-	m_fbxObject->SetModel(m_fbxModel);
+	m_fbxObject->SetModel(ModelManager::GetIns()->GetFBXModel(ModelManager::Cat));
 	m_fbxObject->PlayAnimation();
 
 	ctag = TPLAYER;
