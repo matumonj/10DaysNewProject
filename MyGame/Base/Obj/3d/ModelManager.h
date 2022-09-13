@@ -16,12 +16,9 @@ public:
 	enum ModelName {
 		Tuna,
 		Egg,
-<<<<<<< HEAD
-		Samon
-=======
+		Samon,
 		Dust,
 		Gate,
->>>>>>> 95afcbd988f231e83dd194993ba14c7fbe13f962
 	};
 	enum FBXName {
 	Human,

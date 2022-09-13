@@ -12,12 +12,9 @@ ModelManager* ModelManager::GetIns() {
 void ModelManager::Initialize() {
 	LoadModel(Tuna, "Tuna");
 	LoadModel(Egg, "Egg");
-<<<<<<< HEAD
 	LoadModel(Samon, "Samon");
-=======
 	LoadModel(Dust, "Dust");
 	LoadModel(Gate, "Cube");
->>>>>>> 95afcbd988f231e83dd194993ba14c7fbe13f962
 	//LoadFBXModel(Enemy_Alpha, "enmeyAlpha");
 	//LoadFBXModel(Enemy_Beta, "enemyBeta");
 }

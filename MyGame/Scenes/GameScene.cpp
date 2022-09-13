@@ -15,11 +15,8 @@
 #include"ResultScene.h"
 #include"PlaceObj.h"
 #include"Human.h"
-<<<<<<< HEAD
 #include"Samon.h"
-=======
 #include <Base/Obj/3d/ModelManager.h>
->>>>>>> 95afcbd988f231e83dd194993ba14c7fbe13f962
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
