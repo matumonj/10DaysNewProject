@@ -69,7 +69,18 @@ void GameScene::Initialize()
 	DustBox->SetScale({2.5f,2,2.5f});
 
 
+	Gate = std::make_unique<Object3d>();
+	GateModel = ModelManager::GetIns()->GetModel(ModelManager::Gate);
+	Gate->SetModel(GateModel);
+	Gate->Initialize(CameraControl::GetInstance()->GetCamera());
+	Gate->SetPosition({ 35, -38, 14.5f });
+	Gate->SetScale({ 5,5,5 });
 
+	Gate2 = std::make_unique<Object3d>();
+	Gate2->SetModel(GateModel);
+	Gate2->Initialize(CameraControl::GetInstance()->GetCamera());
+	Gate2->SetPosition({ 0.5f, -38, 40 });
+	Gate2->SetScale({ 5,5,5 });
 
 
 
@@ -118,6 +129,9 @@ void GameScene::Update()
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	Gate2->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+
 }
 
 /// <summary>
@@ -156,6 +170,8 @@ void GameScene::Draw()
 		}
 	}
 	DustBox->Draw();
+	Gate->Draw();
+	Gate2->Draw();
 
 	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
