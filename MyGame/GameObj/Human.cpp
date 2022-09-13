@@ -6,7 +6,7 @@
 
 void Human::Initialize() {
 	
-	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Human");
+	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Cat");
 
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();

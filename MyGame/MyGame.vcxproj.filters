@@ -249,6 +249,9 @@
     <ClCompile Include="Samon.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClCompile>
+    <ClCompile Include="GameObj\Score.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -436,6 +439,9 @@
     </ClInclude>
     <ClInclude Include="Samon.h">
       <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj\Score.h">
+      <Filter>Game\gameobject\ゲームオブジェクト</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

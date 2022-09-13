@@ -2,6 +2,7 @@
 #include"Object3d.h"
 #include"Model.h"
 #include"Texture.h"
+#include"Score.h"
 #include<memory>
 class Sushi
 {
@@ -30,9 +31,6 @@ public:
 	Wave GetWave() { return wave; }
 
 	//‰ñ“]‰^“®
-	void Moves(Wave wave);
-	void RotState();
-	void RotState3();
 	void TexSet();
 	void TexUp();
 	void TexDraw();

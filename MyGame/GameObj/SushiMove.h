@@ -1,5 +1,7 @@
 #pragma once
 #include"Sushi.h"
+#include"Score.h"
+
 class SushiMove
 {
 private:
