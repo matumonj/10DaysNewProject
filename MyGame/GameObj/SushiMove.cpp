@@ -113,6 +113,62 @@ void SushiMove::Wave3move(Sushi* sushi)
 	sushi->SetRot(rot);
 }
 
+
+
+void SushiMove::Wave4move(Sushi* sushi)
+{
+	switch (SMove)
+	{
+	case SushiMove::GATE:
+		rot.y = -180;
+		position = {0,-40,40};
+		SMove = LANE;
+
+		break;
+	case SushiMove::LANE:
+		Wave4Rot();
+		//ˆÚ“®ƒxƒNƒgƒ‹‚ğy²ü‚è‚ÌŠp“x‚Å‰ñ“]
+		//RotState();
+		move = { 0,0,0.1f,0 };
+
+		matRot = XMMatrixRotationY(XMConvertToRadians(rot.y));
+
+		move = XMVector3TransformNormal(move, matRot);
+
+		position = { position.x + move.m128_f32[0],position.y,	position.z + move.m128_f32[2] };
+		//”pŠüğŒ
+		isDump = Collision::GetLength(position, GarbagepPos) < 2.0f;
+		//‰ñ“]”¼Œa
+		if (isDump) {
+			SMove = DUMP;
+		}
+		break;
+	case SushiMove::DUMP:
+		for (int i = 0; i < 5; i++) {
+			RotTime[i] = 0;
+		}
+		position.y -= 0.2f;
+		if (position.y < -42) {
+			SMove = DEAD;
+
+		}
+		break;
+	case SushiMove::DEAD:
+		sushi->SetDead(true);
+		scale.x -= 0.2f;
+		scale.y -= 0.2f;
+		scale.z -= 0.2f;
+		if (scale.x < 0) {
+			//delete HPTex;
+			//Destroy_unique(SushiObj);
+		}
+		break;
+	default:
+		break;
+	}
+	sushi->SetPos(position);
+	sushi->SetRot(rot);
+}
 void SushiMove::Wave1or2Rot()
 {
 	if (Collision::GetLength(position, { 0,-40,5 }) < 1.0f) {
@@ -170,6 +226,29 @@ void SushiMove::Wave3Rot()
 		RotTime[3] += 0.2f;
 		if (RotTime[3] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[3], -180, -270);
+		}
+	}
+}
+
+
+void SushiMove::Wave4Rot()
+{
+	if (Collision::GetLength(position, { 0,-40,27 }) < 1.0f) {
+		RotTime[0] += 0.2f;
+		if (RotTime[0] <= 1.0f) {
+			rot.y = Easing::EaseOut(RotTime[0], -180, -90);
+		}
+	}
+	if (Collision::GetLength(position, { 20,-40,27 }) < 1.0f) {
+		RotTime[1] += 0.2f;
+		if (RotTime[1] <= 1.0f) {
+			rot.y = Easing::EaseOut(RotTime[1], -90, -180);
+		}
+	}
+	if (Collision::GetLength(position, { -20,-40,27 }) < 1.0f) {
+		RotTime[2] += 0.2f;
+		if (RotTime[2] <= 1.0f) {
+			rot.y = Easing::EaseOut(RotTime[2], -180, -270);
 		}
 	}
 }

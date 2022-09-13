@@ -93,6 +93,7 @@ void GameScene::Update()
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	Wave1or2();
 	Wave3();
+	Wave4();
 	WaveCont();
 
 	for (std::unique_ptr<Rail>& rail : Rails) {
@@ -158,6 +159,11 @@ void GameScene::Draw()
 	for (int i = 0; i < sushis2.size(); i++) {
 		if (sushis2[i] != nullptr) {
 			sushis2[i]->Draw();
+		}
+	}
+	for (int i = 0; i < sushis3.size(); i++) {
+		if (sushis3[i] != nullptr) {
+			sushis3[i]->Draw();
 		}
 	}
 	Sprite::PreDraw();
@@ -323,6 +329,37 @@ void GameScene::Wave3()
 	}
 }
 
+
+void GameScene::Wave4()
+{
+	if (fase == WAVE2) {
+		placeC3++;
+	}
+
+	if (placeC3 % RandPlaceCount3 == 0 && placeC3 != 0) {
+		sushinum3.push_back(rand() % 2);
+		if (sushinum3.back() == 0) {
+			sushis3.push_back(new Tuna());
+			sushis3.back()->Initialize();
+		} else if (sushinum3.back() == 1) {
+			sushis3.push_back(new Egg());
+			sushis3.back()->Initialize();
+		}
+		smove3.push_back(new SushiMove());
+		RandPlaceCount3 = RetrandCount();
+		placeC3 = 0;
+	}
+	for (int i = 0; i < sushis3.size(); i++) {
+		if (sushis3[i] != nullptr) {
+			smove3[i]->Wave4move(sushis3[i]);
+			sushis3[i]->Update();
+			if (sushis3[i]->GetScale().x <= 0.0f) {
+				SushiDeathCount++;
+				Destroy(sushis3[i]);
+			}
+		}
+	}
+}
 void GameScene::LoadRanking() {
 	std::ifstream file;
 	file.open("Resources/csv/Ranking.csv");
