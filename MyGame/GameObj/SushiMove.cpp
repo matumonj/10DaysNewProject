@@ -42,7 +42,7 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 			RotTime[i] = 0;
 		}
 		position.y -= 0.2f;
-		if (position.y < -60) {
+		if (position.y < -42) {
 			SMove = DEAD;
 		}
 		break;
@@ -91,11 +91,13 @@ void SushiMove::Wave3move(Sushi* sushi)
 			RotTime[i] = 0;
 		}
 		position.y -= 0.2f;
-		if (position.y < -60) {
+		if (position.y < -42) {
 			SMove = DEAD;
+			
 		}
 		break;
 	case SushiMove::DEAD:
+		sushi->SetDead(true);
 		scale.x -= 0.2f;
 		scale.y -= 0.2f;
 		scale.z -= 0.2f;

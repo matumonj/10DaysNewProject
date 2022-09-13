@@ -146,6 +146,10 @@ void GameScene::Draw()
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Draw();
 	}
+
+	DustBox->Draw();
+
+	PlaceObj::GetInstance()->Draw();
 	for (int i = 0; i < sushis.size(); i++) {
 		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
@@ -156,9 +160,6 @@ void GameScene::Draw()
 			sushis2[i]->Draw();
 		}
 	}
-	DustBox->Draw();
-
-	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
@@ -283,7 +284,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-			if (sushis[i]->GetDead()|| sushis[i]->GetScale().x <= 0.0f) {
+			if ( sushis[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}
