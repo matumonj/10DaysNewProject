@@ -34,8 +34,7 @@ void GameScene::Initialize()
 
 	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
 	BackGround.reset(BackGround_);
-	scoreMgr = new ScoreMgr();
-	scoreMgr->Init();
+	ScoreMgr::GetIns()->Init();
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//Å‰‚Íƒ}ƒOƒ
 	sushis.push_back(new Tuna());
@@ -105,7 +104,7 @@ void GameScene::Update()
 	Wave3();
 	Wave4();
 	WaveCont();
-	scoreMgr->Upda();
+	ScoreMgr::GetIns()->Upda();
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
@@ -192,7 +191,7 @@ void GameScene::Draw()
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
-	scoreMgr->Draw();
+	ScoreMgr::GetIns()->Draw();
 	Sprite::PostDraw();
 
 	DirectXCommon::GetInstance()->EndDraw();

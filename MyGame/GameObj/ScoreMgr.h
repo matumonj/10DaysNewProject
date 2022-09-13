@@ -5,13 +5,20 @@
 
 class ScoreMgr final {
 private:
+	ScoreMgr() = default;
+	~ScoreMgr() = default;
+	ScoreMgr(const ScoreMgr & r) = default;
+	ScoreMgr& operator= (const ScoreMgr & r) = default;
+
+public:
+
+private:
 	int score = 100;
 	Sprite* num[5][10]={};
 	std::unique_ptr<Sprite> Doll;
 	std::vector<int> First;
 public:
-	ScoreMgr();
-
+	static ScoreMgr* GetIns();		//Žæ“¾—p
 	void Init();
 	void Upda();
 	void Draw();

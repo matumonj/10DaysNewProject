@@ -24,8 +24,12 @@ void Samon::Update()
 	//Moves();
 	if (SushiObj != nullptr) {
 		TexUp();
-		bool death = (HP <= 0) || isDead;
-		//Rebirth(30);
+		bool death = isDead;
+		bool eaten = isEaten;
+		if (HP == 0 && !death) {
+			ScoreMgr::GetIns()->AddScore(100);
+			isDead = true;
+		}
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);
 		SushiObj->SetRotation(Rot);

@@ -55,12 +55,16 @@ protected:
 	int HP;
 	int MaxHP;
 	bool isDead;
+	bool isEaten;
 	int coolTime;
 	int ScorePoint;
 public:
 	int GetHP() { return HP; }
 	void SetDead(bool f) { isDead = f; }
+	void SetEaten(bool f) { isEaten = f; }
 	bool GetDead() { return isDead; }
+	bool GetEaten() { return isEaten; }
+
 	void RecvDamage(int Damage) { HP = HP - Damage; }
 	int GetScorepoint() { return ScorePoint; }
 private:

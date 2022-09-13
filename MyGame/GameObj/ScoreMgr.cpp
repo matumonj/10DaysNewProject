@@ -1,7 +1,8 @@
 #include "ScoreMgr.h"
 #include "ImageManager.h"
-ScoreMgr::ScoreMgr() {
-
+ScoreMgr* ScoreMgr::GetIns() {
+	static ScoreMgr instans;
+	return &instans;
 }
 
 void ScoreMgr::Init() {

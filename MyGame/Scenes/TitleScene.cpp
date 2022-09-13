@@ -73,7 +73,7 @@ void TitleScene::Finalize() {
 }
 void TitleScene::Feed() {
 	if (Change) {
-		if (frame < 1.6f) {
+		if (frame < 1.0f) {
 			frame += 0.02f;
 		} else {
 			BaseScene* scene = new GameScene(sceneManager_);//次のシーンのインスタンス生成
@@ -83,5 +83,4 @@ void TitleScene::Feed() {
 		alpha = Ease(In, Quad, frame, 0, 1);
 		Effect->setcolor({ 1,1,1,alpha });
 	}
-
 }
