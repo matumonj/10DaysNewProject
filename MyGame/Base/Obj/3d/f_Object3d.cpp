@@ -281,18 +281,18 @@ void f_Object3d::Updata(bool animeloop)
 	//	hand = bones[0].fbxCluster->GetTransformLinkMatrix();
 	}
 	//15.16
-	int num = 13;
-	FbxLoader::ConvertMatrixFromFbx(&hRot, bones[num].fbxCluster->GetLink()->EvaluateGlobalTransform(currentTime));
+	//int num = 13;
+	//FbxLoader::ConvertMatrixFromFbx(&hRot, bones[num].fbxCluster->GetLink()->EvaluateGlobalTransform(currentTime));
 	//rot= XMMatrixIdentity();
 		//matWorld = XMMatrixIdentity();
-	hand = modelTransform * hRot * matRot;
+	//hand = modelTransform * hRot * matRot;
 	//bones[1].fbxCluster->GetLink()->EvaluateLocalTransform()
 	//pos = {position.x+};posnode
-	PosNode2 = bones[num].fbxCluster->GetLink()->LclRotation.Get();
-	PosNode = bones[num].fbxCluster->GetLink()->LclTranslation.Get();
-	Posmat = XMMatrixTranslationFromVector(
-		{ (float)PosNode[0], (float)PosNode[1], (float)PosNode[2]
-,1.0f })*matScale * matRot*matTrans;
+	//PosNode2 = bones[num].fbxCluster->GetLink()->LclRotation.Get();
+	//PosNode = bones[num].fbxCluster->GetLink()->LclTranslation.Get();
+//	Posmat = XMMatrixTranslationFromVector(
+//		{ (float)PosNode[0], (float)PosNode[1], (float)PosNode[2]
+//,1.0f })*matScale * matRot*matTrans;
 
 	//Posmat = XMMatrixTranslationFromVector({ (float)PosNode[0], (float)PosNode[1], (float)PosNode[2], 1.0f }); //model->GetBones()[num].fbxCluster->GetLink()->LclTranslation.Get();
 	RotMat = XMMatrixRotationZ(XMConvertToRadians((float)PosNode2[0]));

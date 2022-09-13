@@ -192,9 +192,9 @@ void PlaceObj::Draw() {
 	float x = (float)Input::GetInstance()->GetMousePoint().x;
 	float y = (float)Input::GetInstance()->GetMousePoint().y;
 
-	ImGui::Begin("wa ");
-	ImGui::Text("x %f", x);
-	ImGui::Text("y %f", y);
+	//ImGui::Begin("wa ");
+	//ImGui::Text("x %f", x);
+	//ImGui::Text("y %f", y);
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {

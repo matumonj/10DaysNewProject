@@ -70,7 +70,18 @@ void GameScene::Initialize()
 	DustBox->SetScale({2.5f,2,2.5f});
 
 
+	Gate = std::make_unique<Object3d>();
+	GateModel = ModelManager::GetIns()->GetModel(ModelManager::Gate);
+	Gate->SetModel(GateModel);
+	Gate->Initialize(CameraControl::GetInstance()->GetCamera());
+	Gate->SetPosition({ 35, -38, 14.5f });
+	Gate->SetScale({ 5,5,5 });
 
+	Gate2 = std::make_unique<Object3d>();
+	Gate2->SetModel(GateModel);
+	Gate2->Initialize(CameraControl::GetInstance()->GetCamera());
+	Gate2->SetPosition({ 0.5f, -38, 40 });
+	Gate2->SetScale({ 5,5,5 });
 
 
 
@@ -120,6 +131,9 @@ void GameScene::Update()
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	Gate2->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+
 }
 
 /// <summary>
@@ -161,21 +175,29 @@ void GameScene::Draw()
 			sushis2[i]->Draw();
 		}
 	}
+<<<<<<< HEAD
 	for (int i = 0; i < sushis3.size(); i++) {
 		if (sushis3[i] != nullptr) {
 			sushis3[i]->Draw();
 		}
 	}
+=======
+	DustBox->Draw();
+	Gate->Draw();
+	Gate2->Draw();
+
+	PlaceObj::GetInstance()->Draw();
+>>>>>>> eef72f6ba42d0de99167f3172e65da377b489a57
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
 	//やろうとしたがここでエラーを吐く
-//	ImGui::Begin("siz");
+	//ImGui::Begin("siz");
 //
 ////	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	ImGui::End();
+	//ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 

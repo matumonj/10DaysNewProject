@@ -41,6 +41,7 @@ private:
 	std::unique_ptr<Object3d> DustBox;
 	Model* Dust;
 	std::unique_ptr<Object3d> Gate;
+	std::unique_ptr<Object3d> Gate2;
 	Model* GateModel;
 
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
