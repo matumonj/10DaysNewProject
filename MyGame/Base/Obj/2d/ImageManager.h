@@ -29,6 +29,7 @@ public:
 		White,
 		Result,
 		Title,
+		Black,
 	};
 	enum tex2dName {
 		Sushi,

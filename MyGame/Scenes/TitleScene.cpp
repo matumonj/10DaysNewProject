@@ -4,6 +4,8 @@
 #include "GameScene.h"
 #include"Tuna.h"
 #include "Egg.h"
+#include "Samon.h"
+#include <Base/Easing.h>
 
 TitleScene::TitleScene(SceneManager* sceneManager) 
 	:BaseScene(sceneManager) {
@@ -15,18 +17,23 @@ void TitleScene::Initialize() {
 
 	sushis.push_back(new Tuna());
 	sushis.push_back(new Egg());
+	sushis.push_back(new Samon());
 	sushis.push_back(new Tuna());
 	sushis.push_back(new Egg());
-	sushis.push_back(new Tuna());
-
+	sushis.push_back(new Samon());
 	for (int i = 0; i < sushis.size(); i++) {
 			sushis[i]->SetPos({ i * 5.0f,-20.0f,0 });
 			sushis[i]->Initialize();
 	}
 
+	//スプライト生成
+	Sprite* Effect_ = Sprite::Create(ImageManager::Black, { 0.0f,0.0f });
+	Effect.reset(Effect_);
+	Effect->setcolor({ 1,1,1,alpha });
+
+
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
-
 }
 
 void TitleScene::Update() {
@@ -35,11 +42,11 @@ void TitleScene::Update() {
 			sushis[i]->TitleUpda();
 
 	}
-	if (Input::GetInstance()->TriggerKey(DIK_SPACE)||Input::GetInstance()->PushMouseLeft()) {//押されたら
-		BaseScene* scene = new GameScene(sceneManager_);//次のシーンのインスタンス生成
-		SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
-		sceneManager_->SetnextScene(scene);//シーンのセット
+	if (Input::GetInstance()->TriggerKey(DIK_SPACE) || Input::GetInstance()->PushMouseLeft()) {//押されたら
+		Change = true;
 	}
+	Feed();
+
 }
 
 void TitleScene::Draw() {
@@ -51,6 +58,9 @@ void TitleScene::Draw() {
 	for (int i = 0; i < sushis.size(); i++) {
 			sushis[i]->Draw();
 	}
+	Sprite::PreDraw();
+	Effect->Draw();
+	Sprite::PostDraw();
 
 	DirectXCommon::GetInstance()->EndDraw();
 
@@ -59,5 +69,19 @@ void TitleScene::Draw() {
 void TitleScene::Finalize() {
 
 
+
+}
+void TitleScene::Feed() {
+	if (Change) {
+		if (frame < 1.6f) {
+			frame += 0.02f;
+		} else {
+			BaseScene* scene = new GameScene(sceneManager_);//次のシーンのインスタンス生成
+			SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
+			sceneManager_->SetnextScene(scene);//シーンのセット
+		}
+		alpha = Ease(In, Quad, frame, 0, 1);
+		Effect->setcolor({ 1,1,1,alpha });
+	}
 
 }

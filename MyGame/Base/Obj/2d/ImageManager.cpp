@@ -22,7 +22,7 @@ void ImageManager::Load2D() {
 	Sprite::LoadTexture(White, L"Resources/white1x1.png");
 	Sprite::LoadTexture(Result, L"Resources/2d/Result.png");
 	Sprite::LoadTexture(Title, L"Resources/2d/title.png");
-
+	Sprite::LoadTexture(Black, L"Resources/2d/Blackfilter.png");
 }
 
 void ImageManager::LoadTex2D() {

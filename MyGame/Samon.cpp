@@ -1,5 +1,4 @@
 #include "Samon.h"
-#include "Samon.h"
 #include"CameraControl.h"
 #include"WinApp.h"
 #include"imgui.h"
@@ -48,10 +47,10 @@ void Samon::Update()
 void Samon::TitleUpda() {
 	SushiObj->SetScale(Scale);
 	XMFLOAT3 pos = SushiObj->GetPosition();
-	if (pos.x <= -25) {
-		pos.x = 25;
+	if (pos.x <= -10) {
+		pos.x = 50;
 	}
-	pos = { pos.x - 0.1f,-20,0 };
+	pos = { pos.x - 0.1f,-20,-3 };
 	SushiObj->SetPosition(pos);
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
