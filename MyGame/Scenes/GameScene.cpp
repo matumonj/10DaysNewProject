@@ -15,6 +15,7 @@
 #include"ResultScene.h"
 #include"PlaceObj.h"
 #include"Human.h"
+#include"Samon.h"
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -261,7 +262,7 @@ void GameScene::Wave1or2()
 	if (placeC % RandPlaceCount == 0) {
 		sushinum.push_back(rand() % 2);
 		if (sushinum.back() == 0) {
-			sushis.push_back(new Tuna());
+			sushis.push_back(new Samon());
 			sushis.back()->Initialize();
 		} else if (sushinum.back() == 1) {
 			sushis.push_back(new Egg());

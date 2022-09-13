@@ -209,6 +209,7 @@
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="ParticleManager.cpp" />
     <ClCompile Include="PlaceObj.cpp" />
+    <ClCompile Include="Samon.cpp" />
     <ClCompile Include="Scenes\ResultScene.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\TitleScene.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="MyGame.h" />
     <ClInclude Include="ParticleManager.h" />
     <ClInclude Include="PlaceObj.h" />
+    <ClInclude Include="Samon.h" />
     <ClInclude Include="Scenes\ResultScene.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\TitleScene.h" />

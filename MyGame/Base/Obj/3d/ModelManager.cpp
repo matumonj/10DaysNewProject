@@ -13,6 +13,7 @@ void ModelManager::Initialize() {
 	//LoadFBXModel(Player, "Player");
 	LoadModel(Tuna, "Tuna");
 	LoadModel(Egg, "Egg");
+	LoadModel(Samon, "Samon");
 	//LoadFBXModel(Enemy_Alpha, "enmeyAlpha");
 	//LoadFBXModel(Enemy_Beta, "enemyBeta");
 	//LoadFBXModel(Enemy_Camma, "enemyCamma");
