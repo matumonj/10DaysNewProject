@@ -2,7 +2,7 @@
 #include"Object3d.h"
 #include"Model.h"
 #include"Texture.h"
-#include"Score.h"
+#include"ScoreMgr.h"
 #include<memory>
 class Sushi
 {

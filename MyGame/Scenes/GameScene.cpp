@@ -40,7 +40,7 @@ void GameScene::Initialize()
 
 	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
 	BackGround.reset(BackGround_);
-
+	scoreMgr->Init();
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
@@ -82,8 +82,6 @@ void GameScene::Initialize()
 	Gate2->Initialize(CameraControl::GetInstance()->GetCamera());
 	Gate2->SetPosition({ 0.5f, -38, 40 });
 	Gate2->SetScale({ 5,5,5 });
-
-	Score::GetIns()->ResetScore();
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 	//カメラをセット
@@ -91,6 +89,7 @@ void GameScene::Initialize()
 	//グラフィックパイプライン生成
 	f_Object3d::CreateGraphicsPipeline();
 	PlaceObj::GetInstance()->Init();
+
 }
 
 
@@ -104,7 +103,7 @@ void GameScene::Update()
 	Wave3();
 	Wave4();
 	WaveCont();
-
+	scoreMgr->Upda();
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
@@ -121,9 +120,8 @@ void GameScene::Update()
 	}
 	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
-	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
-		ScoreSave(Score::GetIns()->GetScore());
+		ScoreSave(37765);
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
@@ -187,19 +185,13 @@ void GameScene::Draw()
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
+	scoreMgr->Draw();
 	Sprite::PostDraw();
-	//やろうとしたがここでエラーを吐く
-	//ImGui::Begin("siz");
-//
-////	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	//ImGui::End();
-	//Player::GetInstance()->Draw();
-	DirectXCommon::GetInstance()->EndDraw();
 
+	DirectXCommon::GetInstance()->EndDraw();
 }
 void GameScene::Finalize()
 {
-	//delete postEffect;
 	delete Gamesprite;
 }
 

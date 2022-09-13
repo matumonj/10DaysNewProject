@@ -87,7 +87,6 @@ void ResultScene::Initialize() {
 	const int w = 32;
 	const int h = 64;
 	const int l = 10;
-	const float onePos = WinApp::window_width - 208.0f;
 	Sprite::LoadTexture(10, L"Resources/2d/Num.png");
 	for (int k = 0; k < 4; k++) {
 		for (int i = 0; i < 5; i++) {

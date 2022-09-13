@@ -1,6 +1,6 @@
 #pragma once
 #include"Sushi.h"
-#include"Score.h"
+#include"ScoreMgr.h"
 
 class SushiMove
 {
