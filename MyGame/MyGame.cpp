@@ -10,8 +10,7 @@ void MyGame::Initialize()
 	Texture::StaticInitialize(WinApp::window_width, WinApp::window_height);
 	//Scene = new TitleScene();
 	//‰ŠúƒV[ƒ“
-	BaseScene* scene_ = new ResultScene(sceneManger);
-	//SceneManager::GetInstance()->SetScene(SceneManager::TITLE);
+	BaseScene* scene_ = new TitleScene(sceneManger);
 	sceneManger->SetnextScene(scene_);
 
 	//Scene->Initialize();

@@ -10,14 +10,16 @@ ModelManager* ModelManager::GetIns() {
 }
 
 void ModelManager::Initialize() {
-	//LoadFBXModel(Player, "Player");
 	LoadModel(Tuna, "Tuna");
 	LoadModel(Egg, "Egg");
+<<<<<<< HEAD
 	LoadModel(Samon, "Samon");
+=======
+	LoadModel(Dust, "Dust");
+	LoadModel(Gate, "Cube");
+>>>>>>> 95afcbd988f231e83dd194993ba14c7fbe13f962
 	//LoadFBXModel(Enemy_Alpha, "enmeyAlpha");
 	//LoadFBXModel(Enemy_Beta, "enemyBeta");
-	//LoadFBXModel(Enemy_Camma, "enemyCamma");
-	//LoadFBXModel(Boss_Enemy, "bossEnemy");
 }
 
 void ModelManager::LoadModel(const ModelName modelName, std::string fileName) {
