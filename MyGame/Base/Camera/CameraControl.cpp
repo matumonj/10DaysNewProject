@@ -32,9 +32,9 @@ void CameraControl::Update(DebugCamera* camera)
 		cameraAngle = 0;
 	}
 
-	this->camera->SetEye({0,0,-10});
+	this->camera->SetEye({15,0,-10});
 
-	this->camera->SetTarget({ 0,-20,0 });
+	this->camera->SetTarget({ 15,-20,0 });
 	this->camera->Update();
 
 }

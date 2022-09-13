@@ -22,7 +22,7 @@ void Sushi::TexUp()
 	if (SushiObj != nullptr) {
 		HPTex->SetBillboard(true);
 		HPTex->SetPosition({ Position.x,Position.y + 3,Position.z });
-		HPTex->SetScale({ (float)HP / 20,1,1 });
+		HPTex->SetScale({Percent::GetParcent(MaxHP,HP)/40.0f,1,1});
 		HPTex->Update(CameraControl::GetInstance()->GetCamera());
 	}
 }

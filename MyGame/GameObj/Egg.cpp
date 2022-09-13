@@ -6,6 +6,8 @@
 #include <Base/Obj/3d/ModelManager.h>
 void Egg::Initialize()
 {
+	TexSet();
+
 	SushiObj = std::make_unique<Object3d>();
 	SushiModel = ModelManager::GetIns()->GetModel(ModelManager::Egg);
 	SushiObj->SetModel(SushiModel);
@@ -19,12 +21,27 @@ void Egg::Initialize()
 void Egg::Update()
 {
 	if (SushiObj != nullptr) {
+		TexUp();
+		bool death = (HP <= 0) || isDead;
+
 		//Rebirth(3);//クールタイム設定
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);
 		SushiObj->SetRotation(Rot);
 		SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	
+		if (death) {
+			Scale.x -= 0.05f;
+			Scale.z -= 0.05f;
+		}
 	}
+
+	Scale.x = max(Scale.x, 0);
+	Scale.x = min(Scale.x, 2);
+	Scale.z = max(Scale.z, 0);
+	Scale.z = min(Scale.z, 2);
+	HP = min(HP, MaxHP);
+	HP = max(HP, 0);
 }
 
 void Egg::TitleUpda() {
@@ -43,7 +60,7 @@ void Egg::TitleUpda() {
 void Egg::Draw()
 {
 	if (SushiObj != nullptr) {
-		//TexDraw();
+		TexDraw();
 		SushiObj->PreDraw();
 		SushiObj->Draw();
 		SushiObj->PostDraw();

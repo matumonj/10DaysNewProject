@@ -30,19 +30,27 @@ void PlaceObj::Init() {
 	Sprite* CharaBack_ = Sprite::Create(25, { 1100,0 });
 	CharaBack.reset(CharaBack_);
 
-	benchState[LEFT_BOTTOM].Position_2d = { 418,500 };
+	benchState[LEFT_BOTTOM].Position_2d = { 200,510 };
 	benchState[LEFT_BOTTOM].Position_3d = { -15,-43,0 };
 	benchState[LEFT_BOTTOM].SitChara = NON_CHARA;
 
-	benchState[LEFT_UP].Position_2d = { 460,260 };
+	benchState[LEFT_CENTER].Position_2d = { 100,300 };
+	benchState[LEFT_CENTER].Position_3d = { -15,-43,10 };
+	benchState[LEFT_CENTER].SitChara = NON_CHARA;
+
+	benchState[LEFT_UP].Position_2d = { 285,235 };
 	benchState[LEFT_UP].Position_3d = { -15,-43,20 };;
 	benchState[LEFT_UP].SitChara = NON_CHARA;
 
-	benchState[RIGHT_BOTTOM].Position_2d = { 860,505 };
+	benchState[RIGHT_BOTTOM].Position_2d = { 635,505 };
 	benchState[RIGHT_BOTTOM].Position_3d = { 15,-43,0 };
 	benchState[RIGHT_BOTTOM].SitChara = NON_CHARA;
 
-	benchState[RIGHT_UP].Position_2d = { 822,265 };
+	benchState[RIGHT_CENTER].Position_2d = { 802,308};
+	benchState[RIGHT_CENTER].Position_3d = { 15,-43,10 };
+	benchState[RIGHT_CENTER].SitChara = NON_CHARA;
+
+	benchState[RIGHT_UP].Position_2d = { 645,230};
 	benchState[RIGHT_UP].Position_3d = { 15, -43, 20 };
 	benchState[RIGHT_UP].SitChara = NON_CHARA;
 
@@ -168,7 +176,12 @@ void PlaceObj::Draw() {
 		CharaSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
+	float x = (float)Input::GetInstance()->GetMousePoint().x;
+	float y = (float)Input::GetInstance()->GetMousePoint().y;
 
+	ImGui::Begin("wa ");
+	ImGui::Text("x %f", x);
+	ImGui::Text("y %f", y);
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {

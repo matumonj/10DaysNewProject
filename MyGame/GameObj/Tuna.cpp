@@ -24,7 +24,7 @@ void Tuna::Update()
 	//Moves();
 	if (SushiObj!=nullptr) {
 		TexUp();
-		bool death = (HP <= 0);
+		bool death = (HP <= 0)||isDead;
 		//Rebirth(30);
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);

@@ -15,6 +15,8 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		rot.y = 0;
 		position = GatePos;
 		SMove = LANE;
+
+		scale = { 2,2,2 };
 		break;
 	case SushiMove::LANE:
 		//ˆÚ“®ƒxƒNƒgƒ‹‚ðyŽ²Žü‚è‚ÌŠp“x‚Å‰ñ“]
@@ -33,30 +35,25 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		if (isDump) {
 			SMove = DUMP;
 		}
+
 		break;
 	case SushiMove::DUMP:
 		for (int i = 0; i < 5; i++) {
 			RotTime[i] = 0;
 		}
 		position.y -= 0.2f;
-		if (position.y < -10) {
+		if (position.y < -60) {
 			SMove = DEAD;
 		}
 		break;
 	case SushiMove::DEAD:
 		sushi->SetDead(true);
-		scale.x -= 0.2f;
-		scale.y -= 0.2f;
-		scale.z -= 0.2f;
-		if (scale.x < 0) {
-			//delete HPTex;
-			
-			//Destroy_unique(SushiObj);
-		}
+		
 		break;
 	default:
 		break;
 	}
+
 	sushi->SetPos(position);
 	sushi->SetRot(rot);
 }
@@ -69,6 +66,7 @@ void SushiMove::Wave3move(Sushi* sushi)
 		rot.y = -90;
 		position = GatePos_Right;
 		SMove = LANE;
+
 		break;
 	case SushiMove::LANE:
 		Wave3Rot();

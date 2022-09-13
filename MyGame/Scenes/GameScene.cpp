@@ -272,7 +272,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-			if ( sushis[i]->GetScale().x <= 0.0f) {
+			if (sushis[i]->GetDead()|| sushis[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}
