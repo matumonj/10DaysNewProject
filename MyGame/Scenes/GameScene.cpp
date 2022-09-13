@@ -40,7 +40,7 @@ void GameScene::Initialize()
 	BackGround.reset(BackGround_);
 
 	for (int i = 0; i < _countof(WaveSprite); i++) {
-		WaveSprite[i]->SetSize({ 400,400 });
+		//WaveSprite[i]->SetSize({ 400,400 });
 	}
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//最初はマグロ
@@ -54,6 +54,7 @@ void GameScene::Initialize()
 			Rail* newRail_ = new Rail();
 			newRail_->SetPosition(RailPos[i]);
 			newRail_->SetRotation(RailRot[i]);
+			newRail_->SetScale(RailSca[i]);
 			newRail.reset(newRail_);
 			Rails.push_back(std::move(newRail));
 		
@@ -203,7 +204,7 @@ void GameScene::WaveCont()
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
-		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], -300, 100),100 });
+		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], -300, 0),10 });
 		if (SushiDeathCount > 1) {
 			ETime[WAVE1] = 0;
 			fase = WAVE2;
@@ -214,12 +215,12 @@ void GameScene::WaveCont()
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
 		}
-		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], 100, -300),100 });
+		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], 0, -300),10 });
 
 		if (ETime[WAVE2] <= 1.0f&& ETime[WAVE1] >= 1.0f) {
 			ETime[WAVE2] += 0.01f;
 		}
-		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 100),100 });
+		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 0),10 });
 		if (SushiDeathCount > 3) {
 			ETime[WAVE2] = 0;
 			sushinum2.push_back(0);//最初はマグロ
@@ -235,13 +236,13 @@ void GameScene::WaveCont()
 		if (ETime[WAVE2] <= 1.0f) {
 			ETime[WAVE2] += 0.01f;
 		}
-		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], 100, -300),100 });
+		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], 0, -300),100 });
 
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
 
-		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 100),100 });
+		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 0),100 });
 
 		break;
 	case GameScene::WAVE4:

@@ -278,7 +278,6 @@ void f_Object3d::Updata(bool animeloop)
 		constMapSkin->bones[i] = bones[i].invInitialPose * matCurrentPose;
 		//hand = bones[0].invInitialPose * matCurrentPose;
 
-
 	//	hand = bones[0].fbxCluster->GetTransformLinkMatrix();
 	}
 	//15.16
