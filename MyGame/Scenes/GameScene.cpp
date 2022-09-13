@@ -61,7 +61,8 @@ void GameScene::Initialize()
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();
 	}
-
+	pauseStart = new PauseStart();
+	pauseStart->Init();
 
 	DustBox = std::make_unique<Object3d>();
 	Dust = ModelManager::GetIns()->GetModel(ModelManager::Dust);
@@ -99,6 +100,13 @@ void GameScene::Initialize()
 /// </summary>
 void GameScene::Update()
 { 
+	if (first&&pause) {
+		pauseStart->Upda();
+		if (pauseStart->GetPause()) {
+			pause = false;
+		}
+		return;
+	}
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	Wave1or2();
 	Wave3();
@@ -135,7 +143,9 @@ void GameScene::Update()
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate2->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
-
+	if (!first) {
+		first = true;
+	}
 }
 
 /// <summary>
@@ -192,6 +202,8 @@ void GameScene::Draw()
 		WaveSprite[i]->Draw();
 	}
 	ScoreMgr::GetIns()->Draw();
+	pauseStart->Draw();
+
 	Sprite::PostDraw();
 
 	DirectXCommon::GetInstance()->EndDraw();

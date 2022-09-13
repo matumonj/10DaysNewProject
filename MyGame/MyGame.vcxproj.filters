@@ -88,6 +88,9 @@
     <Filter Include="Game\gameobject\ゲームオブジェクト\Player\Cat">
       <UniqueIdentifier>{3c82e8d2-7526-430c-a58f-518475f2198c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\gameobject\Effect">
+      <UniqueIdentifier>{81f0a1cd-04e1-46e2-966d-56708b3c3dbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -254,6 +257,9 @@
     </ClCompile>
     <ClCompile Include="Base\Obj\2d\ImageManager.cpp">
       <Filter>Game\2d %28DebugTxt  Sprite Texture%29\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Base\Helper\PauseStart.cpp">
+      <Filter>Game\gameobject\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +454,9 @@
     </ClInclude>
     <ClInclude Include="Base\Obj\2d\ImageManager.h">
       <Filter>Game\2d %28DebugTxt  Sprite Texture%29\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Base\Helper\PauseStart.h">
+      <Filter>Game\gameobject\Effect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

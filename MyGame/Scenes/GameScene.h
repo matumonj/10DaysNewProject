@@ -19,6 +19,7 @@
 #include <Base/Camera/CameraControl.h>
 #include "Rail.h"
 #include "ScoreMgr.h"
+#include"PauseStart.h"
 
 class GameScene :public BaseScene
 {
@@ -104,7 +105,9 @@ private:
 	int RetrandCount();
 	void WaveCont();
 	int SushiDeathCount;
-
+	PauseStart* pauseStart;
+	bool first = false;
+	bool pause = true;
 	void Wave1or2();
 	void Wave3();
 	void Wave4();
