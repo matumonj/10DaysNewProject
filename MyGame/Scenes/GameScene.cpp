@@ -15,6 +15,7 @@
 #include"ResultScene.h"
 #include"PlaceObj.h"
 #include"Human.h"
+#include <Base/Obj/3d/ModelManager.h>
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -39,9 +40,6 @@ void GameScene::Initialize()
 	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
 	BackGround.reset(BackGround_);
 
-	for (int i = 0; i < _countof(WaveSprite); i++) {
-		//WaveSprite[i]->SetSize({ 400,400 });
-	}
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
@@ -56,24 +54,33 @@ void GameScene::Initialize()
 			newRail_->SetRotation(RailRot[i]);
 			newRail_->SetScale(RailSca[i]);
 			newRail.reset(newRail_);
-			Rails.push_back(std::move(newRail));
-		
+			Rails.push_back(std::move(newRail));	
 	}
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();
 	}
 
-	//Player::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
+
+	DustBox = std::make_unique<Object3d>();
+	Dust = ModelManager::GetIns()->GetModel(ModelManager::Dust);
+	DustBox->SetModel(Dust);
+	DustBox->Initialize(CameraControl::GetInstance()->GetCamera());
+	DustBox->SetPosition({ -4, -45, 7 - 3 });
+	DustBox->SetScale({2.5f,2,2.5f});
+
+
+
+
+
+
+
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
-
 	//カメラをセット
 	f_Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 	//グラフィックパイプライン生成
 	f_Object3d::CreateGraphicsPipeline();
 	PlaceObj::GetInstance()->Init();
-	player = new Human();
-	player->Initialize();
 }
 
 
@@ -110,7 +117,7 @@ void GameScene::Update()
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
-	player->Update();
+	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 }
 
 /// <summary>
@@ -148,14 +155,14 @@ void GameScene::Draw()
 			sushis2[i]->Draw();
 		}
 	}
-	player->Draw();
+	DustBox->Draw();
+
 	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
-	player->IconDraw();
 	//やろうとしたがここでエラーを吐く
 //	ImGui::Begin("siz");
 //
@@ -236,13 +243,13 @@ void GameScene::WaveCont()
 		if (ETime[WAVE2] <= 1.0f) {
 			ETime[WAVE2] += 0.01f;
 		}
-		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], 0, -300),100 });
+		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], 0, -300),10 });
 
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
 
-		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 0),100 });
+		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 0),10 });
 
 		break;
 	case GameScene::WAVE4:

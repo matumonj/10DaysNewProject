@@ -35,6 +35,12 @@ private:
 
 	std::unique_ptr<Sprite> BackGround{};
 
+
+	std::unique_ptr<Object3d> DustBox;
+	Model* Dust;
+	std::unique_ptr<Object3d> Gate;
+	Model* GateModel;
+
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 	std::list<std::unique_ptr<Rail>> Rails;
 	const float y = -41;
@@ -61,7 +67,6 @@ private:
 		 {1.2f,1,1.5f},{1.2f,1,1.5f},{1.2f,1,1},{1.2f,1,1},{1.2f,1,1},{1.2f,1,1}
 	};
 
-	Player* player;
 	Sprite* Gamesprite;
 	std::vector<int> sushinum;
 	std::vector<bool>activs;

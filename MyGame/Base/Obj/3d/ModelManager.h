@@ -16,13 +16,12 @@ public:
 	enum ModelName {
 		Tuna,
 		Egg,
+		Dust,
+		Gate,
 	};
 	enum FBXName {
-		Player,
-		Enemy_Alpha,
-		Enemy_Beta,
-		Enemy_Camma,
-		Boss_Enemy,
+	Human,
+	Cat
 	};
 
 public:
