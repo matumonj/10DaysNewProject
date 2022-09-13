@@ -27,9 +27,4 @@ void Rail::Draw() {
 	RailObj->PreDraw();
 	RailObj->Draw();
 	RailObj->PostDraw();
-	ImGui::Begin("pos");
-	ImGui::SliderFloat("x", &Position.x, -100, 100);
-	ImGui::SliderFloat("y", &Position.y, -100, 100);
-	ImGui::SliderFloat("z", &Position.z, -100, 100);
-	ImGui::End();
 }

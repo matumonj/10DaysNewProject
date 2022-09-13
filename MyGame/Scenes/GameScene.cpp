@@ -15,6 +15,7 @@
 #include"ResultScene.h"
 #include"PlaceObj.h"
 #include"Human.h"
+#include"Samon.h"
 #include <Base/Obj/3d/ModelManager.h>
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
@@ -159,6 +160,10 @@ void GameScene::Draw()
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Draw();
 	}
+
+	DustBox->Draw();
+
+	PlaceObj::GetInstance()->Draw();
 	for (int i = 0; i < sushis.size(); i++) {
 		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
@@ -180,10 +185,10 @@ void GameScene::Draw()
 	}
 	Sprite::PostDraw();
 	//‚â‚ë‚¤‚Æ‚µ‚½‚ª‚±‚±‚ÅƒGƒ‰[‚ð“f‚­
-//	ImGui::Begin("siz");
+	//ImGui::Begin("siz");
 //
 ////	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	ImGui::End();
+	//ImGui::End();
 	//Player::GetInstance()->Draw();
 	DirectXCommon::GetInstance()->EndDraw();
 
@@ -284,7 +289,7 @@ void GameScene::Wave1or2()
 	if (placeC % RandPlaceCount == 0) {
 		sushinum.push_back(rand() % 2);
 		if (sushinum.back() == 0) {
-			sushis.push_back(new Tuna());
+			sushis.push_back(new Samon());
 			sushis.back()->Initialize();
 		} else if (sushinum.back() == 1) {
 			sushis.push_back(new Egg());
@@ -298,7 +303,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-			if (sushis[i]->GetDead()|| sushis[i]->GetScale().x <= 0.0f) {
+			if ( sushis[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}

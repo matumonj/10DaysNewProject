@@ -16,6 +16,7 @@ public:
 	enum ModelName {
 		Tuna,
 		Egg,
+		Samon,
 		Dust,
 		Gate,
 	};

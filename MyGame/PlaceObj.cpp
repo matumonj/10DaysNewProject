@@ -38,7 +38,7 @@ void PlaceObj::Init() {
 	benchState[LEFT_CENTER].Position_3d = { BenchPos[LEFT_CENTER]};
 	benchState[LEFT_CENTER].SitChara = NON_CHARA;
 
-	benchState[CENTER_UP].Position_2d = { 420,100 };
+	benchState[CENTER_UP].Position_2d = { 535,110 };
 	benchState[CENTER_UP].Position_3d = { BenchPos[CENTER_UP]};
 	benchState[CENTER_UP].SitChara = NON_CHARA;
 
@@ -46,11 +46,11 @@ void PlaceObj::Init() {
 	benchState[CENTER_BOTTOM].Position_3d = { BenchPos[CENTER_BOTTOM]};
 	benchState[CENTER_BOTTOM].SitChara = NON_CHARA;
 
-	benchState[LEFT_UP].Position_2d = { 280,110 };
+	benchState[LEFT_UP].Position_2d = { 315,145 };
 	benchState[LEFT_UP].Position_3d = {BenchPos[LEFT_UP]};
 	benchState[LEFT_UP].SitChara = NON_CHARA;
 
-	benchState[RIGHT_BOTTOM].Position_2d = { 635,505 };
+	benchState[RIGHT_BOTTOM].Position_2d = { 710,510 };
 	benchState[RIGHT_BOTTOM].Position_3d = { BenchPos[RIGHT_BOTTOM]};
 	benchState[RIGHT_BOTTOM].SitChara = NON_CHARA;
 
@@ -192,9 +192,9 @@ void PlaceObj::Draw() {
 	float x = (float)Input::GetInstance()->GetMousePoint().x;
 	float y = (float)Input::GetInstance()->GetMousePoint().y;
 
-	ImGui::Begin("wa ");
-	ImGui::Text("x %f", x);
-	ImGui::Text("y %f", y);
+	//ImGui::Begin("wa ");
+	//ImGui::Text("x %f", x);
+	//ImGui::Text("y %f", y);
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {

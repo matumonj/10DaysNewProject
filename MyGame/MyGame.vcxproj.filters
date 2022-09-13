@@ -246,6 +246,9 @@
     <ClCompile Include="ParticleManager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Samon.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -430,6 +433,9 @@
     </ClInclude>
     <ClInclude Include="ParticleManager.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Samon.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\寿司</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -48,10 +48,10 @@ void Cat::Draw()
 
 void Cat::IconDraw() {
 
-	ImGui::Begin("po");
-	ImGui::Text("x %f", iconSprite->GetPosition().x);
-	ImGui::Text("y %f", iconSprite->GetPosition().y);
-	ImGui::End();
+	//ImGui::Begin("po");
+	//ImGui::Text("x %f", iconSprite->GetPosition().x);
+	//ImGui::Text("y %f", iconSprite->GetPosition().y);
+	//ImGui::End();
 }
 
 //void Player::FbxAnimationControl() {

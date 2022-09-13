@@ -12,6 +12,7 @@ ModelManager* ModelManager::GetIns() {
 void ModelManager::Initialize() {
 	LoadModel(Tuna, "Tuna");
 	LoadModel(Egg, "Egg");
+	LoadModel(Samon, "Samon");
 	LoadModel(Dust, "Dust");
 	LoadModel(Gate, "Cube");
 	//LoadFBXModel(Enemy_Alpha, "enmeyAlpha");
