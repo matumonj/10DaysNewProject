@@ -76,6 +76,12 @@ void PlaceObj::Update(Sushi* sushis) {
 	}
 }
 
+void PlaceObj::UpdateS() {
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->UpdateS();
+	}
+}
+
 void PlaceObj::SetIconSpritePos() {
 	float x = Input::GetInstance()->GetMousePoint().x;
 	float y = Input::GetInstance()->GetMousePoint().y;

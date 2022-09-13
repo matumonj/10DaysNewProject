@@ -19,6 +19,7 @@ public:
 	static PlaceObj* GetInstance();
 	void Init();
 	void Update(Sushi* sushis);
+	void UpdateS();
 	void Draw();
 private:
 	enum {
