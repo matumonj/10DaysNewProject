@@ -175,19 +175,16 @@ void GameScene::Draw()
 			sushis2[i]->Draw();
 		}
 	}
-<<<<<<< HEAD
 	for (int i = 0; i < sushis3.size(); i++) {
 		if (sushis3[i] != nullptr) {
 			sushis3[i]->Draw();
 		}
 	}
-=======
 	DustBox->Draw();
 	Gate->Draw();
 	Gate2->Draw();
 
 	PlaceObj::GetInstance()->Draw();
->>>>>>> eef72f6ba42d0de99167f3172e65da377b489a57
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
