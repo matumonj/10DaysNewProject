@@ -16,14 +16,27 @@ void Human::Initialize() {
 	ctag = TPLAYER;
 
 	Damage = 10;
-	AtkCool = 120.0f;
+	AtkCool = 320.0f;
 }
 
 void Human::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
+	
 	f_time += 0.02f;
+	if (f_time >= m_fbxObject->GetEndTime()) {
+		f_time = m_fbxObject->GetEndTime();
+	}
+
+	if (Cool) {
+		CoolTime++;
+		if (CoolTime >= AtkCool) {
+			Cool = false;
+		}
+	} else {
+		CoolTime = 0;
+	}
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 

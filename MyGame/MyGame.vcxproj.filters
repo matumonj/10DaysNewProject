@@ -243,6 +243,9 @@
     <ClCompile Include="Base\Easing.cpp">
       <Filter>Game\base %28Dxcmn  Winapp  Input%29</Filter>
     </ClCompile>
+    <ClCompile Include="ParticleManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -425,6 +428,9 @@
     <ClInclude Include="Base\Easing.h">
       <Filter>Game\base %28Dxcmn  Winapp  Input%29</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Resources\Shader\lightpixel.hlsl">
@@ -472,6 +478,15 @@
     <FxCompile Include="Resources\Shader\TextureVS.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
+    <FxCompile Include="ParticlePS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="ParticleVS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="ParticleGS.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shader\light.hlsli">
@@ -490,6 +505,9 @@
       <Filter>リソース ファイル</Filter>
     </None>
     <None Include="Resources\Shader\Texture.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="Particle.hlsli">
       <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>

@@ -22,17 +22,9 @@ void Player::AttackJudg(Sushi* sushis)
 	if (AtkFlag) {
 		sushis->RecvDamage(Damage);
 		Cool = true;
+		f_time = 0;
 		AtkFlag = false;
 
 	}
-
-	if (Cool) {
-		CoolTime++;
-		if (CoolTime >= AtkCool) {
-			Cool = false;
-		}
-	} 
-	else {
-		CoolTime = 0;
-	}
+	
 }
