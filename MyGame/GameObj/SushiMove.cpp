@@ -233,19 +233,19 @@ void SushiMove::Wave3Rot()
 
 void SushiMove::Wave4Rot()
 {
-	if (Collision::GetLength(position, { 0,-40,27 }) < 1.0f) {
+	if (Collision::GetLength(position, { 0,-40,26 }) < 1.0f) {
 		RotTime[0] += 0.2f;
 		if (RotTime[0] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[0], -180, -90);
 		}
 	}
-	if (Collision::GetLength(position, { 20,-40,27 }) < 1.0f) {
+	if (Collision::GetLength(position, { -20,-40,26 }) < 1.0f) {
 		RotTime[1] += 0.2f;
 		if (RotTime[1] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[1], -90, -180);
 		}
 	}
-	if (Collision::GetLength(position, { -20,-40,27 }) < 1.0f) {
+	if (Collision::GetLength(position, { -20,-40,5}) < 1.0f) {
 		RotTime[2] += 0.2f;
 		if (RotTime[2] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[2], -180, -270);

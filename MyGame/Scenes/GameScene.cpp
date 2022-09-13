@@ -45,6 +45,13 @@ void GameScene::Initialize()
 	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
 	sushis[0]->Initialize();
+
+	sushinum3.push_back(0);//最初はマグロ
+	sushis3.push_back(new Tuna());
+	sushis3[0]->Initialize();
+	//寿司の動き
+	smove2.push_back(new SushiMove());
+	smove3.push_back(new SushiMove());
 	//寿司の動き
 	smove.push_back(new SushiMove());
 	
@@ -119,6 +126,11 @@ void GameScene::Update()
 	for (int i = 0; i < sushis2.size(); i++) {
 		if (sushis2[i] != nullptr) {
 			PlaceObj::GetInstance()->Update(sushis2[i]);
+		}
+	}
+	for (int i = 0; i < sushis3.size(); i++) {
+		if (sushis3[i] != nullptr) {
+			PlaceObj::GetInstance()->Update(sushis3[i]);
 		}
 	}
 	PlaceObj::GetInstance()->UpdateS();
@@ -351,7 +363,7 @@ void GameScene::Wave3()
 
 void GameScene::Wave4()
 {
-	if (fase == WAVE2) {
+	if (fase == WAVE1) {
 		placeC3++;
 	}
 
