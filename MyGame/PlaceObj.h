@@ -19,6 +19,7 @@ public:
 	static PlaceObj* GetInstance();
 	void Init();
 	void Update(Sushi* sushis);
+	void UpdateS();
 	void Draw();
 private:
 	enum {
@@ -72,9 +73,9 @@ private:
 	std::vector<std::unique_ptr<Bench>> Benchs;
 	XMFLOAT3 BenchPos[MAXBENCH]
 		= {
- {-15,-43,23},{-30,-43,15}, {-15,-43,0}
-,{ 15,-43,23},{ 30,-43,15}, { 15,-43,0},
- {  0,-43,23},{0,-43,0}};
+ {-15+5,-43,33},{-30+5,-43,18}, {-15,-43,0}
+,{ 15+5,-43,33},{ 30+5,-43,18}, { 15+5,-43,0},
+ {  0+5,-43,38},{0+5,-43,0-5}};
 
 
 };

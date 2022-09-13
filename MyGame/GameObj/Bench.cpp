@@ -32,13 +32,19 @@ void Bench::Update(Sushi* sushis) {
 	BenchObj->SetPosition(Position);
 	BenchObj->SetRotation(Rot);
 	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
-
-	SetChara();
 	if (player != nullptr) {
-		player->Update();
 		if (Palpha > 0.0f) {
 			player->Attack(sushis);
 		}
+	}
+}
+
+void Bench::UpdateS()
+{
+	SetChara();
+	if (player != nullptr) {
+		player->Update();
+
 		player->SetPosition(Position);
 	}
 

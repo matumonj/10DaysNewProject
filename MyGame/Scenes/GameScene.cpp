@@ -100,6 +100,7 @@ void GameScene::Update()
 			PlaceObj::GetInstance()->Update(sushis2[i]);
 		}
 	}
+	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//‰Ÿ‚³‚ê‚½‚ç

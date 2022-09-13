@@ -37,6 +37,7 @@ public:
 
 	void Initialize();
 	void Update(Sushi*sushis);
+	void UpdateS();
 	void SitGaugeUp();
 	void Draw();
 	void SetChara();
