@@ -3,7 +3,7 @@
 #include"Sprite.h"
 #include"imgui.h"
 void Cat::Initialize() {
-	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("monster_golem_demo");
+	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Beckoning cat");
 
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();
@@ -21,6 +21,21 @@ void Cat::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
+
+	f_time += 0.02f;
+	if (f_time >= m_fbxObject->GetEndTime()) {
+		f_time = m_fbxObject->GetEndTime();
+	}
+
+	if (Cool) {
+		CoolTime++;
+		if (CoolTime >= AtkCool) {
+			Cool = false;
+		}
+	} else {
+		CoolTime = 0;
+	}
+	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 
 	//PlaceObj::GetInstance()->SetIconSpritePos(iconSprite);

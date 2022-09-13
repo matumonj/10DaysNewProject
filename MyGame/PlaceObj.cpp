@@ -80,9 +80,9 @@ void PlaceObj::SetIconSpritePos() {
 	float x = Input::GetInstance()->GetMousePoint().x;
 	float y = Input::GetInstance()->GetMousePoint().y;
 	if (Input::GetInstance()->PushMouseLeft()) {
-		//if (ClickChara != NON_CHARA) { return; }
 		for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 			if (Collision::GetLength2({ x,y }, CharaSprite[i]->GetPosition()) < 50) {
+				if (ClickChara != NON_CHARA) { break; }
 				ClickChara = i;
 				Clickf[i] = true;
 			}
