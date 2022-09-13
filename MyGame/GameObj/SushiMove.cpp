@@ -125,13 +125,13 @@ void SushiMove::Wave1or2Rot()
 			rot.y = Easing::EaseOut(RotTime[1], 90, 0);
 		}
 	}
-	if (Collision::GetLength(position, { 20,-40,16 }) < 1.0f) {
+	if (Collision::GetLength(position, { 20,-40,27 }) < 1.0f) {
 		RotTime[2] += 0.2f;
 		if (RotTime[2] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[2], 0, -90);
 		}
 	}
-	if (Collision::GetLength(position, { -20,-40,16 }) < 1.0f) {
+	if (Collision::GetLength(position, { -20,-40,27 }) < 1.0f) {
 		RotTime[3] += 0.2f;
 		if (RotTime[3] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[3], -90, -180);
@@ -152,13 +152,13 @@ void SushiMove::Wave3Rot()
 			rot.y = Easing::EaseOut(RotTime[0], -90, 0);
 		}
 	}
-	if (Collision::GetLength(position, { 20,-40,16}) < 1.0f) {
+	if (Collision::GetLength(position, { 20,-40,27}) < 1.0f) {
 		RotTime[1] += 0.2f;
 		if (RotTime[1] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[1], 0, -90);
 		}
 	}
-	if (Collision::GetLength(position, { -20,-40,16}) < 1.0f) {
+	if (Collision::GetLength(position, { -20,-40,27}) < 1.0f) {
 		RotTime[2] += 0.2f;
 		if (RotTime[2] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[2], -90, -180);

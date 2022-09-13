@@ -63,7 +63,6 @@ void PlaceObj::Init() {
 	benchState[RIGHT_UP].SitChara = NON_CHARA;
 
 
-
 	std::unique_ptr<Bench> newBench;
 	for (int i = 0; i < MAXBENCH; i++) {
 		Bench* newBench_ = new Bench();
