@@ -12,7 +12,7 @@ Player::~Player() {
 void Player::AttackJudg(Sushi* sushis)
 {
 	if (this == nullptr)return;
-	if (Collision::GetLength(sushis->GetPos(), Position) < 20.0f) {
+	if (Collision::GetLength(sushis->GetPos(), Position) < 10.0f) {
 		if (CoolTime == 0) {
 			AtkFlag = true;
 		}

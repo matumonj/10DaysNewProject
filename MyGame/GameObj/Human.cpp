@@ -5,12 +5,6 @@
 #include"Collision.h"
 
 void Human::Initialize() {
-	Sprite::LoadTexture(20, L"Resources/2d/icon/human.png");
-	
-	iconSprite = Sprite::Create(20, { 700,200 });
-	iconSprite->SetSize({ 100,100 });
-	iconSprite->setcolor({ 1,1,1,1 });
-	iconSprite->SetAnchorPoint({ 0.5f,0.5f });
 	
 	m_fbxModel = FbxLoader::GetInstance()->LoadModelFromFile("Human");
 
@@ -44,13 +38,8 @@ void Human::Draw() {
 
 void Human::IconDraw() {
 	Sprite::PreDraw();
-	iconSprite->Draw();
 	Sprite::PostDraw();
 
-	ImGui::Begin("po");
-	ImGui::Text("x %f", iconSprite->GetPosition().x);
-	ImGui::Text("y %f", iconSprite->GetPosition().y);
-	ImGui::End();
 }
 
 //void Player::FbxAnimationControl() {
