@@ -14,10 +14,8 @@ void PlaceObj::Init() {
 	CharaSprite[ONE_GIRL]->SetSize({ 100,100 });
 	CharaSprite[TWO_CAT] = Sprite::Create(ImageManager::IconCat, { 1150,400 });
 	CharaSprite[TWO_CAT]->SetSize({ 100,100 });
-	CharaSprite[THREE_DOG] = Sprite::Create(ImageManager::IconInu, { 1150,500 });
-	CharaSprite[THREE_DOG]->SetSize({ 100,100 });
-	CharaSprite[FOUR_BIRD] = Sprite::Create(ImageManager::IconInu, { 1150,600 });
-	CharaSprite[FOUR_BIRD]->SetSize({ 100,100 });
+	CharaSprite[THREE_BIRD] = Sprite::Create(ImageManager::IconInu, { 1150,600 });
+	CharaSprite[THREE_BIRD]->SetSize({ 100,100 });
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->setcolor({ 1,1,1,1 });
 		CharaSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
@@ -110,12 +108,10 @@ void PlaceObj::SetIconSpritePos() {
 	}
 	PlaceChara(ONE_GIRL);
 	PlaceChara(TWO_CAT);
-	PlaceChara(THREE_DOG);
-	PlaceChara(FOUR_BIRD);
+	PlaceChara(THREE_BIRD);
 	CreateObj(ONE_GIRL);
 	CreateObj(TWO_CAT);
-	CreateObj(THREE_DOG);
-	CreateObj(FOUR_BIRD);
+	CreateObj(THREE_BIRD);
 
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->SitGaugeUp();
@@ -149,13 +145,9 @@ void PlaceObj::PlaceChara(const int& charanum) {
 					Benchs[i]->SetCaharaCreate_C(true);
 					benchState[i].SitChara = TWO_CAT;
 				}
-				if (charanum == THREE_DOG) {
-					Benchs[i]->SetCaharaCreate_D(true);
-					benchState[i].SitChara = THREE_DOG;
-				}
-				if (charanum == FOUR_BIRD) {
+				if (charanum == THREE_BIRD) {
 					Benchs[i]->SetCaharaCreate_B(true);
-					benchState[i].SitChara = FOUR_BIRD;
+					benchState[i].SitChara = THREE_BIRD;
 				}
 				SpriteStartPos(charanum);
 			}
@@ -207,11 +199,8 @@ void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == TWO_CAT) {
 		CharaSprite[charanum]->SetPosition({ 1200,250 });
 	}
-	if (charanum == THREE_DOG) {
+	if (charanum ==THREE_BIRD) {
 		CharaSprite[charanum]->SetPosition({ 1200,400 });
-	}
-	if (charanum == FOUR_BIRD) {
-		CharaSprite[charanum]->SetPosition({ 1200,550 });
 	}
 }
 

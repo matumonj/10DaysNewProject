@@ -188,6 +188,7 @@
     <ClCompile Include="Base\Scene\BaseScene.cpp" />
     <ClCompile Include="Base\Scene\SceneManager.cpp" />
     <ClCompile Include="Base\WinApp.cpp" />
+    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Collisions\BaseCollider.cpp" />
     <ClCompile Include="Collisions\Collision.cpp" />
     <ClCompile Include="Collisions\CollisionManager.cpp" />
@@ -251,6 +252,7 @@
     <ClInclude Include="Base\Scene\BaseScene.h" />
     <ClInclude Include="Base\Scene\SceneManager.h" />
     <ClInclude Include="Base\WinApp.h" />
+    <ClInclude Include="Bird.h" />
     <ClInclude Include="Collisions\BaseCollider.h" />
     <ClInclude Include="Collisions\Collision.h" />
     <ClInclude Include="Collisions\CollisionAttribute.h" />

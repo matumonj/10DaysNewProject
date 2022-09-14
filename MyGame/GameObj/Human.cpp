@@ -11,7 +11,7 @@ void Human::Initialize() {
 	m_fbxObject->SetModel(ModelManager::GetIns()->GetFBXModel(ModelManager::Human));
 	m_fbxObject->PlayAnimation();
 	ctag = TPLAYER;
-
+	Range = 25;
 	Damage = 10;
 	AtkCool = 320.0f;
 }

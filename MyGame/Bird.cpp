@@ -1,24 +1,24 @@
-#include "Cat.h"
+#include "Bird.h"
+#include "Bird.h"
 #include"PlaceObj.h"
 #include"Sprite.h"
 #include"imgui.h"
 #include"ModelManager.h"
 
-void Cat::Initialize() {
+void Bird::Initialize() {
 	m_fbxObject = std::make_unique<f_Object3d>();
 	m_fbxObject->Initialize();
-	m_fbxObject->SetModel(ModelManager::GetIns()->GetFBXModel(ModelManager::Cat));
+	m_fbxObject->SetModel(ModelManager::GetIns()->GetFBXModel(ModelManager::Bird));
 	m_fbxObject->PlayAnimation();
 
 	ctag = TPLAYER;
 	//	FbxAnimationControl();
-
-	Range = 20;
+	Range = 15;
 	Damage = 20;
 	AtkCool = 60.0f;
 }
 
-void Cat::Update() {
+void Bird::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
@@ -39,15 +39,14 @@ void Cat::Update() {
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 
-	//PlaceObj::GetInstance()->SetIconSpritePos(iconSprite);
 }
 
-void Cat::Draw()
+void Bird::Draw()
 {
 	m_fbxObject->Draw();
 }
 
-void Cat::IconDraw() {
+void Bird::IconDraw() {
 
 	//ImGui::Begin("po");
 	//ImGui::Text("x %f", iconSprite->GetPosition().x);
@@ -79,7 +78,7 @@ void Cat::IconDraw() {
 //	m_fbxObject->SetFbxTime(f_time);
 //}
 
-void Cat::Attack(Sushi* sushis)
+void Bird::Attack(Sushi* sushis)
 {
 	AttackJudg(sushis);
 }

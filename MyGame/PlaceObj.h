@@ -26,8 +26,7 @@ private:
 		NON_CHARA = 0,
 		ONE_GIRL,
 		TWO_CAT,
-		THREE_DOG,
-		FOUR_BIRD,
+		THREE_BIRD,
 		MAX_CHARA
 	};
 
