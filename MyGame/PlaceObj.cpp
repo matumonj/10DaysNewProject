@@ -157,16 +157,22 @@ void PlaceObj::PlaceChara(const int& charanum) {
 		if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), benchState[i].Position_2d) < 50) {
 			if (!Clickf[charanum]) {
 				
-				if (benchState[i].SitChara != NON_CHARA||Benchs[i]->GetRotation().x==0) { return; }
+				if (benchState[i].SitChara != NON_CHARA) { return; }
+				if(Benchs[i]->GetRotation().x == 0) {
+					SpriteStartPos(charanum);
+					break; }
 				if (charanum == ONE_GIRL) {
+					Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/boy.wav", 0.5f);
 					Benchs[i]->SetCaharaCreate_P(true);
 					benchState[i].SitChara = ONE_GIRL;
 				}
 				if (charanum == TWO_CAT) {
+					Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/cat.wav",0.5f);
 					Benchs[i]->SetCaharaCreate_C(true);
 					benchState[i].SitChara = TWO_CAT;
 				}
 				if (charanum == THREE_BIRD) {
+					Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/bird.wav", 0.5f);
 					Benchs[i]->SetCaharaCreate_B(true);
 					benchState[i].SitChara = THREE_BIRD;
 				}

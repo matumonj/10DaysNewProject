@@ -8,6 +8,10 @@ void MyGame::Initialize()
 {
 	Framework::Initialize();
 	Sprite::StaticInitialize( WinApp::window_width, WinApp::window_height);
+	Audio::GetInstance()->Initialize();
+	Audio::GetInstance()->LoadSound(0, "Resources/Audio/bgm_wav/Green.wav");
+	Audio::GetInstance()->LoadSound(1, "Resources/Audio/bgm_wav/Sakura.wav");
+	Audio::GetInstance()->LoadSound(2, "Resources/Audio/bgm_wav/End.wav");
 	ImageManager::GetIns()->Load2D();
 	LightGroup::StaticInitialize();
 	FbxLoader::GetInstance()->Initialize();

@@ -115,6 +115,9 @@ void ResultScene::Initialize() {
 	}
 	Sprite* BackGround_ = Sprite::Create(ImageManager::Result, { 0,0 });
 	BackGround.reset(BackGround_);
+	Audio::GetInstance()->StopWave(0);
+	Audio::GetInstance()->StopWave(1);
+	Audio::GetInstance()->LoopWave(2, 0.3f);
 
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
@@ -174,8 +177,9 @@ void ResultScene::Update() {
 	}
 
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
+		Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/start.wav", 0.5f);
 		BaseScene* scene = new TitleScene(sceneManager_);//次のシーンのインスタンス生成
-		SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
+		SceneManager::GetInstance()->SetScene(SceneManager::TITLE);
 		sceneManager_->SetnextScene(scene);//シーンのセット
 	}
 

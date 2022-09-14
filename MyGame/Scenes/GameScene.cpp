@@ -91,9 +91,10 @@ void GameScene::Initialize()
 	f_Object3d::CreateGraphicsPipeline();
 	PlaceObj::GetInstance()->Init();
 
-	audio = new Audio();
-	audio->Initialize();
-	audio->LoopWave("Resources/Audio/bgm_wav/Sakura.wav",1.0f );
+	Audio::GetInstance()->StopWave(0);
+	Audio::GetInstance()->StopWave(2);
+
+	Audio::GetInstance()->LoopWave(1,0.3f);
 
 }
 

@@ -37,6 +37,10 @@ void TitleScene::Initialize() {
 	Effect->setcolor({ 1,1,1,alpha });
 
 
+	Audio::GetInstance()->StopWave(1);
+	Audio::GetInstance()->StopWave(2);
+	Audio::GetInstance()->LoopWave(0, 0.3f);
+
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 }
@@ -48,11 +52,17 @@ void TitleScene::Update() {
 
 	}
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {
-		Change2 = true;
+		if (!Change) {
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/start.wav", 0.5f);
+			Change2 = true;
+		}
 	}
 
 	if (Input::GetInstance()->PushMouseLeft()) {//押されたら
-		Change = true;
+		if (!Change2) {
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/start.wav", 0.5f);
+			Change = true;
+		}
 	}
 	Feed();
 
@@ -101,6 +111,11 @@ void TitleScene::Feed() {
 			frame += 0.02f;
 		} else {
 			ExpadianV = true;
+			if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {
+				BaseScene* scene = new GameScene(sceneManager_);//次のシーンのインスタンス生成
+				SceneManager::GetInstance()->SetScene(SceneManager::PLAY);
+				sceneManager_->SetnextScene(scene);//シーンのセット
+			}
 		}
 		alpha = Ease(In, Quad, frame, 0, 1);
 		Effect->setcolor({ 1,1,1,alpha });
