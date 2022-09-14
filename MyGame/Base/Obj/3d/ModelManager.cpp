@@ -20,7 +20,6 @@ void ModelManager::Initialize() {
 	LoadFBXModel(Human, "Human");
 	LoadFBXModel(Cat, "Beckoning cat");
 	LoadFBXModel(Bird, "Eagle");
-
 }
 
 void ModelManager::LoadModel(const ModelName modelName, std::string fileName) {

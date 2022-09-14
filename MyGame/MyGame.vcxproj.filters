@@ -261,6 +261,9 @@
     <ClCompile Include="Base\Helper\PauseStart.cpp">
       <Filter>Game\gameobject\Effect</Filter>
     </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -457,6 +460,9 @@
     </ClInclude>
     <ClInclude Include="Base\Helper\PauseStart.h">
       <Filter>Game\gameobject\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

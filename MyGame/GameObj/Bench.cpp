@@ -4,6 +4,7 @@
 #include"PlaceObj.h"
 #include"Cat.h"
 #include"Input.h"
+#include"Bird.h"
 #include"mHelper.h"
 #include "ImageManager.h"
 #include <Base/Obj/3d/ModelManager.h>
@@ -112,13 +113,8 @@ void Bench::SetChara()
 		player->Initialize();
 		CharaCreate_C = false;
 	}
-	if (CharaCreate_D) {
-		player = new Human();
-		player->Initialize();
-		CharaCreate_D = false;
-	}
 	if (CharaCreate_B) {
-		player = new Human();
+		player = new Bird();
 		player->Initialize();
 		CharaCreate_B = false;
 	}

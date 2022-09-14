@@ -156,7 +156,6 @@ void GameScene::SpriteDraw()
 	BackGround->Draw();
 	Sprite::PostDraw();
 	DirectXCommon::GetInstance()->ClearDepthBuffer();
-
 }
 
 /// <summary>
@@ -168,6 +167,8 @@ void GameScene::Draw()
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
 	SpriteDraw();
+	
+	
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Draw();
 	}
@@ -175,6 +176,14 @@ void GameScene::Draw()
 	DustBox->Draw();
 
 	PlaceObj::GetInstance()->Draw();
+
+	PlaceObj::GetInstance()->Draw();
+
+	Object3d::PreDraw();
+	DustBox->Draw();
+	Gate->Draw();
+	Gate2->Draw();
+	Object3d::PostDraw();
 	for (int i = 0; i < sushis.size(); i++) {
 		if (sushis[i] != nullptr) {
 			sushis[i]->Draw();
@@ -190,11 +199,6 @@ void GameScene::Draw()
 			sushis3[i]->Draw();
 		}
 	}
-	DustBox->Draw();
-	Gate->Draw();
-	Gate2->Draw();
-
-	PlaceObj::GetInstance()->Draw();
 	Sprite::PreDraw();
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
