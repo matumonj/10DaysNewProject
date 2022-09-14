@@ -23,7 +23,10 @@ void ImageManager::Load2D() {
 	Sprite::LoadTexture(Result, L"Resources/2d/Result.png");
 	Sprite::LoadTexture(Title, L"Resources/2d/title.png");
 	Sprite::LoadTexture(Black, L"Resources/2d/Blackfilter.png");
-	Sprite::LoadTexture(Go, L"Resources/2d/Go.png");
+	Sprite::LoadTexture(Count1, L"Resources/2d/Count/Count1.png");
+	Sprite::LoadTexture(Count2, L"Resources/2d/Count/Count2.png");
+	Sprite::LoadTexture(Count3, L"Resources/2d/Count/Count3.png");
+	Sprite::LoadTexture(Go, L"Resources/2d//Count/Go.png");
 
 }
 

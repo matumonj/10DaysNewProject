@@ -26,9 +26,6 @@ private:
 	float ETime[4] = {};
 	float EaseX[4] = { 780, 780, 780, 780 }; //640
 
-	int CoolTime = 0;
-
-
-
-
+	int CoolTime[4] ={ };
+	int fase = 0;
 };
