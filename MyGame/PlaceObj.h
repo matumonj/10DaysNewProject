@@ -77,7 +77,7 @@ public:
 	} }
 	void CenterBench_isUse(bool f) {
 		if (f) {
-			Benchs[CENTER_UP]->SetRot({ 180,180,0 });
+			Benchs[CENTER_UP]->SetRot({ 180,90,0 });
 		}
 	}
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰

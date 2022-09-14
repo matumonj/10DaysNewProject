@@ -66,11 +66,10 @@ void Tuna::TitleUpda() {
 
 void Tuna::Draw()
 {
-	TexDraw();
 	if (SushiObj != nullptr) {
 		Object3d::PreDraw();
 		SushiObj->Draw();
 		Object3d::PostDraw();
 	}
-	//TexDraw();
+	TexDraw();
 }

@@ -47,7 +47,7 @@ void GameScene::Initialize() {
 	WaveSprite[WAVE2] = Sprite::Create(ImageManager::Wave2, { -300,0 });
 	WaveSprite[WAVE3] = Sprite::Create(ImageManager::Wave3, { -300,0 });
 	WaveSprite[WAVE4] = Sprite::Create(ImageManager::Wave4, { -300,0 });
-	WaveSprite[WAVE5] = Sprite::Create(ImageManager::Wave5, { -300,0 });
+	WaveSprite[WAVE5] = Sprite::Create(ImageManager::Wave6, { -300,0 });
 	WaveSprite[WAVE6] = Sprite::Create(ImageManager::Wave6, { -300,0 });
 
 	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
@@ -261,6 +261,10 @@ int GameScene::RetrandCount() {
 		return rand() % 380 + 340;
 		return 0;
 		break;
+	case GameScene::WAVE5:
+		return rand() % 340 + 300;
+		return 0;
+		break;
 	case GameScene::CLEAR:
 		return 0;
 		break;
@@ -283,6 +287,10 @@ int GameScene::RetrandCount2() {
 		break;
 	case GameScene::WAVE4:
 		return rand() % 380 + 360;
+		return 0;
+		break;
+	case GameScene::WAVE5:
+		return rand() % 340 + 300;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -309,6 +317,10 @@ int GameScene::RetrandCount3() {
 		return rand() % 340 + 300;
 		return 0;
 		break;
+	case GameScene::WAVE5:
+		return rand() % 340 + 300;
+		return 0;
+		break;
 	case GameScene::CLEAR:
 		return 0;
 		break;
@@ -325,11 +337,11 @@ void GameScene::WaveCont() {
 			ETime[WAVE1] += 0.01f;
 		}
 		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], -300, 0),10 });
-		if (SushiDeathCount > 1) {
+		if (SushiDeathCount > 5) {
 			ETime[WAVE1] = 0;
 			fase = WAVE2;
 		}
-
+		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
 	case GameScene::WAVE2:
 		if (ETime[WAVE1] <= 1.0f) {
@@ -352,6 +364,7 @@ void GameScene::WaveCont() {
 			fase = WAVE3;
 		}
 		break;
+
 	case GameScene::WAVE3:
 		PlaceObj::GetInstance()->RightBench_isUse(true);
 
@@ -386,7 +399,8 @@ void GameScene::WaveCont() {
 		if (ETime[WAVE4] <= 1.0f) {
 			ETime[WAVE4] += 0.01f;
 		}
-		if (SushiDeathCount > 20) {
+		if (SushiDeathCount > 25) {
+			ETime[WAVE4] = 0;
 			fase = WAVE5;
 		}
 		WaveSprite[WAVE4]->SetPosition({ Easing::EaseOut(ETime[WAVE4], -300, 0),10 });
@@ -394,6 +408,17 @@ void GameScene::WaveCont() {
 		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
 	case GameScene::WAVE5:
+
+		if (ETime[WAVE4] <= 1.0f) {
+			ETime[WAVE4] += 0.01f;
+		}
+		WaveSprite[WAVE4]->SetPosition({ Easing::EaseOut(ETime[WAVE4], 0, -300),10 });
+
+		if (ETime[WAVE5] <= 1.0f) {
+			ETime[WAVE5] += 0.01f;
+		}
+		
+		WaveSprite[WAVE5]->SetPosition({ Easing::EaseOut(ETime[WAVE5], -300, 0),10 });
 
 		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
