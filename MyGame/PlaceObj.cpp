@@ -159,6 +159,7 @@ void PlaceObj::PlaceChara(const int& charanum) {
 				
 				if (benchState[i].SitChara != NON_CHARA) { return; }
 				if(Benchs[i]->GetRotation().x == 0) {
+					Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Cancel.wav", 0.5f);
 					SpriteStartPos(charanum);
 					break; }
 				if (charanum == ONE_GIRL) {

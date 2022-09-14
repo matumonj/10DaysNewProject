@@ -13,11 +13,11 @@ PauseStart::~PauseStart() {
 }
 
 void PauseStart::Init() {
-	num[1] = Sprite::Create(ImageManager::Count1, { 640.0f,360.0f });
+	num[1] = Sprite::Create(ImageManager::Count1, { -640.0f,360.0f });
 	num[1]->SetAnchorPoint({ 0.5f,0.5f });
-	num[2] = Sprite::Create(ImageManager::Count2, { 640.0f,360.0f });
+	num[2] = Sprite::Create(ImageManager::Count2, { -640.0f,360.0f });
 	num[2]->SetAnchorPoint({ 0.5f,0.5f });
-	num[3] = Sprite::Create(ImageManager::Count3, { 640.0f,360.0f });
+	num[3] = Sprite::Create(ImageManager::Count3, { -640.0f,360.0f });
 	num[3]->SetAnchorPoint({ 0.5f,0.5f });
 
 	Sprite* Go_ = Sprite::Create(ImageManager::Go, { 640.0f,360.0f });
