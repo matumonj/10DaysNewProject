@@ -15,7 +15,7 @@ void Tuna::Initialize()
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
 	SushiObj->SetPosition(Position);
 
-	MaxHP = 30;
+	MaxHP = 40;
 	HP = MaxHP;
 }
 

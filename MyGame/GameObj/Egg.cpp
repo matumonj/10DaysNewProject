@@ -14,7 +14,7 @@ void Egg::Initialize()
 	SushiObj->Initialize(CameraControl::GetInstance()->GetCamera());
 	SushiObj->SetPosition(Position);
 
-	MaxHP = 50;
+	MaxHP = 55;
 	HP = MaxHP;
 }
 
