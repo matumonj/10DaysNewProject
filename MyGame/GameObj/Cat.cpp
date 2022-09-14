@@ -38,7 +38,7 @@ void Cat::Update() {
 	}
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
-
+	m_fbxObject->SetRotation({ Rot.x,Rot.y ,Rot.z });
 	//PlaceObj::GetInstance()->SetIconSpritePos(iconSprite);
 }
 
