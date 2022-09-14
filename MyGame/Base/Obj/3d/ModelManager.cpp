@@ -17,7 +17,7 @@ void ModelManager::Initialize() {
 	LoadModel(Gate, "Cube");
 	LoadModel(Bench, "Bench");
 	LoadModel(Conveyor, "Conveyor");
-	LoadFBXModel(Human, "Human");
+	LoadFBXModel(Human, "Bird");
 	LoadFBXModel(Cat, "Beckoning cat");
 }
 

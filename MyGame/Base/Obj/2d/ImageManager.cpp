@@ -17,6 +17,9 @@ void ImageManager::Load2D() {
 	Sprite::LoadTexture(IconGirl, L"Resources/2d/CharaIcon/girl.png");
 	Sprite::LoadTexture(IconCat, L"Resources/2d/CharaIcon/cat.png");
 	Sprite::LoadTexture(IconInu, L"Resources/2d/CharaIcon/inu.png");
+	Sprite::LoadTexture(StatusHuman, L"Resources/2d/CharaIcon/StatusHuman.png");
+	Sprite::LoadTexture(StatusCat, L"Resources/2d/CharaIcon/StatusCat.png");
+	Sprite::LoadTexture(StatusBird, L"Resources/2d/CharaIcon/StatusBird.png");
 	Sprite::LoadTexture(IconBack, L"Resources/2d/CharaIcon/charaIconB.png");
 	Sprite::LoadTexture(Target, L"Resources/target.png");
 	Sprite::LoadTexture(White, L"Resources/white1x1.png");

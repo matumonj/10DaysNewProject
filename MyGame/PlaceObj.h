@@ -26,8 +26,7 @@ private:
 		NON_CHARA = 0,
 		ONE_GIRL,
 		TWO_CAT,
-		THREE_DOG,
-		FOUR_BIRD,
+		THREE_BIRD,
 		MAX_CHARA
 	};
 
@@ -45,6 +44,7 @@ private:
 
 private:
 	Sprite* CharaSprite[MAX_CHARA];
+	Sprite* StatusSprite[MAX_CHARA];
 	std::unique_ptr<Sprite> CharaBack;
 
 	POINT p;
