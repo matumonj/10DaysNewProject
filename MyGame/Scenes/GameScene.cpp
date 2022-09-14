@@ -28,10 +28,12 @@ GameScene::GameScene(SceneManager* sceneManager)
 /// </summary>
 void GameScene::Initialize()
 {
-	WaveSprite[0] = Sprite::Create(ImageManager::Wave1, { -300,0 });
-	WaveSprite[1] = Sprite::Create(ImageManager::Wave2, { -300,0 });
-	WaveSprite[2] = Sprite::Create(ImageManager::Wave3, { -300,0 });
-	WaveSprite[3] = Sprite::Create(ImageManager::Wave4, { -300,0 });
+	WaveSprite[WAVE1] = Sprite::Create(ImageManager::Wave1, { -300,0 });
+	WaveSprite[WAVE2] = Sprite::Create(ImageManager::Wave2, { -300,0 });
+	WaveSprite[WAVE3] = Sprite::Create(ImageManager::Wave3, { -300,0 });
+	WaveSprite[WAVE4] = Sprite::Create(ImageManager::Wave4, { -300,0 });
+	WaveSprite[WAVE5] = Sprite::Create(ImageManager::Wave5, { -300,0 });
+	WaveSprite[WAVE6] = Sprite::Create(ImageManager::Wave6, { -300,0 });
 
 	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
 	BackGround.reset(BackGround_);
@@ -369,6 +371,15 @@ void GameScene::WaveCont()
 
 		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
+	case GameScene::WAVE5:
+
+		PlaceObj::GetInstance()->CenterBench_isUse(true);
+		break;
+	case GameScene::WAVE6:
+
+		PlaceObj::GetInstance()->CenterBench_isUse(true);
+		break;
+
 	case GameScene::CLEAR:
 		break;
 	default:
