@@ -2,7 +2,13 @@
 
 #include <Windows.h>
 #include <xaudio2.h>
+#pragma comment(lib,"xaudio2.lib")
 #include <wrl.h>
+
+#include<fstream>
+#include<cassert>
+#include<string>
+#include<list>
 
 /// <summary>
 /// オーディオコールバック
@@ -38,35 +44,48 @@ private: // エイリアス
 	template <class T> using ComPtr = Microsoft::WRL::ComPtr<T>;
 public: // サブクラス
 	// チャンクヘッダ
-	struct Chunk {
+	struct Chunk 	{
 		char	id[4]; // チャンク毎のID
 		int		size;  // チャンクサイズ
 	};
 
 	// RIFFヘッダチャンク
-	struct RiffHeader {
+	struct RiffHeader 	{
 		Chunk	chunk;   // "RIFF"
 		char	type[4]; // "WAVE"
 	};
 
 	// FMTチャンク
-	struct FormatChunk {
+	struct FormatChunk 	{
 		Chunk		chunk; // "fmt "
 		WAVEFORMAT	fmt;   // 波形フォーマット
 	};
 
 public: // メンバ関数
-
+	static Audio* GetInstance();
+	std::list< Audio>audios;
 	/// <summary>
 	/// 初期化
 	/// </summary>
 	/// <returns>成否</returns>
 	bool Initialize();
-
 	// サウンドファイルの読み込みと再生
+	void LoadSound(int texnumber, const char* filename);
 	void PlayWave(const char* filename, const float Volume);
-	void LoopWave(const char* filename, float Volume);
+	void LoopWave(int texnumber, float Volume);
+	void StopWave(int texnumber);
 private: // メンバ変数
+	static const int srvCount = 10;
+	// サウンド番号
+	int texNumber = 0;
+	RiffHeader riff[srvCount] = {};
+	FormatChunk format[srvCount] = {};
+	Chunk data[srvCount] = {};
+	char* pBuffer[srvCount] = {}; 
+	WAVEFORMATEX wfex[srvCount]{};
+	IXAudio2SourceVoice* pSourceVoice[srvCount] = { nullptr };
+	XAUDIO2_BUFFER buf[srvCount]{};
+	char fileStamp[srvCount][50]{};
 	ComPtr<IXAudio2> xAudio2;
 	IXAudio2MasteringVoice* masterVoice;
 	XAudio2VoiceCallback voiceCallback;

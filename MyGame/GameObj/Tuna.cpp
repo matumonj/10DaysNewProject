@@ -28,6 +28,7 @@ void Tuna::Update()
 		bool death = isDead;
 		bool eaten = isEaten;
 		if (HP<=0 && !death) {
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Eaten.wav", 0.5f);
 			ScoreMgr::GetIns()->AddScore(100);
 			isDead = true;
 		}

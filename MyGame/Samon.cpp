@@ -26,8 +26,9 @@ void Samon::Update()
 		TexUp();
 		bool death = isDead;
 		bool eaten = isEaten;
-		if (HP == 0 && !death) {
+		if (HP <= 0 && !death) {
 			ScoreMgr::GetIns()->AddScore(100);
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Eaten.wav", 0.5f);
 			isDead = true;
 		}
 		SushiObj->SetScale(Scale);
