@@ -83,3 +83,13 @@ void Cat::Attack(Sushi* sushis)
 {
 	AttackJudg(sushis);
 }
+
+void Cat::Attack2(Sushi* sushis)
+{
+	AttackJudg2(sushis);
+}
+
+void Cat::Attack3(Sushi* sushis)
+{
+	AttackJudg3(sushis);
+}

@@ -37,14 +37,15 @@ public:
 
 	void Initialize();
 	void Update(Sushi*sushis);
+	void Update2(Sushi* sushis);
+	void Update3(Sushi* sushis);
 	void UpdateS();
 	void SitGaugeUp();
 	void Draw();
 	void SetChara();
 	void SetCaharaCreate_P(bool f) { CharaCreate_P = f; }
 	void SetCaharaCreate_C(bool f) { CharaCreate_C = f; }
-	void SetCaharaCreate_D(bool f) { CharaCreate_D = f; }
-	void SetCaharaCreate_B(bool f) { CharaCreate_B = f; }
+void SetCaharaCreate_B(bool f) { CharaCreate_B = f; }
 	void SetDestroyCahara(bool f) { DestroyChara = f; }
 	void SetCharaSitF(bool f) { SitChara = f; }
 	bool GetCharaSitF() { return SitChara; }

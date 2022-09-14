@@ -93,7 +93,7 @@ void GameScene::Initialize()
 
 	audio = new Audio();
 	audio->Initialize();
-	//audio->LoopWave("Resources/bgm.wav",1.0f );
+	audio->LoopWave("Resources/Audio/bgm_wav/Sakura.wav",1.0f );
 
 }
 
@@ -103,6 +103,10 @@ void GameScene::Initialize()
 /// </summary>
 void GameScene::Update()
 { 
+	if (Input::GetInstance()->TriggerKey(DIK_0)) {
+		int a = 0;
+		a++;
+	}
 	///audio->PlayWave("Resources/Audio/AnyConv.com__ˆä‚Ì’†‚ÌŠ^.wav", 1.3f); 
 	if (first&&pause) {
 		pauseStart->Upda();
@@ -128,12 +132,13 @@ void GameScene::Update()
 
 	for (int i = 0; i < sushis2.size(); i++) {
 		if (sushis2[i] != nullptr) {
-			PlaceObj::GetInstance()->Update(sushis2[i]);
+			PlaceObj::GetInstance()->Update2(sushis2[i]);
 		}
 	}
 	for (int i = 0; i < sushis3.size(); i++) {
 		if (sushis3[i] != nullptr) {
-			PlaceObj::GetInstance()->Update(sushis3[i]);
+		PlaceObj::GetInstance()->Update3(sushis3[i]);
+
 		}
 	}
 	PlaceObj::GetInstance()->UpdateS();
@@ -375,7 +380,7 @@ void GameScene::Wave1or2()
 	placeC++;
 
 	if (placeC % RandPlaceCount == 0) {
-		sushinum.push_back(rand() % 3);
+		sushinum.push_back(rand() % 2);
 		if (sushinum.back() == 0) {
 			sushis.push_back(new Samon());
 			sushis.back()->Initialize();
@@ -383,10 +388,7 @@ void GameScene::Wave1or2()
 			sushis.push_back(new Egg());
 			sushis.back()->Initialize();
 		}
-		else if (sushinum.back() == 2) {
-			sushis.push_back(new Tuna());
-			sushis.back()->Initialize();
-		}
+		
 		smove.push_back(new SushiMove());
 		RandPlaceCount = RetrandCount();
 		placeC = 0;

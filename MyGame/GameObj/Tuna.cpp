@@ -27,7 +27,7 @@ void Tuna::Update()
 		TexUp();
 		bool death = isDead;
 		bool eaten = isEaten;
-		if (HP==0 && !death) {
+		if (HP<=0 && !death) {
 			ScoreMgr::GetIns()->AddScore(100);
 			isDead = true;
 		}

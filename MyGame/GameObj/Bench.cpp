@@ -35,8 +35,32 @@ void Bench::Update(Sushi* sushis) {
 	BenchObj->SetRotation(Rot);
 	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	if (player != nullptr) {
-		if (Palpha > 0.0f) {
+		if (Palpha > 0.5f) {
 			player->Attack(sushis);
+		}
+	}
+}
+
+void Bench::Update2(Sushi* sushis) {
+	BenchObj->SetScale(Scale);
+	BenchObj->SetPosition(Position);
+	BenchObj->SetRotation(Rot);
+	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	if (player != nullptr) {
+		if (Palpha > 0.5f) {
+			player->Attack2(sushis);
+		}
+	}
+}
+
+void Bench::Update3(Sushi* sushis) {
+	BenchObj->SetScale(Scale);
+	BenchObj->SetPosition(Position);
+	BenchObj->SetRotation(Rot);
+	BenchObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	if (player != nullptr) {
+		if (Palpha > 0.5f) {
+			player->Attack3(sushis);
 		}
 	}
 }

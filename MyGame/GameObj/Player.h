@@ -29,9 +29,14 @@ public:
 	virtual void Draw() = 0;
 	virtual void IconDraw() = 0;
 	virtual void Attack(Sushi*sushis) = 0;
-
+	virtual void Attack2(Sushi* sushis) = 0; 
+	virtual void Attack3(Sushi* sushis) = 0;
 	
 	void AttackJudg(Sushi*sushis);
+
+	void AttackJudg2(Sushi* sushis);
+
+	void AttackJudg3(Sushi* sushis);
 public:
 	enum PlayerMove {
 	WAIT,//‘Ò‹@
@@ -40,7 +45,6 @@ public:
 	enum CharaTag {
 		TPLAYER,
 		TCAT,
-		TDOG,
 		TBIRD
 	};
 	XMFLOAT3 GetPos() { return Position; }
@@ -62,6 +66,8 @@ protected:
 	float Range;
 
 	bool AtkFlag;
+	bool AtkFlag2;
+	bool AtkFlag3;
 protected:
 	XMFLOAT3 Position = {0,0,5};
 	XMFLOAT3 Scale = { 1,1,1 };
