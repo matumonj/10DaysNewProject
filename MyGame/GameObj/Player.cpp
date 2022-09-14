@@ -26,6 +26,7 @@ void Player::AttackJudg(std::vector<Sushi*>sushis)
 			}
 		}
 	}
+
 	if (Cool) {
 		//AtkFlag=false;
 		CoolTime++;

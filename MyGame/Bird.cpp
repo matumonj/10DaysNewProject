@@ -12,9 +12,9 @@ void Bird::Initialize() {
 
 	ctag = TPLAYER;
 	//	FbxAnimationControl();
-	Range = 18;
-	Damage = 10;
-	AtkCool = 260.0f;
+	Range = 10;
+	Damage = 8;
+	AtkCool = 60.0f;
 }
 
 void Bird::Update() {

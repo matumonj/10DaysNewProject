@@ -13,9 +13,9 @@ void Cat::Initialize() {
 	ctag = TPLAYER;
 	//	FbxAnimationControl();
 
-	Range = 20;
-	Damage = 20;
-	AtkCool = 60.0f;
+	Range = 12;
+	Damage = 13;
+	AtkCool = 120.0f;
 }
 
 void Cat::Update() {
