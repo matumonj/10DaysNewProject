@@ -91,6 +91,10 @@ void GameScene::Initialize()
 	f_Object3d::CreateGraphicsPipeline();
 	PlaceObj::GetInstance()->Init();
 
+	audio = new Audio();
+	audio->Initialize();
+	//audio->LoopWave("Resources/bgm.wav",1.0f );
+
 }
 
 
@@ -99,6 +103,7 @@ void GameScene::Initialize()
 /// </summary>
 void GameScene::Update()
 { 
+	///audio->PlayWave("Resources/Audio/AnyConv.com__ˆä‚Ì’†‚ÌŠ^.wav", 1.3f); 
 	if (first&&pause) {
 		pauseStart->Upda();
 		if (pauseStart->GetPause()) {

@@ -29,6 +29,7 @@ private:
 	using XMFLOAT2 = DirectX::XMFLOAT2;
 	using XMFLOAT3 = DirectX::XMFLOAT3;
 private:
+	Audio* audio;
 	std::vector<Sushi*> sushis;
 	std::vector<Sushi*> sushis2;
 	std::vector<Sushi*> sushis3;
