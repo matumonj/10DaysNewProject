@@ -45,12 +45,12 @@ void PlaceObj::Init() {
 	benchState[LEFT_BOTTOM].Position_2d = { 180,495 };
 	benchState[LEFT_BOTTOM].Position_3d = {BenchPos[LEFT_BOTTOM]};
 	benchState[LEFT_BOTTOM].SitChara = NON_CHARA;
-	Benchs[LEFT_BOTTOM]->SetRot({0,180,0});
+	Benchs[LEFT_BOTTOM]->SetRot({180,180,0});
 
 	benchState[LEFT_CENTER].Position_2d = { 127,275 };
 	benchState[LEFT_CENTER].Position_3d = { BenchPos[LEFT_CENTER]};
 	benchState[LEFT_CENTER].SitChara = NON_CHARA;
-	Benchs[LEFT_CENTER]->SetRot({ 0,-90,0 });
+	Benchs[LEFT_CENTER]->SetRot({ 180,-90,0 });
 
 	benchState[CENTER_UP].Position_2d = { 535,110 };
 	benchState[CENTER_UP].Position_3d = { BenchPos[CENTER_UP]};
@@ -60,12 +60,12 @@ void PlaceObj::Init() {
 	benchState[CENTER_BOTTOM].Position_2d = { 490,570 };
 	benchState[CENTER_BOTTOM].Position_3d = { BenchPos[CENTER_BOTTOM]};
 	benchState[CENTER_BOTTOM].SitChara = NON_CHARA;
-	Benchs[CENTER_BOTTOM]->SetRot({ 0,90,0 });
+	Benchs[CENTER_BOTTOM]->SetRot({ 180,90,0 });
 
 	benchState[LEFT_UP].Position_2d = { 315,145 };
 	benchState[LEFT_UP].Position_3d = {BenchPos[LEFT_UP]};
 	benchState[LEFT_UP].SitChara = NON_CHARA;
-	Benchs[LEFT_UP]->SetRot({ 0,0,0 });
+	Benchs[LEFT_UP]->SetRot({ 180,0,0 });
 
 	benchState[RIGHT_BOTTOM].Position_2d = { 710,510 };
 	benchState[RIGHT_BOTTOM].Position_3d = { BenchPos[RIGHT_BOTTOM]};
@@ -75,12 +75,12 @@ void PlaceObj::Init() {
 	benchState[RIGHT_CENTER].Position_2d = { 875,280};
 	benchState[RIGHT_CENTER].Position_3d = { BenchPos[RIGHT_CENTER]};
 	benchState[RIGHT_CENTER].SitChara = NON_CHARA;
-	Benchs[RIGHT_CENTER]->SetRot({ 0,180,0 });
+	Benchs[RIGHT_CENTER]->SetRot({ 180,180,0 });
 
 	benchState[RIGHT_UP].Position_2d = { 680,155};
 	benchState[RIGHT_UP].Position_3d = { BenchPos[RIGHT_UP]};
 	benchState[RIGHT_UP].SitChara = NON_CHARA;
-	Benchs[RIGHT_UP]->SetRot({ 0,0,0 });
+	Benchs[RIGHT_UP]->SetRot({ 180,0,0 });
 
 	
 
@@ -144,7 +144,7 @@ void PlaceObj::PlaceChara(const int& charanum) {
 		if (Collision::GetLength2(CharaSprite[charanum]->GetPosition(), benchState[i].Position_2d) < 50) {
 			if (!Clickf[charanum]) {
 				
-				if (benchState[i].SitChara != NON_CHARA) { return; }
+				if (benchState[i].SitChara != NON_CHARA||Benchs[i]->GetRotation().x==0) { return; }
 				if (charanum == ONE_GIRL) {
 					Benchs[i]->SetCaharaCreate_P(true);
 					benchState[i].SitChara = ONE_GIRL;
