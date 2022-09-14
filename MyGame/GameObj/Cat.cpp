@@ -79,17 +79,17 @@ void Cat::IconDraw() {
 //	m_fbxObject->SetFbxTime(f_time);
 //}
 
-void Cat::Attack(Sushi* sushis)
+void Cat::Attack(std::vector<Sushi*> sushis)
 {
 	AttackJudg(sushis);
 }
 
-void Cat::Attack2(Sushi* sushis)
+void Cat::Attack2(std::vector<Sushi*>sushis)
 {
 	AttackJudg2(sushis);
 }
 
-void Cat::Attack3(Sushi* sushis)
+void Cat::Attack3(std::vector<Sushi*>sushis)
 {
 	AttackJudg3(sushis);
 }

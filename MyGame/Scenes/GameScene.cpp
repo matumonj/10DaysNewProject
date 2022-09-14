@@ -124,23 +124,13 @@ void GameScene::Update()
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
-	for (int i = 0; i < sushis.size(); i++) {
-		if (sushis[i] != nullptr) {
-			PlaceObj::GetInstance()->Update(sushis[i]);
-		}
-	}
+	PlaceObj::GetInstance()->Update(sushis);
+		
 
-	for (int i = 0; i < sushis2.size(); i++) {
-		if (sushis2[i] != nullptr) {
-			PlaceObj::GetInstance()->Update2(sushis2[i]);
-		}
-	}
-	for (int i = 0; i < sushis3.size(); i++) {
-		if (sushis3[i] != nullptr) {
-		PlaceObj::GetInstance()->Update3(sushis3[i]);
+	PlaceObj::GetInstance()->Update2(sushis2);
+		
+		PlaceObj::GetInstance()->Update3(sushis3);
 
-		}
-	}
 	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//‰Ÿ‚³‚ê‚½‚ç

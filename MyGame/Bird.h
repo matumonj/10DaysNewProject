@@ -12,9 +12,9 @@ public:
 
     void IconDraw()override;
 
-    void Attack(Sushi* sushis)override;
-    void Attack2(Sushi* sushis)override;
-     void Attack3(Sushi* sushis)override;
+    void Attack(std::vector<Sushi*>  sushis)override;
+    void Attack2(std::vector<Sushi*>  sushis)override;
+     void Attack3(std::vector<Sushi*> sushis)override;
 private:
     float CoolTime;
 };

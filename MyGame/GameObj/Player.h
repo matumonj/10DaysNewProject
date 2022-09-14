@@ -28,15 +28,15 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
 	virtual void IconDraw() = 0;
-	virtual void Attack(Sushi*sushis) = 0;
-	virtual void Attack2(Sushi* sushis) = 0; 
-	virtual void Attack3(Sushi* sushis) = 0;
+	virtual void Attack(std::vector<Sushi*>sushis) = 0;
+	virtual void Attack2(std::vector<Sushi*>sushis) = 0;
+	virtual void Attack3(std::vector<Sushi*> sushis) = 0;
 	
-	void AttackJudg(Sushi*sushis);
+	void AttackJudg(std::vector<Sushi*>sushis);
 
-	void AttackJudg2(Sushi* sushis);
+	void AttackJudg2(std::vector<Sushi*> sushis);
 
-	void AttackJudg3(Sushi* sushis);
+	void AttackJudg3(std::vector<Sushi*>sushis);
 public:
 	enum PlayerMove {
 	WAIT,//‘Ò‹@
@@ -54,7 +54,7 @@ public:
 	void SetRot(XMFLOAT3 rot) { m_fbxObject->SetRotation(rot); }
 	CharaTag GetCharaTag() { return ctag; }
 	void SetColor(XMFLOAT4 color) { m_fbxObject->SetColor(color); }
-	void EatAction(Sushi* sushis);
+	void EatAction(std::vector<Sushi*> sushis);
 protected:
 	CharaTag ctag;
 	Sprite* iconSprite;
