@@ -49,6 +49,7 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		break;
 	case SushiMove::DEAD:
 		if (!sushi->GetDead()) {
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Dead.wav", 0.5f);
 			LifeMgr::GetIns()->SumLife(1);
 		}
 		sushi->SetDead(true);
