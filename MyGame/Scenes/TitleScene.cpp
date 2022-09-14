@@ -81,7 +81,7 @@ void TitleScene::Draw() {
 	if (ExpadianV) {
 		Expadian->Draw();
 	} else {
-		Effect->Draw();
+		//Effect->Draw();
 	}
 	Sprite::PostDraw();
 
