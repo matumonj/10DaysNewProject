@@ -34,6 +34,8 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		isDump = Collision::GetLength(position, GarbagepPos) < 2.0f;
 		//‰ñ“]”¼Œa
 		if (isDump) {
+			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Dead.wav", 0.5f);
+			LifeMgr::GetIns()->SumLife(1);
 			SMove = DUMP;
 		}
 
@@ -48,10 +50,10 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		}
 		break;
 	case SushiMove::DEAD:
-		if (!sushi->GetDead()) {
-			Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Dead.wav", 0.5f);
-			LifeMgr::GetIns()->SumLife(1);
-		}
+		//if (!sushi->GetDead()) {
+		//	Audio::GetInstance()->PlayWave("Resources/Audio/bgm_wav/Dead.wav", 0.5f);
+		//	LifeMgr::GetIns()->SumLife(1);
+		//}
 		sushi->SetDead(true);
 		break;
 	default:

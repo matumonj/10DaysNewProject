@@ -217,6 +217,16 @@ void PlaceObj::Draw() {
 	}
 	Sprite::PostDraw();
 }
+void PlaceObj::Finalize() {
+	for (int i = 0; i < MAX_CHARA;i++) {
+		delete CharaSprite[ i];
+		delete StatusSprite[i];
+	}
+	players.clear();
+	Benchs.clear();
+
+
+}
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {
 		CharaSprite[charanum]->SetPosition({ 1200,60 });

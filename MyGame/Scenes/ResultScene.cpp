@@ -22,7 +22,7 @@ void ResultScene::LoadRanking() {
 void ResultScene::PushBackRank() {
 	LoadRanking();
 	std::string line;
-
+	Rank.clear();
 	while (getline(csvRanking, line)) {
 		//‰ðÍ‚µ‚â‚·‚­‚·‚é
 		std::istringstream line_stream(line);
@@ -193,19 +193,34 @@ void ResultScene::Draw() {
 
 	Sprite::PreDraw();
 	BackGround->Draw();
-	for (int i = 0; i < First.size() && i < 5; i++) {
-		num[0][i][(int)First[i]]->Draw();
+	if (Rank[0] == 0) {
+		num[0][0][0]->Draw();
+	} else {
+		for (int i = 0; i < First.size() && i < 5; i++) {
+			num[0][i][(int)First[i]]->Draw();
+		}
 	}
-	for (int i = 0; i < Second.size() && i < 5; i++) {
-		num[1][i][(int)Second[i]]->Draw();
+	if (Rank[1] == 0) {
+		num[1][0][0]->Draw();
+	} else {
+		for (int i = 0; i < Second.size() && i < 5; i++) {
+			num[1][i][(int)Second[i]]->Draw();
+		}
 	}
-	for (int i = 0; i < Third.size() && i < 5; i++) {
-		num[2][i][(int)Third[i]]->Draw();
+	if (Rank[2] == 0) {
+		num[2][0][0]->Draw();
+	} else {
+		for (int i = 0; i < Third.size() && i < 5; i++) {
+			num[2][i][(int)Third[i]]->Draw();
+		}
 	}
-	for (int i = 0; i < Now.size() && i < 5; i++) {
-		num[3][i][(int)Now[i]]->Draw();
+	if (Rank[3] == 0) {
+		num[3][0][0]->Draw();
+	} else {
+		for (int i = 0; i < Now.size() && i < 5; i++) {
+			num[3][i][(int)Now[i]]->Draw();
+		}
 	}
-
 	Sprite::PostDraw();
 	DirectXCommon::GetInstance()->EndDraw();
 
