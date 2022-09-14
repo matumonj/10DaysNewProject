@@ -21,10 +21,10 @@ void ScoreMgr::Init() {
 			num[i][j]->SetAnchorPoint({ 0,0 });
 			num[i][j]->SetSize({ w * 2,h * 2 });
 			num[i][j]->setcolor({ 1.0f,0.0f,0.0f,1.0f });
-			num[i][j]->SetPosition({ (float)980 - (70.0f * i) ,600.0f });
+			num[i][j]->SetPosition({ (float)980 - (70.0f * i) ,580.0f });
 		}
 	}
-	Sprite* Doll_ = Sprite::Create(ImageManager::Doll, { 1050.0f,650.0f });
+	Sprite* Doll_ = Sprite::Create(ImageManager::Doll, { 1050.0f,630.0f });
 	Doll.reset(Doll_);
 
 

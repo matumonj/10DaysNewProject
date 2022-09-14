@@ -31,8 +31,8 @@ void ImageManager::Load2D() {
 	Sprite::LoadTexture(Count1, L"Resources/2d/Count/Count1.png");
 	Sprite::LoadTexture(Count2, L"Resources/2d/Count/Count2.png");
 	Sprite::LoadTexture(Count3, L"Resources/2d/Count/Count3.png");
-	Sprite::LoadTexture(Go, L"Resources/2d//Count/Go.png");
-
+	Sprite::LoadTexture(Go, L"Resources/2d/Count/Go.png");
+	Sprite::LoadTexture(Expadian, L"Resources/2d/Expadian.png");
 }
 
 void ImageManager::LoadTex2D() {

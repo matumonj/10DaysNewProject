@@ -14,6 +14,11 @@ TitleScene::TitleScene(SceneManager* sceneManager)
 void TitleScene::Initialize() {
 	Sprite* BackGround_ = Sprite::Create(ImageManager::Title, { 0,0 });
 	BackGround.reset(BackGround_);
+	
+	Sprite* Expadian_ = Sprite::Create(ImageManager::Expadian, { 0,0 });
+	Expadian_->SetSize({1280,720});
+	Expadian.reset(Expadian_);
+
 
 	sushis.push_back(new Tuna());
 	sushis.push_back(new Egg());
@@ -42,7 +47,11 @@ void TitleScene::Update() {
 			sushis[i]->TitleUpda();
 
 	}
-	if (Input::GetInstance()->TriggerKey(DIK_SPACE) || Input::GetInstance()->PushMouseLeft()) {//‰Ÿ‚³‚ê‚½‚ç
+	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {
+		Change2 = true;
+	}
+
+	if (Input::GetInstance()->PushMouseLeft()) {//‰Ÿ‚³‚ê‚½‚ç
 		Change = true;
 	}
 	Feed();
@@ -59,7 +68,11 @@ void TitleScene::Draw() {
 			sushis[i]->Draw();
 	}
 	Sprite::PreDraw();
-	Effect->Draw();
+	if (ExpadianV) {
+		Expadian->Draw();
+	} else {
+		Effect->Draw();
+	}
 	Sprite::PostDraw();
 
 	DirectXCommon::GetInstance()->EndDraw();
@@ -83,4 +96,14 @@ void TitleScene::Feed() {
 		alpha = Ease(In, Quad, frame, 0, 1);
 		Effect->setcolor({ 1,1,1,alpha });
 	}
+	if (Change2) {
+		if (frame < 1.0f) {
+			frame += 0.02f;
+		} else {
+			ExpadianV = true;
+		}
+		alpha = Ease(In, Quad, frame, 0, 1);
+		Effect->setcolor({ 1,1,1,alpha });
+	}
+
 }
