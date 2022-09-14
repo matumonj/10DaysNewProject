@@ -76,6 +76,8 @@ void Bench::SitGaugeUp()
 	}
 	if (player != nullptr) {
 		player->SetColor({ 1,1,1,Palpha });
+	
+		player->SetRot(Rot);
 	}
 	Palpha = min(Palpha, 1.0f);
 	Palpha = max(Palpha, 0.0f);

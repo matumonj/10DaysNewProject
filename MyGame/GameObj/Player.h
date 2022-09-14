@@ -47,6 +47,7 @@ public:
 	PlayerMove GetState() { return SMove; }
 	void SetPosition(XMFLOAT3 pos) { Position = pos; }
 	Sprite* GetSprite() { return iconSprite; }
+	void SetRot(XMFLOAT3 rot) { m_fbxObject->SetRotation(rot); }
 	CharaTag GetCharaTag() { return ctag; }
 	void SetColor(XMFLOAT4 color) { m_fbxObject->SetColor(color); }
 	void EatAction(Sushi* sushis);
