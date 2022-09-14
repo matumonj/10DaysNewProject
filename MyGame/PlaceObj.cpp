@@ -25,40 +25,6 @@ void PlaceObj::Init() {
 
 	Sprite* CharaBack_ = Sprite::Create(ImageManager::IconBack, { 1100,0 });
 	CharaBack.reset(CharaBack_);
-
-	benchState[LEFT_BOTTOM].Position_2d = { 180,495 };
-	benchState[LEFT_BOTTOM].Position_3d = {BenchPos[LEFT_BOTTOM]};
-	benchState[LEFT_BOTTOM].SitChara = NON_CHARA;
-
-	benchState[LEFT_CENTER].Position_2d = { 127,275 };
-	benchState[LEFT_CENTER].Position_3d = { BenchPos[LEFT_CENTER]};
-	benchState[LEFT_CENTER].SitChara = NON_CHARA;
-
-	benchState[CENTER_UP].Position_2d = { 535,110 };
-	benchState[CENTER_UP].Position_3d = { BenchPos[CENTER_UP]};
-	benchState[CENTER_UP].SitChara = NON_CHARA;
-
-	benchState[CENTER_BOTTOM].Position_2d = { 490,570 };
-	benchState[CENTER_BOTTOM].Position_3d = { BenchPos[CENTER_BOTTOM]};
-	benchState[CENTER_BOTTOM].SitChara = NON_CHARA;
-
-	benchState[LEFT_UP].Position_2d = { 315,145 };
-	benchState[LEFT_UP].Position_3d = {BenchPos[LEFT_UP]};
-	benchState[LEFT_UP].SitChara = NON_CHARA;
-
-	benchState[RIGHT_BOTTOM].Position_2d = { 710,510 };
-	benchState[RIGHT_BOTTOM].Position_3d = { BenchPos[RIGHT_BOTTOM]};
-	benchState[RIGHT_BOTTOM].SitChara = NON_CHARA;
-
-	benchState[RIGHT_CENTER].Position_2d = { 875,280};
-	benchState[RIGHT_CENTER].Position_3d = { BenchPos[RIGHT_CENTER]};
-	benchState[RIGHT_CENTER].SitChara = NON_CHARA;
-
-	benchState[RIGHT_UP].Position_2d = { 680,155};
-	benchState[RIGHT_UP].Position_3d = { BenchPos[RIGHT_UP]};
-	benchState[RIGHT_UP].SitChara = NON_CHARA;
-
-
 	std::unique_ptr<Bench> newBench;
 	for (int i = 0; i < MAXBENCH; i++) {
 		Bench* newBench_ = new Bench();
@@ -69,6 +35,48 @@ void PlaceObj::Init() {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Initialize();
 	}
+
+	benchState[LEFT_BOTTOM].Position_2d = { 180,495 };
+	benchState[LEFT_BOTTOM].Position_3d = {BenchPos[LEFT_BOTTOM]};
+	benchState[LEFT_BOTTOM].SitChara = NON_CHARA;
+	Benchs[LEFT_BOTTOM]->SetRot({0,180,0});
+
+	benchState[LEFT_CENTER].Position_2d = { 127,275 };
+	benchState[LEFT_CENTER].Position_3d = { BenchPos[LEFT_CENTER]};
+	benchState[LEFT_CENTER].SitChara = NON_CHARA;
+	Benchs[LEFT_CENTER]->SetRot({ 0,-90,0 });
+
+	benchState[CENTER_UP].Position_2d = { 535,110 };
+	benchState[CENTER_UP].Position_3d = { BenchPos[CENTER_UP]};
+	benchState[CENTER_UP].SitChara = NON_CHARA;
+	Benchs[CENTER_UP]->SetRot({ 0,-90,0 });
+
+	benchState[CENTER_BOTTOM].Position_2d = { 490,570 };
+	benchState[CENTER_BOTTOM].Position_3d = { BenchPos[CENTER_BOTTOM]};
+	benchState[CENTER_BOTTOM].SitChara = NON_CHARA;
+	Benchs[CENTER_BOTTOM]->SetRot({ 0,90,0 });
+
+	benchState[LEFT_UP].Position_2d = { 315,145 };
+	benchState[LEFT_UP].Position_3d = {BenchPos[LEFT_UP]};
+	benchState[LEFT_UP].SitChara = NON_CHARA;
+	Benchs[LEFT_UP]->SetRot({ 0,0,0 });
+
+	benchState[RIGHT_BOTTOM].Position_2d = { 710,510 };
+	benchState[RIGHT_BOTTOM].Position_3d = { BenchPos[RIGHT_BOTTOM]};
+	benchState[RIGHT_BOTTOM].SitChara = NON_CHARA;
+	Benchs[RIGHT_BOTTOM]->SetRot({ 0,180,0 });
+
+	benchState[RIGHT_CENTER].Position_2d = { 875,280};
+	benchState[RIGHT_CENTER].Position_3d = { BenchPos[RIGHT_CENTER]};
+	benchState[RIGHT_CENTER].SitChara = NON_CHARA;
+	Benchs[RIGHT_CENTER]->SetRot({ 0,180,0 });
+
+	benchState[RIGHT_UP].Position_2d = { 680,155};
+	benchState[RIGHT_UP].Position_3d = { BenchPos[RIGHT_UP]};
+	benchState[RIGHT_UP].SitChara = NON_CHARA;
+	Benchs[RIGHT_UP]->SetRot({ 0,0,0 });
+
+	
 
 
 }

@@ -113,8 +113,6 @@ void SushiMove::Wave3move(Sushi* sushi)
 	sushi->SetRot(rot);
 }
 
-
-
 void SushiMove::Wave4move(Sushi* sushi)
 {
 	switch (SMove)
@@ -202,6 +200,7 @@ void SushiMove::Wave1or2Rot()
 		}
 	}
 }
+
 void SushiMove::Wave3Rot()
 {
 	if (Collision::GetLength(position, { 20,-40,10 }) < 1.0f) {
