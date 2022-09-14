@@ -23,7 +23,7 @@ public:
 	void Update3(std::vector<Sushi*> sushis);
 	void UpdateS();
 	void Draw();
-
+	void Finalize();
 	std::unique_ptr<Audio>placeAudio;
 private:
 	enum {

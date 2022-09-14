@@ -161,6 +161,7 @@ void GameScene::Update() {
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate2->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
+	Feed();
 	if (!first) {
 		first = true;
 	}
@@ -224,6 +225,7 @@ void GameScene::Draw() {
 	ScoreMgr::GetIns()->Draw();
 	LifeMgr::GetIns()->Draw();
 	pauseStart->Draw();
+	Sprite::PostDraw();
 	Sprite::PreDraw();
 	Effect->Draw();
 	Sprite::PostDraw();
@@ -231,6 +233,16 @@ void GameScene::Draw() {
 	DirectXCommon::GetInstance()->EndDraw();
 }
 void GameScene::Finalize() {
+	PlaceObj::GetInstance()->Finalize();
+	sushinum.clear();
+	activs.clear();
+	sushinum2.clear();
+	sushinum3.clear();
+	csvRanking.clear();
+	Rank.clear();
+	for (int i = 0; i < CLEAR; i++) {
+		delete WaveSprite[i];
+	}
 	delete Gamesprite;
 }
 
