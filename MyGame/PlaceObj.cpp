@@ -20,6 +20,14 @@ void PlaceObj::Init() {
 		CharaSprite[i]->setcolor({ 1,1,1,1 });
 		CharaSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
 	}
+	StatusSprite[ONE_GIRL] = Sprite::Create(ImageManager::StatusHuman, { 1200,160 });
+	StatusSprite[TWO_CAT] = Sprite::Create(ImageManager::StatusCat, { 1200,400 });
+	StatusSprite[THREE_BIRD] = Sprite::Create(ImageManager::StatusBird, { 1200,640 });
+	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
+		StatusSprite[i]->SetSize({ 100,100 });
+		StatusSprite[i]->setcolor({ 1,1,1,1 });
+		StatusSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
+	}
 
 	Sprite* CharaBack_ = Sprite::Create(ImageManager::IconBack, { 1100,0 });
 	CharaBack.reset(CharaBack_);
@@ -182,26 +190,31 @@ void PlaceObj::Draw() {
 	Sprite::PreDraw();
 	CharaBack->Draw();
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
+		StatusSprite[i]->Draw();
+	}
+	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->Draw();
 	}
 	Sprite::PostDraw();
-	float x = (float)Input::GetInstance()->GetMousePoint().x;
-	float y = (float)Input::GetInstance()->GetMousePoint().y;
-
-	//ImGui::Begin("wa ");
-	//ImGui::Text("x %f", x);
-	//ImGui::Text("y %f", y);
 }
 void PlaceObj::SpriteStartPos(const int& charanum) {
 	if (charanum == ONE_GIRL) {
-		CharaSprite[charanum]->SetPosition({ 1200,100 });
+		CharaSprite[charanum]->SetPosition({ 1200,60 });
 	}
 	if (charanum == TWO_CAT) {
+<<<<<<< HEAD
 		CharaSprite[charanum]->SetPosition({ 1200,250 });
 	}
 	if (charanum ==THREE_BIRD) {
 		CharaSprite[charanum]->SetPosition({ 1200,400 });
 	}
+=======
+		CharaSprite[charanum]->SetPosition({ 1200,300 });
+	}
+	if (charanum == THREE_BIRD) {
+		CharaSprite[charanum]->SetPosition({ 1200,540 });
+	}
+>>>>>>> 9a4583f6e3b2e4e5c15722164327da4013d23149
 }
 
 void PlaceObj::LeaveStore() {

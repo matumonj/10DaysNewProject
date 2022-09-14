@@ -44,6 +44,7 @@ private:
 
 private:
 	Sprite* CharaSprite[MAX_CHARA];
+	Sprite* StatusSprite[MAX_CHARA];
 	std::unique_ptr<Sprite> CharaBack;
 
 	POINT p;
