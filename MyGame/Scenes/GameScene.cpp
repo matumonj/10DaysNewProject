@@ -36,6 +36,7 @@ void GameScene::Initialize()
 	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
 	BackGround.reset(BackGround_);
 	ScoreMgr::GetIns()->Init();
+	ScoreMgr::GetIns()->ResetScore();
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
@@ -133,7 +134,7 @@ void GameScene::Update()
 	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
-		ScoreSave(37765);
+		ScoreSave(ScoreMgr::GetIns()->GetScore());
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット

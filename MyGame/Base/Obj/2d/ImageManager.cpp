@@ -11,6 +11,8 @@ void ImageManager::Load2D() {
 	Sprite::LoadTexture(Wave2, L"Resources/2d/Wave/wave2.png");
 	Sprite::LoadTexture(Wave3, L"Resources/2d/Wave/wave3.png");
 	Sprite::LoadTexture(Wave4, L"Resources/2d/Wave/wave4.png");
+	Sprite::LoadTexture(Wave5, L"Resources/2d/Wave/wave5.png");
+	Sprite::LoadTexture(Wave6, L"Resources/2d/Wave/wave6.png");
 	Sprite::LoadTexture(Num, L"Resources/2d/Num.png");
 	Sprite::LoadTexture(BG, L"Resources/2d/BG.png");
 	Sprite::LoadTexture(Doll, L"Resources/2d/Doll.png");

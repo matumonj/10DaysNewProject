@@ -18,6 +18,7 @@ public:
 		Wave3,
 		Wave4,
 		Wave5,
+		Wave6,
 		Num,
 		BG,
 		Doll,

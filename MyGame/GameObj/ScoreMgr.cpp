@@ -41,9 +41,13 @@ void ScoreMgr::Upda() {
 }
 void ScoreMgr::Draw() {
 	Sprite::PreDraw();
+	if (score==0) {
+		num[0][0]->Draw();
 
-	for (int i = 0; i < First.size() && i < 5; i++) {
-		num[i][(int)First[i]]->Draw();
+	} else {
+		for (int i = 0; i < First.size() && i < 5; i++) {
+			num[i][(int)First[i]]->Draw();
+		}
 	}
 	Doll->Draw();
 	Sprite::PostDraw();
