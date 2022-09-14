@@ -4,7 +4,7 @@
 #include"Sprite.h"
 #include"Player.h"
 #include"Bench.h"
-
+#include"Audio.h"
 class PlaceObj
 {
 private:
@@ -19,8 +19,12 @@ public:
 	static PlaceObj* GetInstance();
 	void Init();
 	void Update(Sushi* sushis);
+	void Update2(Sushi* sushis);
+	void Update3(Sushi* sushis);
 	void UpdateS();
 	void Draw();
+
+	std::unique_ptr<Audio>placeAudio;
 private:
 	enum {
 		NON_CHARA = 0,

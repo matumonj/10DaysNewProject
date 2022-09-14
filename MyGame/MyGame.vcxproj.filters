@@ -262,7 +262,7 @@
       <Filter>Game\gameobject\Effect</Filter>
     </ClCompile>
     <ClCompile Include="Bird.cpp">
-      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+      <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

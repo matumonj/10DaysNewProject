@@ -12,9 +12,9 @@ void Bird::Initialize() {
 
 	ctag = TPLAYER;
 	//	FbxAnimationControl();
-	Range = 15;
-	Damage = 20;
-	AtkCool = 60.0f;
+	Range = 18;
+	Damage = 10;
+	AtkCool = 260.0f;
 }
 
 void Bird::Update() {
@@ -26,15 +26,7 @@ void Bird::Update() {
 	if (f_time >= m_fbxObject->GetEndTime()) {
 		f_time = m_fbxObject->GetEndTime();
 	}
-
-	if (Cool) {
-		CoolTime++;
-		if (CoolTime >= AtkCool) {
-			Cool = false;
-		}
-	} else {
-		CoolTime = 0;
-	}
+	
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 
@@ -80,4 +72,15 @@ void Bird::IconDraw() {
 void Bird::Attack(Sushi* sushis)
 {
 	AttackJudg(sushis);
+}
+
+
+void Bird::Attack2(Sushi* sushis)
+{
+	AttackJudg2(sushis);
+}
+
+void Bird::Attack3(Sushi* sushis)
+{
+	AttackJudg3(sushis);
 }

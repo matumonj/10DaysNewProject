@@ -14,7 +14,53 @@ Player::~Player()
 
 void Player::AttackJudg(Sushi* sushis)
 {
-	if (this == nullptr)return;
+	f_time += 0.02f;
+	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
+		if (CoolTime == 0) {
+			AtkFlag = true;
+			Cool = true;
+		}
+	}
+	if (Cool) {
+		//AtkFlag=false;
+		CoolTime++;
+		if (CoolTime >= AtkCool) {
+			Cool = false;
+		}
+	} else {
+		CoolTime = 0;
+	}
+
+	if (AtkFlag) {
+		sushis->RecvDamage(Damage);
+		f_time = 0;
+		AtkFlag = false;
+
+	}
+	
+}
+
+void Player::AttackJudg2(Sushi* sushis)
+{
+	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
+		if (CoolTime == 0) {
+			AtkFlag2 = true;
+		}
+	}
+
+
+	if (AtkFlag) {
+		sushis->RecvDamage(Damage);
+		Cool = true;
+		f_time = 0;
+		AtkFlag3 = false;
+
+	}
+
+}
+
+void Player::AttackJudg3(Sushi* sushis)
+{
 	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
 		if (CoolTime == 0) {
 			AtkFlag = true;
@@ -29,5 +75,5 @@ void Player::AttackJudg(Sushi* sushis)
 		AtkFlag = false;
 
 	}
-	
+
 }

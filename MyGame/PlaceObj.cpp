@@ -83,13 +83,26 @@ void PlaceObj::Init() {
 	Benchs[RIGHT_UP]->SetRot({ 180,0,0 });
 
 	
-
+	placeAudio = std::make_unique<Audio>();
+	placeAudio->Initialize();
 
 }
 
 void PlaceObj::Update(Sushi* sushis) {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update(sushis);
+	}
+}
+
+void PlaceObj::Update2(Sushi* sushis) {
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->Update2(sushis);
+	}
+}
+
+void PlaceObj::Update3(Sushi* sushis) {
+	for (std::unique_ptr<Bench>& bench : Benchs) {
+		bench->Update3(sushis);
 	}
 }
 
