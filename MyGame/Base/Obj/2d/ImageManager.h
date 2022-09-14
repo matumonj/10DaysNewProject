@@ -30,6 +30,9 @@ public:
 		Result,
 		Title,
 		Black,
+		Count1,
+		Count2,
+		Count3,
 		Go,
 	};
 	enum tex2dName {
