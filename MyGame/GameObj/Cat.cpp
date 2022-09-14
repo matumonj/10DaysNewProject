@@ -27,14 +27,20 @@ void Cat::Update() {
 	if (f_time >= m_fbxObject->GetEndTime()) {
 		f_time = m_fbxObject->GetEndTime();
 	}
-
 	if (Cool) {
+		//AtkFlag=false;
 		CoolTime++;
 		if (CoolTime >= AtkCool) {
 			Cool = false;
 		}
 	} else {
 		CoolTime = 0;
+	}
+
+	if (AtkFlag) {
+		f_time = 0;
+		AtkFlag = false;
+
 	}
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);

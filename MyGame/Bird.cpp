@@ -22,6 +22,7 @@ void Bird::Update() {
 	m_fbxObject->SetPosition(Position);
 	m_fbxObject->SetScale({ 0.005f,0.005f,0.005f });
 
+	
 	f_time += 0.02f;
 	if (f_time >= m_fbxObject->GetEndTime()) {
 		f_time = m_fbxObject->GetEndTime();
