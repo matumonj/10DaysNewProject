@@ -322,7 +322,7 @@ void GameScene::WaveCont()
 			ETime[WAVE2] += 0.01f;
 		}
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 0),10 });
-		if (SushiDeathCount > 1) {
+		if (SushiDeathCount > 10) {
 			ETime[WAVE2] = 0;
 			sushinum2.push_back(0);//最初はマグロ
 			sushis2.push_back(new Tuna());
@@ -344,7 +344,7 @@ void GameScene::WaveCont()
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
-		if (SushiDeathCount > 10) {
+		if (SushiDeathCount > 20) {
 			ETime[WAVE3] = 0;
 			sushinum3.push_back(0);//最初はマグロ
 			sushis3.push_back(new Tuna());
