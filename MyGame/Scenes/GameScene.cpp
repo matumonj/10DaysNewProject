@@ -228,16 +228,16 @@ int GameScene::RetrandCount()
 	switch (fase)
 	{
 	case GameScene::WAVE1:
-		return rand() % 240 + 200;
+		return rand() % 340 + 300;
 		break;
 	case GameScene::WAVE2:
-		return rand() % 180 + 140;
+		return rand() % 260 + 220;
 		break;
 	case GameScene::WAVE3:
-		return rand() % 240 + 200;
+		return rand() % 340 + 300;
 		break;
 	case GameScene::WAVE4:
-		return rand() % 300 + 280;
+		return rand() % 380 + 340;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -263,7 +263,7 @@ int GameScene::RetrandCount2()
 		return rand() % 340 + 300;
 		break;
 	case GameScene::WAVE4:
-		return rand() % 300 + 260;
+		return rand() % 380 + 360;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -283,13 +283,13 @@ int GameScene::RetrandCount3()
 		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE2:
-		return rand() % 180 + 140;
+		return rand() % 400 + 380;
 		break;
 	case GameScene::WAVE3:
-		return rand() % 240 + 200;
+		return rand() % 400 + 380;
 		break;
 	case GameScene::WAVE4:
-		return rand() % 240 + 200;
+		return rand() % 340 + 300;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -426,6 +426,10 @@ void GameScene::Wave3()
 			sushis2.push_back(new Egg());
 			sushis2.back()->Initialize();
 		}
+		else if (sushinum2.back() == 2) {
+			sushis2.push_back(new Samon());
+			sushis2.back()->Initialize();
+		}
 		smove2.push_back(new SushiMove());
 		RandPlaceCount2 = RetrandCount2();
 		placeC2 = 0;
@@ -456,6 +460,10 @@ void GameScene::Wave4()
 			sushis3.back()->Initialize();
 		} else if (sushinum3.back() == 1) {
 			sushis3.push_back(new Egg());
+			sushis3.back()->Initialize();
+		}
+		else if (sushinum3.back() == 2) {
+			sushis3.push_back(new Samon());
 			sushis3.back()->Initialize();
 		}
 		smove3.push_back(new SushiMove());
