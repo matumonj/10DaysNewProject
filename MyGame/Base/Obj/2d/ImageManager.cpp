@@ -30,5 +30,6 @@ void ImageManager::Load2D() {
 void ImageManager::LoadTex2D() {
 	// テクスチャ読み込み
 	Texture::LoadTexture(Sushi, L"Resources/2d/SushiHP/HP.png");
+	Texture::LoadTexture(Player, L"Resources/2d/SushiHP/CHP.png");
 }
 

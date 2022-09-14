@@ -34,6 +34,7 @@ public:
 	};
 	enum tex2dName {
 		Sushi,
+		Player
 	};
 public:
 	static ImageManager* GetIns();		//Žæ“¾—p

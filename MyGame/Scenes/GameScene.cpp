@@ -238,6 +238,56 @@ int GameScene::RetrandCount()
 	}
 }
 
+int GameScene::RetrandCount2()
+{
+	switch (fase)
+	{
+	case GameScene::WAVE1:
+		return rand() % 240 + 200;
+		break;
+	case GameScene::WAVE2:
+		return rand() % 180 + 140;
+		break;
+	case GameScene::WAVE3:
+		return rand() % 240 + 200;
+		break;
+	case GameScene::WAVE4:
+		return 0;
+		break;
+	case GameScene::CLEAR:
+		return 0;
+		break;
+	default:
+		return 0;
+		break;
+	}
+}
+
+int GameScene::RetrandCount3()
+{
+	switch (fase)
+	{
+	case GameScene::WAVE1:
+		return rand() % 240 + 200;
+		break;
+	case GameScene::WAVE2:
+		return rand() % 180 + 140;
+		break;
+	case GameScene::WAVE3:
+		return rand() % 240 + 200;
+		break;
+	case GameScene::WAVE4:
+		return 0;
+		break;
+	case GameScene::CLEAR:
+		return 0;
+		break;
+	default:
+		return 0;
+		break;
+	}
+}
+
 void GameScene::WaveCont()
 {
 	switch (fase)
@@ -341,7 +391,7 @@ void GameScene::Wave3()
 			sushis2.back()->Initialize();
 		}
 		smove2.push_back(new SushiMove());
-		RandPlaceCount2 = RetrandCount();
+		RandPlaceCount2 = RetrandCount2();
 		placeC2 = 0;
 	}
 	for (int i = 0; i < sushis2.size(); i++) {
@@ -373,7 +423,7 @@ void GameScene::Wave4()
 			sushis3.back()->Initialize();
 		}
 		smove3.push_back(new SushiMove());
-		RandPlaceCount3 = RetrandCount();
+		RandPlaceCount3 = RetrandCount3();
 		placeC3 = 0;
 	}
 	for (int i = 0; i < sushis3.size(); i++) {

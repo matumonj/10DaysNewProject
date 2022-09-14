@@ -22,7 +22,7 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		//移動ベクトルをy軸周りの角度で回転
 		//RotState();]
 		Wave1or2Rot();
-		move = { 0,0,0.1f,0 };
+		move = { 0,0,0.08f,0 };
 
 		matRot = XMMatrixRotationY(XMConvertToRadians(rot.y));
 
@@ -72,7 +72,7 @@ void SushiMove::Wave3move(Sushi* sushi)
 		Wave3Rot();
 		//移動ベクトルをy軸周りの角度で回転
 		//RotState();
-		move = { 0,0,0.1f,0 };
+		move = { 0,0,0.08f,0 };
 
 		matRot = XMMatrixRotationY(XMConvertToRadians(rot.y));
 
@@ -127,7 +127,7 @@ void SushiMove::Wave4move(Sushi* sushi)
 		Wave4Rot();
 		//移動ベクトルをy軸周りの角度で回転
 		//RotState();
-		move = { 0,0,0.1f,0 };
+		move = { 0,0,0.08f,0 };
 
 		matRot = XMMatrixRotationY(XMConvertToRadians(rot.y));
 

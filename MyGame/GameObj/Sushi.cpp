@@ -9,6 +9,7 @@ using namespace DirectX;
 Sushi::~Sushi()
 {
 	Destroy_unique(SushiObj);
+	Destroy(HPTex);
 }
 void Sushi::TexSet()
 {
@@ -21,7 +22,7 @@ void Sushi::TexUp()
 {
 	if (SushiObj != nullptr) {
 		HPTex->SetBillboard(true);
-		HPTex->SetPosition({ Position.x,Position.y + 3,Position.z });
+		HPTex->SetPosition({ Position.x-2,Position.y + 3,Position.z });
 		HPTex->SetScale({Percent::GetParcent((float)MaxHP,(float)HP)/40.0f,1,1});
 		HPTex->Update(CameraControl::GetInstance()->GetCamera());
 	}
@@ -29,7 +30,7 @@ void Sushi::TexUp()
 
 void Sushi::TexDraw()
 {
-	if (SushiObj) {
+	if (SushiObj!=nullptr) {
 		Texture::PreDraw();
 		HPTex->Draw();
 		Texture::PostDraw();

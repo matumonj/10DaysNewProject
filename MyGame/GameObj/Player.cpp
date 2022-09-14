@@ -6,7 +6,10 @@
 
 
 
-Player::~Player() {
+Player::~Player() 
+{
+	Destroy_unique(m_fbxObject);
+	Destroy(iconSprite);
 }
 
 void Player::AttackJudg(Sushi* sushis)

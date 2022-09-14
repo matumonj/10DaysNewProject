@@ -19,7 +19,7 @@ void Bench::Initialize() {
 	BenchObj->SetModel(ModelManager::GetIns()->GetModel(ModelManager::Bench));
 	BenchObj->Initialize(CameraControl::GetInstance()->GetCamera());
 
-	SiTGauge = Texture::Create(ImageManager::Sushi, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
+	SiTGauge = Texture::Create(ImageManager::Player, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
 	SiTGauge->CreateTexture();
 	SiTGauge->SetAnchorPoint({ 0,0.5f });
 
@@ -65,7 +65,7 @@ void Bench::SitGaugeUp()
 	SiTGauge->SetBillboard(true);
 	SiTGauge->SetScale({ Easing::EaseOut(EsitTime, 50.0f / 20.0f, 0.0f),1,1 });
 
-	SiTGauge->SetPosition({ Position.x,Position.y + 3,Position.z });
+	SiTGauge->SetPosition({ Position.x,Position.y + 8,Position.z });
 	SiTGauge->Update(CameraControl::GetInstance()->GetCamera());
 
 	if (SitChara) {

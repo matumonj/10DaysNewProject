@@ -103,6 +103,8 @@ private:
 	};
 	Fase fase;
 	int RetrandCount();
+	int RetrandCount2();
+	int RetrandCount3();
 	void WaveCont();
 	int SushiDeathCount;
 	PauseStart* pauseStart;
