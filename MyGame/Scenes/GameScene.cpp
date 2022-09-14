@@ -18,6 +18,7 @@
 #include"Samon.h"
 #include"Collision.h"
 #include <Base/Obj/3d/ModelManager.h>
+#include <GameObj/LifeMgr.h>
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
 {
@@ -64,6 +65,8 @@ void GameScene::Initialize()
 	}
 	pauseStart = new PauseStart();
 	pauseStart->Init();
+
+	LifeMgr::GetIns()->Init();
 
 	DustBox = std::make_unique<Object3d>();
 	Dust = ModelManager::GetIns()->GetModel(ModelManager::Dust);
@@ -218,6 +221,7 @@ void GameScene::Draw()
 		WaveSprite[i]->Draw();
 	}
 	ScoreMgr::GetIns()->Draw();
+	LifeMgr::GetIns()->Draw();
 	pauseStart->Draw();
 
 	Sprite::PostDraw();

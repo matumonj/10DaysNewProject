@@ -264,6 +264,9 @@
     <ClCompile Include="Bird.cpp">
       <Filter>Game\gameobject\ゲームオブジェクト\Player\Human</Filter>
     </ClCompile>
+    <ClCompile Include="GameObj\LifeMgr.cpp">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyGame.h">
@@ -462,6 +465,9 @@
       <Filter>Game\gameobject\Effect</Filter>
     </ClInclude>
     <ClInclude Include="Bird.h">
+      <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObj\LifeMgr.h">
       <Filter>Game\gameobject\ゲームオブジェクト\Player</Filter>
     </ClInclude>
   </ItemGroup>
