@@ -202,19 +202,14 @@ void PlaceObj::SpriteStartPos(const int& charanum) {
 		CharaSprite[charanum]->SetPosition({ 1200,60 });
 	}
 	if (charanum == TWO_CAT) {
-<<<<<<< HEAD
 		CharaSprite[charanum]->SetPosition({ 1200,250 });
 	}
 	if (charanum ==THREE_BIRD) {
 		CharaSprite[charanum]->SetPosition({ 1200,400 });
 	}
-=======
-		CharaSprite[charanum]->SetPosition({ 1200,300 });
-	}
 	if (charanum == THREE_BIRD) {
 		CharaSprite[charanum]->SetPosition({ 1200,540 });
 	}
->>>>>>> 9a4583f6e3b2e4e5c15722164327da4013d23149
 }
 
 void PlaceObj::LeaveStore() {
