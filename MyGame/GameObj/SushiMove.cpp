@@ -207,7 +207,7 @@ void SushiMove::Wave1or2Rot()
 
 void SushiMove::Wave3Rot()
 {
-	if (Collision::GetLength(position, { 20,-40,15 }) < 1.0f) {
+	if (Collision::GetLength(position, { 19,-40,15 }) < 1.0f) {
 		RotTime[0] += 0.2f;
 		if (RotTime[0] <= 1.0f) {
 			rot.y = Easing::EaseOut(RotTime[0], -90, 0);

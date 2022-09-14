@@ -26,7 +26,7 @@ float4 coltex0 = tex.Sample(smp, input.uv);
 float4 coltex1 = tex1.Sample(smp, input.uv);
 
 float4 col = coltex0;
-float4 feed = { 0.5,0.5,0.5,1 };
+float4 feed = { 1,1,1,1 };
 	col = coltex1*feed;
 
 return float4(col.rgb, 1);

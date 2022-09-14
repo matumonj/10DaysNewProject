@@ -63,12 +63,12 @@ void Egg::TitleUpda() {
 
 void Egg::Draw()
 {
-	TexDraw();
+	//TexDraw();
 	if (SushiObj != nullptr) {
 		Object3d::PreDraw();
 		SushiObj->Draw();
 		Object3d::PostDraw();
-
 	}
 
+	TexDraw();
 }

@@ -55,7 +55,7 @@ void PlaceObj::Init() {
 	benchState[CENTER_UP].Position_2d = { 535,110 };
 	benchState[CENTER_UP].Position_3d = { BenchPos[CENTER_UP]};
 	benchState[CENTER_UP].SitChara = NON_CHARA;
-	Benchs[CENTER_UP]->SetRot({ 0,90,0 });
+	Benchs[CENTER_UP]->SetRot({ 0,-90,0 });
 
 	benchState[CENTER_BOTTOM].Position_2d = { 490,570 };
 	benchState[CENTER_BOTTOM].Position_3d = { BenchPos[CENTER_BOTTOM]};
