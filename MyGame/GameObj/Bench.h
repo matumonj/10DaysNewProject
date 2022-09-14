@@ -57,7 +57,7 @@ public:
 	const XMFLOAT3& GetPosition() { return Position; }
 	void SetPosition(const XMFLOAT3& position) { Position = position; }
 	void SetRot(XMFLOAT3 rot) { Rot = rot; }
-
+	const XMFLOAT3& GetRotation() { return Rot; }
 private:
 	std::unique_ptr<Object3d>BenchObj;
 

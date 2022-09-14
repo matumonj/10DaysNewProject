@@ -34,7 +34,7 @@ private:
 	const XMFLOAT3 GarbagepPos = { -2,-40,5 };
 	//ÉQÅ[Ég
 	const XMFLOAT3 GatePos = { 0,-40,-10 };
-	const XMFLOAT3 GatePos_Right = { 30, -40, 10 };
+	const XMFLOAT3 GatePos_Right = { 30, -40, 15 };
 
 public:
 	void Wave1or2move(Sushi*sushi);

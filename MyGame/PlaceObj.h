@@ -60,7 +60,7 @@ private:
 		float LeaveLimit_Max;
 	};
 	int ClickChara;
-
+	int fase;
 	BenchState benchState[MAXBENCH];
 public:
 	void CreateObj(const int& charanum);
@@ -68,6 +68,14 @@ public:
 	void PlaceChara(const int& charanum);
 	void SetIconSpritePos();
 	void LeaveStore();
+	void RightBench_isUse(bool f){if(f){
+		Benchs[RIGHT_BOTTOM]->SetRot({ 180,180,0 });
+	} }
+	void CenterBench_isUse(bool f) {
+		if (f) {
+			Benchs[CENTER_UP]->SetRot({ 180,180,0 });
+		}
+	}
 	//ƒxƒ“ƒ`ƒLƒƒƒ‰
 private:
 	std::vector<std::unique_ptr<Bench>> Benchs;

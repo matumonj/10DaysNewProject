@@ -16,6 +16,7 @@
 #include"PlaceObj.h"
 #include"Human.h"
 #include"Samon.h"
+#include"Collision.h"
 #include <Base/Obj/3d/ModelManager.h>
 GameScene::GameScene(SceneManager* sceneManager)
 	:BaseScene(sceneManager)
@@ -40,9 +41,6 @@ void GameScene::Initialize()
 	sushis.push_back(new Tuna());
 	sushis[0]->Initialize();
 
-	sushinum3.push_back(0);//最初はマグロ
-	sushis3.push_back(new Tuna());
-	sushis3[0]->Initialize();
 	//寿司の動き
 	smove2.push_back(new SushiMove());
 	smove3.push_back(new SushiMove());
@@ -227,6 +225,7 @@ int GameScene::RetrandCount()
 		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE4:
+		return rand() % 300 + 280;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -243,15 +242,16 @@ int GameScene::RetrandCount2()
 	switch (fase)
 	{
 	case GameScene::WAVE1:
-		return rand() % 240 + 200;
+		return rand() % 340 + 300;
 		break;
 	case GameScene::WAVE2:
-		return rand() % 180 + 140;
+		return rand() % 300 + 260;
 		break;
 	case GameScene::WAVE3:
-		return rand() % 240 + 200;
+		return rand() % 340 + 300;
 		break;
 	case GameScene::WAVE4:
+		return rand() % 300 + 260;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -277,6 +277,7 @@ int GameScene::RetrandCount3()
 		return rand() % 240 + 200;
 		break;
 	case GameScene::WAVE4:
+		return rand() % 240 + 200;
 		return 0;
 		break;
 	case GameScene::CLEAR:
@@ -313,7 +314,7 @@ void GameScene::WaveCont()
 			ETime[WAVE2] += 0.01f;
 		}
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 0),10 });
-		if (SushiDeathCount > 3) {
+		if (SushiDeathCount > 1) {
 			ETime[WAVE2] = 0;
 			sushinum2.push_back(0);//最初はマグロ
 			sushis2.push_back(new Tuna());
@@ -325,6 +326,8 @@ void GameScene::WaveCont()
 		}
 		break;
 	case GameScene::WAVE3:
+		PlaceObj::GetInstance()->RightBench_isUse(true);
+
 		if (ETime[WAVE2] <= 1.0f) {
 			ETime[WAVE2] += 0.01f;
 		}
@@ -333,11 +336,22 @@ void GameScene::WaveCont()
 		if (ETime[WAVE3] <= 1.0f) {
 			ETime[WAVE3] += 0.01f;
 		}
+		if (SushiDeathCount > 10) {
+			ETime[WAVE3] = 0;
+			sushinum3.push_back(0);//最初はマグロ
+			sushis3.push_back(new Tuna());
+			sushis3[0]->Initialize();
+			//寿司の動き
+			smove3.push_back(new SushiMove());
 
+			fase = WAVE4;
+		}
 		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], -300, 0),10 });
 
 		break;
 	case GameScene::WAVE4:
+
+		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
 	case GameScene::CLEAR:
 		break;
@@ -351,12 +365,16 @@ void GameScene::Wave1or2()
 	placeC++;
 
 	if (placeC % RandPlaceCount == 0) {
-		sushinum.push_back(rand() % 2);
+		sushinum.push_back(rand() % 3);
 		if (sushinum.back() == 0) {
 			sushis.push_back(new Samon());
 			sushis.back()->Initialize();
 		} else if (sushinum.back() == 1) {
 			sushis.push_back(new Egg());
+			sushis.back()->Initialize();
+		}
+		else if (sushinum.back() == 2) {
+			sushis.push_back(new Tuna());
 			sushis.back()->Initialize();
 		}
 		smove.push_back(new SushiMove());
@@ -381,8 +399,8 @@ void GameScene::Wave3()
 		placeC2++;
 	}
 
-	if (placeC2 % RandPlaceCount2 == 0&&placeC2!=0) {
-		sushinum2.push_back(rand() % 2);
+	if ((placeC2 % RandPlaceCount2 == 0 && placeC2 != 0)) {
+		sushinum2.push_back(rand() % 3);
 		if (sushinum2.back() == 0) {
 			sushis2.push_back(new Tuna());
 			sushis2.back()->Initialize();
@@ -409,7 +427,7 @@ void GameScene::Wave3()
 
 void GameScene::Wave4()
 {
-	if (fase == WAVE1) {
+	if (fase == WAVE4) {
 		placeC3++;
 	}
 

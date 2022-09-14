@@ -77,8 +77,9 @@ void Bench::SitGaugeUp()
 	if (player != nullptr) {
 		player->SetColor({ 1,1,1,Palpha });
 	
-		player->SetRot(Rot);
+		player->SetRot({ 0,Rot.y,0 });
 	}
+	BenchObj->SetRotation(Rot);
 	Palpha = min(Palpha, 1.0f);
 	Palpha = max(Palpha, 0.0f);
 }
