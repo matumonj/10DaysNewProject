@@ -19,16 +19,30 @@
 #include"Collision.h"
 #include <Base/Obj/3d/ModelManager.h>
 #include <GameObj/LifeMgr.h>
+#include <Base/Easing.h>
 GameScene::GameScene(SceneManager* sceneManager)
-	:BaseScene(sceneManager)
-{
+	:BaseScene(sceneManager) {
+
+}
+void GameScene::Feed() {
+	if (Change) {
+		if (frame < 1.0f) {
+			frame += 0.02f;
+		} else {
+			ScoreSave(ScoreMgr::GetIns()->GetScore());
+			BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
+			SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
+			sceneManager_->SetnextScene(scene);//シーンのセット
+		}
+		alpha = Ease(In, Quad, frame, 0, 1);
+		Effect->setcolor({ 1,1,1,alpha });
+	}
 
 }
 /// <summary>
 /// 初期化
 /// </summary>
-void GameScene::Initialize()
-{
+void GameScene::Initialize() {
 	WaveSprite[WAVE1] = Sprite::Create(ImageManager::Wave1, { -300,0 });
 	WaveSprite[WAVE2] = Sprite::Create(ImageManager::Wave2, { -300,0 });
 	WaveSprite[WAVE3] = Sprite::Create(ImageManager::Wave3, { -300,0 });
@@ -50,15 +64,15 @@ void GameScene::Initialize()
 	smove3.push_back(new SushiMove());
 	//寿司の動き
 	smove.push_back(new SushiMove());
-	
+
 	std::unique_ptr<Rail> newRail;
 	for (int i = 0; i < 12; i++) {
-			Rail* newRail_ = new Rail();
-			newRail_->SetPosition(RailPos[i]);
-			newRail_->SetRotation(RailRot[i]);
-			newRail_->SetScale(RailSca[i]);
-			newRail.reset(newRail_);
-			Rails.push_back(std::move(newRail));	
+		Rail* newRail_ = new Rail();
+		newRail_->SetPosition(RailPos[i]);
+		newRail_->SetRotation(RailRot[i]);
+		newRail_->SetScale(RailSca[i]);
+		newRail.reset(newRail_);
+		Rails.push_back(std::move(newRail));
 	}
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();
@@ -67,13 +81,18 @@ void GameScene::Initialize()
 	pauseStart->Init();
 
 	LifeMgr::GetIns()->Init();
+	LifeMgr::GetIns()->ResetLife();
+	//スプライト生成
+	Sprite* Effect_ = Sprite::Create(ImageManager::Black, { 0.0f,0.0f });
+	Effect.reset(Effect_);
+	Effect->setcolor({ 1,1,1,alpha });
 
 	DustBox = std::make_unique<Object3d>();
 	Dust = ModelManager::GetIns()->GetModel(ModelManager::Dust);
 	DustBox->SetModel(Dust);
 	DustBox->Initialize(CameraControl::GetInstance()->GetCamera());
 	DustBox->SetPosition({ -4, -45, 7 - 3 });
-	DustBox->SetScale({2.5f,2,2.5f});
+	DustBox->SetScale({ 2.5f,2,2.5f });
 
 
 	Gate = std::make_unique<Object3d>();
@@ -99,7 +118,7 @@ void GameScene::Initialize()
 	Audio::GetInstance()->StopWave(0);
 	Audio::GetInstance()->StopWave(2);
 
-	Audio::GetInstance()->LoopWave(1,0.3f);
+	Audio::GetInstance()->LoopWave(1, 0.3f);
 
 }
 
@@ -107,14 +126,9 @@ void GameScene::Initialize()
 /// <summary>
 /// 更新処理
 /// </summary>
-void GameScene::Update()
-{ 
-	if (Input::GetInstance()->TriggerKey(DIK_0)) {
-		int a = 0;
-		a++;
-	}
+void GameScene::Update() {
 	///audio->PlayWave("Resources/Audio/AnyConv.com__井の中の蛙.wav", 1.3f); 
-	if (first&&pause) {
+	if (first && pause) {
 		pauseStart->Upda();
 		if (pauseStart->GetPause()) {
 			pause = false;
@@ -127,23 +141,22 @@ void GameScene::Update()
 	Wave4();
 	WaveCont();
 	ScoreMgr::GetIns()->Upda();
+	LifeMgr::GetIns()->Upda();
+
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
 	PlaceObj::GetInstance()->Update(sushis);
-		
+
 
 	PlaceObj::GetInstance()->Update2(sushis2);
-		
-		PlaceObj::GetInstance()->Update3(sushis3);
+
+	PlaceObj::GetInstance()->Update3(sushis3);
 
 	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
-	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
-		ScoreSave(ScoreMgr::GetIns()->GetScore());
-		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
-		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
-		sceneManager_->SetnextScene(scene);//シーンのセット
+	if (LifeMgr::GetIns()->GetLife() <= 0) {//押されたら
+		Change = true;
 	}
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
@@ -157,8 +170,7 @@ void GameScene::Update()
 /// スプライト描画
 /// </summary>
 /// <param name="cmdList"></param>
-void GameScene::SpriteDraw()
-{
+void GameScene::SpriteDraw() {
 	Sprite::PreDraw();
 	BackGround->Draw();
 	Sprite::PostDraw();
@@ -169,13 +181,12 @@ void GameScene::SpriteDraw()
 /// 描画
 /// </summary>
 /// <param name="cmdList"></param>
-void GameScene::Draw()
-{
+void GameScene::Draw() {
 	//ポストエフェクトの描画
 	DirectXCommon::GetInstance()->BeginDraw();//描画コマンドの上らへんに
 	SpriteDraw();
-	
-	
+
+
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Draw();
 	}
@@ -213,20 +224,18 @@ void GameScene::Draw()
 	ScoreMgr::GetIns()->Draw();
 	LifeMgr::GetIns()->Draw();
 	pauseStart->Draw();
-
+	Sprite::PreDraw();
+	Effect->Draw();
 	Sprite::PostDraw();
 
 	DirectXCommon::GetInstance()->EndDraw();
 }
-void GameScene::Finalize()
-{
+void GameScene::Finalize() {
 	delete Gamesprite;
 }
 
-int GameScene::RetrandCount()
-{
-	switch (fase)
-	{
+int GameScene::RetrandCount() {
+	switch (fase) {
 	case GameScene::WAVE1:
 		return rand() % 240 + 200;
 		break;
@@ -249,10 +258,8 @@ int GameScene::RetrandCount()
 	}
 }
 
-int GameScene::RetrandCount2()
-{
-	switch (fase)
-	{
+int GameScene::RetrandCount2() {
+	switch (fase) {
 	case GameScene::WAVE1:
 		return rand() % 340 + 300;
 		break;
@@ -275,10 +282,8 @@ int GameScene::RetrandCount2()
 	}
 }
 
-int GameScene::RetrandCount3()
-{
-	switch (fase)
-	{
+int GameScene::RetrandCount3() {
+	switch (fase) {
 	case GameScene::WAVE1:
 		return rand() % 240 + 200;
 		break;
@@ -301,10 +306,8 @@ int GameScene::RetrandCount3()
 	}
 }
 
-void GameScene::WaveCont()
-{
-	switch (fase)
-	{
+void GameScene::WaveCont() {
+	switch (fase) {
 	case GameScene::WAVE1:
 		if (ETime[WAVE1] <= 1.0f) {
 			ETime[WAVE1] += 0.01f;
@@ -314,7 +317,7 @@ void GameScene::WaveCont()
 			ETime[WAVE1] = 0;
 			fase = WAVE2;
 		}
-		
+
 		break;
 	case GameScene::WAVE2:
 		if (ETime[WAVE1] <= 1.0f) {
@@ -322,7 +325,7 @@ void GameScene::WaveCont()
 		}
 		WaveSprite[WAVE1]->SetPosition({ Easing::EaseOut(ETime[WAVE1], 0, -300),10 });
 
-		if (ETime[WAVE2] <= 1.0f&& ETime[WAVE1] >= 1.0f) {
+		if (ETime[WAVE2] <= 1.0f && ETime[WAVE1] >= 1.0f) {
 			ETime[WAVE2] += 0.01f;
 		}
 		WaveSprite[WAVE2]->SetPosition({ Easing::EaseOut(ETime[WAVE2], -300, 0),10 });
@@ -381,8 +384,7 @@ void GameScene::WaveCont()
 	}
 }
 
-void GameScene::Wave1or2()
-{
+void GameScene::Wave1or2() {
 	placeC++;
 
 	if (placeC % RandPlaceCount == 0) {
@@ -394,7 +396,7 @@ void GameScene::Wave1or2()
 			sushis.push_back(new Egg());
 			sushis.back()->Initialize();
 		}
-		
+
 		smove.push_back(new SushiMove());
 		RandPlaceCount = RetrandCount();
 		placeC = 0;
@@ -403,7 +405,7 @@ void GameScene::Wave1or2()
 		if (sushis[i] != nullptr) {
 			smove[i]->Wave1or2move(sushis[i]);
 			sushis[i]->Update();
-			if ( sushis[i]->GetScale().x <= 0.0f) {
+			if (sushis[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis[i]);
 			}
@@ -411,8 +413,7 @@ void GameScene::Wave1or2()
 	}
 }
 
-void GameScene::Wave3()
-{
+void GameScene::Wave3() {
 	if (fase == WAVE3) {
 		placeC2++;
 	}
@@ -434,7 +435,7 @@ void GameScene::Wave3()
 		if (sushis2[i] != nullptr) {
 			smove2[i]->Wave3move(sushis2[i]);
 			sushis2[i]->Update();
-		if (sushis2[i]->GetScale().x<=0.0f) {
+			if (sushis2[i]->GetScale().x <= 0.0f) {
 				SushiDeathCount++;
 				Destroy(sushis2[i]);
 			}
@@ -443,8 +444,7 @@ void GameScene::Wave3()
 }
 
 
-void GameScene::Wave4()
-{
+void GameScene::Wave4() {
 	if (fase == WAVE4) {
 		placeC3++;
 	}

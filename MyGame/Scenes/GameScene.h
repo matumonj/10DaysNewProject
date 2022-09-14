@@ -77,8 +77,6 @@ private:
 	std::vector<bool>activs;
 	std::vector<int> sushinum2;
 	std::vector<int> sushinum3;
-	Sprite* WaveSprite[4];
-	float ETime[4];
 	//スコア関連
 	std::stringstream csvRanking;
 	std::vector<float> Rank;
@@ -101,6 +99,8 @@ private:
 		WAVE6,
 		CLEAR
 	};
+	Sprite* WaveSprite[CLEAR];
+	float ETime[CLEAR];
 	Fase fase;
 	int RetrandCount();
 	int RetrandCount2();
@@ -113,6 +113,13 @@ private:
 	void Wave1or2();
 	void Wave3();
 	void Wave4();
+
+	std::unique_ptr<Sprite> Effect;
+	float alpha = 0.0f;
+	float frame = 0.0f;
+	void Feed();
+	bool Change = false;
+
 public:
 	void Initialize()override;
 	void Update()override;
