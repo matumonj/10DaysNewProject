@@ -24,7 +24,8 @@ public:
 	};
 	enum FBXName {
 	Human,
-	Cat
+	Cat,
+	Bird,
 	};
 
 public:

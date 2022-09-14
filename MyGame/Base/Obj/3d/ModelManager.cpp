@@ -17,8 +17,10 @@ void ModelManager::Initialize() {
 	LoadModel(Gate, "Cube");
 	LoadModel(Bench, "Bench");
 	LoadModel(Conveyor, "Conveyor");
-	LoadFBXModel(Human, "Bird");
+	LoadFBXModel(Human, "Human");
 	LoadFBXModel(Cat, "Beckoning cat");
+	LoadFBXModel(Bird, "Eagle");
+
 }
 
 void ModelManager::LoadModel(const ModelName modelName, std::string fileName) {
