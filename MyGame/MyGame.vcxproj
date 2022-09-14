@@ -168,9 +168,11 @@
     <ClCompile Include="Base\Easing.cpp" />
     <ClCompile Include="Base\Framework.cpp" />
     <ClCompile Include="Base\Helper\Feed.cpp" />
+    <ClCompile Include="Base\Helper\PauseStart.cpp" />
     <ClCompile Include="Base\Input.cpp" />
     <ClCompile Include="Base\Light\LightGroup.cpp" />
     <ClCompile Include="Base\Obj\2d\DebugTxt.cpp" />
+    <ClCompile Include="Base\Obj\2d\ImageManager.cpp" />
     <ClCompile Include="Base\Obj\2d\PostEffect.cpp" />
     <ClCompile Include="Base\Obj\2d\Sprite.cpp" />
     <ClCompile Include="Base\Obj\2d\Texture.cpp" />
@@ -202,7 +204,7 @@
     <ClCompile Include="GameObj\Human.cpp" />
     <ClCompile Include="GameObj\Player.cpp" />
     <ClCompile Include="GameObj\Rail.cpp" />
-    <ClCompile Include="GameObj\Score.cpp" />
+    <ClCompile Include="GameObj\ScoreMgr.cpp" />
     <ClCompile Include="GameObj\Sushi.cpp" />
     <ClCompile Include="GameObj\SushiMove.cpp" />
     <ClCompile Include="GameObj\Tuna.cpp" />
@@ -226,12 +228,14 @@
     <ClInclude Include="Base\Helper\Destroy.h" />
     <ClInclude Include="Base\Helper\Feed.h" />
     <ClInclude Include="Base\Helper\mHelper.h" />
+    <ClInclude Include="Base\Helper\PauseStart.h" />
     <ClInclude Include="Base\Input.h" />
     <ClInclude Include="Base\Light\DirectionalLight.h" />
     <ClInclude Include="Base\Light\LightGroup.h" />
     <ClInclude Include="Base\Light\PointLight.h" />
     <ClInclude Include="Base\Light\SpotLight.h" />
     <ClInclude Include="Base\Obj\2d\DebugTxt.h" />
+    <ClInclude Include="Base\Obj\2d\ImageManager.h" />
     <ClInclude Include="Base\Obj\2d\PostEffect.h" />
     <ClInclude Include="Base\Obj\2d\Sprite.h" />
     <ClInclude Include="Base\Obj\2d\Texture.h" />
@@ -268,7 +272,7 @@
     <ClInclude Include="GameObj\Human.h" />
     <ClInclude Include="GameObj\Player.h" />
     <ClInclude Include="GameObj\Rail.h" />
-    <ClInclude Include="GameObj\Score.h" />
+    <ClInclude Include="GameObj\ScoreMgr.h" />
     <ClInclude Include="GameObj\Sushi.h" />
     <ClInclude Include="GameObj\SushiMove.h" />
     <ClInclude Include="GameObj\Tuna.h" />

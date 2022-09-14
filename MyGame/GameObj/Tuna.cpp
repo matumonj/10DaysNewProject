@@ -4,6 +4,7 @@
 #include"imgui.h"
 #include"SushiMove.h"
 #include "ModelManager.h"
+#include "ScoreMgr.h"
 
 void Tuna::Initialize()
 {
@@ -24,7 +25,12 @@ void Tuna::Update()
 	//Moves();
 	if (SushiObj!=nullptr) {
 		TexUp();
-		bool death = (HP <= 0)||isDead;
+		bool death = isDead;
+		bool eaten = isEaten;
+		if (HP==0 && !death) {
+			ScoreMgr::GetIns()->AddScore(100);
+			isDead = true;
+		}
 		//Rebirth(30);
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);
@@ -47,10 +53,10 @@ void Tuna::Update()
 void Tuna::TitleUpda() {
 	SushiObj->SetScale(Scale);
 	XMFLOAT3 pos = SushiObj->GetPosition();
-	if (pos.x <= -25) {
-		pos.x = 25;
+	if (pos.x <= -10) {
+		pos.x = 50;
 	}
-	pos = { pos.x - 0.1f,-20,0 };
+	pos = { pos.x - 0.1f,-20,-3 };
 	SushiObj->SetPosition(pos);
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());

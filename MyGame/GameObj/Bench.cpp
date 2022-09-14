@@ -5,6 +5,9 @@
 #include"Cat.h"
 #include"Input.h"
 #include"mHelper.h"
+#include "ImageManager.h"
+#include <Base/Obj/3d/ModelManager.h>
+
 Bench::Bench() {
 }
 
@@ -13,12 +16,10 @@ Bench::~Bench() {
 
 void Bench::Initialize() {
 	BenchObj = std::make_unique<Object3d>();
-	BenchModel = Model::CreateFromOBJ("Bench");
-	BenchObj->SetModel(BenchModel);
+	BenchObj->SetModel(ModelManager::GetIns()->GetModel(ModelManager::Bench));
 	BenchObj->Initialize(CameraControl::GetInstance()->GetCamera());
 
-	Texture::LoadTexture(20, L"Resources/2d/SushiHP/HP.png");
-	SiTGauge = Texture::Create(1, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
+	SiTGauge = Texture::Create(ImageManager::Sushi, { 0,0,0 }, { 0,0,0 }, { 1,1,1,1 });
 	SiTGauge->CreateTexture();
 	SiTGauge->SetAnchorPoint({ 0,0.5f });
 

@@ -1,6 +1,7 @@
 #include "Rail.h"
 #include <Base/Camera/CameraControl.h>
 #include"imgui.h"
+#include <Base/Obj/3d/ModelManager.h>
 Rail::Rail() {
 }
 
@@ -9,8 +10,7 @@ Rail::~Rail() {
 
 void Rail::Initialize() {
 	RailObj = std::make_unique<Object3d>();
-	RailModel = Model::CreateFromOBJ("Conveyor");
-	RailObj->SetModel(RailModel);
+	RailObj->SetModel(ModelManager::GetIns()->GetModel(ModelManager::Conveyor));
 	RailObj->Initialize(CameraControl::GetInstance()->GetCamera());
 
 }

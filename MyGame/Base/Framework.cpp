@@ -32,8 +32,6 @@ void Framework::Initialize()
 	audio = new Audio();
 	// ƒ‰ƒCƒgÃ“I‰Šú‰»
 	Object3d::StaticInitialize(WinApp::window_width, WinApp::window_height);
-	ModelManager::GetIns()->Initialize();
-	//MyGame* MyGame = new MyGame();
 	sceneManger = new SceneManager();
 	
 }

@@ -13,7 +13,7 @@ DebugTxt::~DebugTxt()
 
 void DebugTxt::Initialize(UINT texnumber)
 {
-	Sprite::LoadTexture(60, L"Resources/target.png");
+	//Sprite::LoadTexture(60, L"Resources/target.png");
 
 	// 全てのスプライトデータについて
 	for (int i = 0; i < _countof(spriteDatas); i++)

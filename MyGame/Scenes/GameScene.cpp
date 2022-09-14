@@ -27,20 +27,14 @@ GameScene::GameScene(SceneManager* sceneManager)
 /// </summary>
 void GameScene::Initialize()
 {
-	Sprite::LoadTexture(2, L"Resources/2d/Wave/wave1.png");
-	Sprite::LoadTexture(3, L"Resources/2d/Wave/wave2.png");
-	Sprite::LoadTexture(4, L"Resources/2d/Wave/wave3.png");
-	Sprite::LoadTexture(5, L"Resources/2d/Wave/wave4.png");
-	Sprite::LoadTexture(11, L"Resources/2d/BG.png");
+	WaveSprite[0] = Sprite::Create(ImageManager::Wave1, { -300,0 });
+	WaveSprite[1] = Sprite::Create(ImageManager::Wave2, { -300,0 });
+	WaveSprite[2] = Sprite::Create(ImageManager::Wave3, { -300,0 });
+	WaveSprite[3] = Sprite::Create(ImageManager::Wave4, { -300,0 });
 
-	WaveSprite[0] = Sprite::Create(2, { -300,0 });
-	WaveSprite[1] = Sprite::Create(3, { -300,0 });
-	WaveSprite[2] = Sprite::Create(4, { -300,0 });
-	WaveSprite[3] = Sprite::Create(5, { -300,0 });
-
-	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	Sprite* BackGround_ = Sprite::Create(ImageManager::BG, { 0,0 });
 	BackGround.reset(BackGround_);
-
+	ScoreMgr::GetIns()->Init();
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());
 	sushinum.push_back(0);//最初はマグロ
 	sushis.push_back(new Tuna());
@@ -67,7 +61,8 @@ void GameScene::Initialize()
 	for (std::unique_ptr< Rail>& rail : Rails) {
 		rail->Initialize();
 	}
-
+	pauseStart = new PauseStart();
+	pauseStart->Init();
 
 	DustBox = std::make_unique<Object3d>();
 	Dust = ModelManager::GetIns()->GetModel(ModelManager::Dust);
@@ -89,8 +84,6 @@ void GameScene::Initialize()
 	Gate2->Initialize(CameraControl::GetInstance()->GetCamera());
 	Gate2->SetPosition({ 0.5f, -38, 40 });
 	Gate2->SetScale({ 5,5,5 });
-
-	Score::GetIns()->ResetScore();
 	// 3Dオブジェクトにカメラをセット
 	Object3d::SetCamera(CameraControl::GetInstance()->GetCamera());
 	//カメラをセット
@@ -98,6 +91,7 @@ void GameScene::Initialize()
 	//グラフィックパイプライン生成
 	f_Object3d::CreateGraphicsPipeline();
 	PlaceObj::GetInstance()->Init();
+
 }
 
 
@@ -106,12 +100,19 @@ void GameScene::Initialize()
 /// </summary>
 void GameScene::Update()
 { 
+	if (first&&pause) {
+		pauseStart->Upda();
+		if (pauseStart->GetPause()) {
+			pause = false;
+		}
+		return;
+	}
 	CameraControl::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	Wave1or2();
 	Wave3();
 	Wave4();
 	WaveCont();
-
+	ScoreMgr::GetIns()->Upda();
 	for (std::unique_ptr<Rail>& rail : Rails) {
 		rail->Update();
 	}
@@ -133,9 +134,8 @@ void GameScene::Update()
 	}
 	PlaceObj::GetInstance()->UpdateS();
 	PlaceObj::GetInstance()->SetIconSpritePos();
-	//Player::GetInstance()->Update(CameraControl::GetInstance()->GetCamera());
 	if (Input::GetInstance()->TriggerKey(DIK_SPACE)) {//押されたら
-		ScoreSave(Score::GetIns()->GetScore());
+		ScoreSave(37765);
 		BaseScene* scene = new ResultScene(sceneManager_);//次のシーンのインスタンス生成
 		SceneManager::GetInstance()->SetScene(SceneManager::RESULT);
 		sceneManager_->SetnextScene(scene);//シーンのセット
@@ -143,7 +143,9 @@ void GameScene::Update()
 	DustBox->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
 	Gate2->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());
-
+	if (!first) {
+		first = true;
+	}
 }
 
 /// <summary>
@@ -199,19 +201,15 @@ void GameScene::Draw()
 	for (int i = 0; i < _countof(WaveSprite); i++) {
 		WaveSprite[i]->Draw();
 	}
-	Sprite::PostDraw();
-	//やろうとしたがここでエラーを吐く
-	//ImGui::Begin("siz");
-//
-////	float x = PlaceObj::GetInstance()->Getpos().m128_f32[1];
-	//ImGui::End();
-	//Player::GetInstance()->Draw();
-	DirectXCommon::GetInstance()->EndDraw();
+	ScoreMgr::GetIns()->Draw();
+	pauseStart->Draw();
 
+	Sprite::PostDraw();
+
+	DirectXCommon::GetInstance()->EndDraw();
 }
 void GameScene::Finalize()
 {
-	//delete postEffect;
 	delete Gamesprite;
 }
 

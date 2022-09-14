@@ -1,14 +1,19 @@
 #include "MyGame.h"
 #include"SceneManager.h"
+#include "ImageManager.h"
+#include "ModelManager.h"
 #include"imgui.h"
+
 void MyGame::Initialize()
 {
 	Framework::Initialize();
 	Sprite::StaticInitialize( WinApp::window_width, WinApp::window_height);
+	ImageManager::GetIns()->Load2D();
 	LightGroup::StaticInitialize();
 	FbxLoader::GetInstance()->Initialize();
 	Texture::StaticInitialize(WinApp::window_width, WinApp::window_height);
-	//Scene = new TitleScene();
+	ImageManager::GetIns()->LoadTex2D();
+	ModelManager::GetIns()->Initialize();
 	//‰ŠúƒV[ƒ“
 	BaseScene* scene_ = new TitleScene(sceneManger);
 	sceneManger->SetnextScene(scene_);

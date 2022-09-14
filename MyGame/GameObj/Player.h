@@ -54,7 +54,6 @@ protected:
 	CharaTag ctag;
 	Sprite* iconSprite;
 	std::unique_ptr<f_Object3d>m_fbxObject;
-	f_Model* m_fbxModel;
 	float f_time;
 	//プレイヤーから寿司に対してのアプロ
 	int Damage;

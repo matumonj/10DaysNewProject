@@ -12,6 +12,7 @@
 #include<DirectXTex.h>
 #include<wrl.h>
 #include"DirectXCommon.h"
+#include "ImageManager.h"
 //‚Ü‚Á‚Â‚ñƒz[ƒ€‰˜‚·‚¬
 #pragma comment(lib,"d3dcompiler.lib")
 #pragma comment(lib,"d3d12.lib")

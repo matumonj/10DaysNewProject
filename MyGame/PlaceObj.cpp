@@ -3,31 +3,27 @@
 #include"Input.h"
 #include"Human.h"
 #include"Cat.h"
+#include "ImageManager.h"
+
 PlaceObj* PlaceObj::GetInstance() {
 	static PlaceObj ins;
 	return &ins;
 }
 void PlaceObj::Init() {
-	Sprite::LoadTexture(21, L"Resources/2d/CharaIcon/girl.png");
-	Sprite::LoadTexture(22, L"Resources/2d/CharaIcon/cat.png");
-	Sprite::LoadTexture(23, L"Resources/2d/CharaIcon/inu.png");
-	Sprite::LoadTexture(24, L"Resources/2d/CharaIcon/inu.png");
-	Sprite::LoadTexture(25, L"Resources/2d/CharaIcon/charaIconB.png");
-
-	CharaSprite[ONE_GIRL] = Sprite::Create(21, { 1150,200 });
+	CharaSprite[ONE_GIRL] = Sprite::Create(ImageManager::IconGirl, { 1150,200 });
 	CharaSprite[ONE_GIRL]->SetSize({ 100,100 });
-	CharaSprite[TWO_CAT] = Sprite::Create(22, { 1150,400 });
+	CharaSprite[TWO_CAT] = Sprite::Create(ImageManager::IconCat, { 1150,400 });
 	CharaSprite[TWO_CAT]->SetSize({ 100,100 });
-	CharaSprite[THREE_DOG] = Sprite::Create(21, { 1150,500 });
+	CharaSprite[THREE_DOG] = Sprite::Create(ImageManager::IconInu, { 1150,500 });
 	CharaSprite[THREE_DOG]->SetSize({ 100,100 });
-	CharaSprite[FOUR_BIRD] = Sprite::Create(21, { 1150,600 });
+	CharaSprite[FOUR_BIRD] = Sprite::Create(ImageManager::IconInu, { 1150,600 });
 	CharaSprite[FOUR_BIRD]->SetSize({ 100,100 });
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		CharaSprite[i]->setcolor({ 1,1,1,1 });
 		CharaSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
 	}
 
-	Sprite* CharaBack_ = Sprite::Create(25, { 1100,0 });
+	Sprite* CharaBack_ = Sprite::Create(ImageManager::IconBack, { 1100,0 });
 	CharaBack.reset(CharaBack_);
 
 	benchState[LEFT_BOTTOM].Position_2d = { 180,495 };
@@ -90,8 +86,8 @@ void PlaceObj::UpdateS() {
 }
 
 void PlaceObj::SetIconSpritePos() {
-	float x = Input::GetInstance()->GetMousePoint().x;
-	float y = Input::GetInstance()->GetMousePoint().y;
+	float x = (float)Input::GetInstance()->GetMousePoint().x;
+	float y = (float)Input::GetInstance()->GetMousePoint().y;
 	if (Input::GetInstance()->PushMouseLeft()) {
 		for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 			if (Collision::GetLength2({ x,y }, CharaSprite[i]->GetPosition()) < 50) {

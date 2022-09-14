@@ -22,9 +22,12 @@ void Egg::Update()
 {
 	if (SushiObj != nullptr) {
 		TexUp();
-		bool death = (HP <= 0) || isDead;
-
-		//Rebirth(3);//クールタイム設定
+		bool death =  isDead;
+		bool eaten = isEaten;
+		if (HP == 0 && !death) {
+			ScoreMgr::GetIns()->AddScore(100);
+			isDead = true;
+		}
 		SushiObj->SetScale(Scale);
 		SushiObj->SetPosition(Position);
 		SushiObj->SetRotation(Rot);
@@ -47,10 +50,10 @@ void Egg::Update()
 void Egg::TitleUpda() {
 	SushiObj->SetScale(Scale);
 	XMFLOAT3 pos = SushiObj->GetPosition();
-	if (pos.x <= -25) {
-		pos.x = 25;
+	if (pos.x <= -10) {
+		pos.x = 50;
 	}
-	pos = { pos.x - 0.1f,-20,0 };
+	pos = { pos.x - 0.1f,-20,-3};
 	SushiObj->SetPosition(pos);
 	SushiObj->SetRotation(Rot);
 	SushiObj->Update({ 1,1,1,1 }, CameraControl::GetInstance()->GetCamera());

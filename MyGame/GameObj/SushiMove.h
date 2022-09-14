@@ -1,6 +1,6 @@
 #pragma once
 #include"Sushi.h"
-#include"Score.h"
+#include"ScoreMgr.h"
 
 class SushiMove
 {
@@ -19,6 +19,7 @@ private:
 		LANE,//ƒŒ[ƒ“‰ñ‚é
 		DUMP,//”pŠü,
 		CREATE,
+		EATEN,
 		DEAD
 	};
 	XMVECTOR move;

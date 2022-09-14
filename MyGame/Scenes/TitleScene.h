@@ -13,7 +13,11 @@ private:
 
 	std::vector<Sushi*> sushis;
 
-
+	std::unique_ptr<Sprite> Effect;
+	bool Change = false;
+	float alpha = 0.0f;
+	float frame = 0.0f;
+	void Feed();
 public:
 	void Initialize()override;
 	void Update()override;

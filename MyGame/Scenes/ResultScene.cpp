@@ -87,12 +87,11 @@ void ResultScene::Initialize() {
 	const int w = 32;
 	const int h = 64;
 	const int l = 10;
-	const float onePos = WinApp::window_width - 208.0f;
-	Sprite::LoadTexture(10, L"Resources/2d/Num.png");
+
 	for (int k = 0; k < 4; k++) {
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 10; j++) {
-				num[k][i][j] = Sprite::Create(10, { 0.0f,0.0f });
+				num[k][i][j] = Sprite::Create(ImageManager::Num, { 0.0f,0.0f });
 				int number_index_y = j / l;
 				int number_index_x = j % l;
 				num[k][i][j]->SetTextureRect(
@@ -114,8 +113,7 @@ void ResultScene::Initialize() {
 			num[3][i][j]->SetPosition({ EaseX[3] - (70.0f * i) , 40.0f });
 		}
 	}
-	Sprite::LoadTexture(11, L"Resources/2d/Result.png");
-	Sprite* BackGround_ = Sprite::Create(11, { 0,0 });
+	Sprite* BackGround_ = Sprite::Create(ImageManager::Result, { 0,0 });
 	BackGround.reset(BackGround_);
 
 	CameraControl::GetInstance()->Initialize(CameraControl::GetInstance()->GetCamera());

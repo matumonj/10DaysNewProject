@@ -32,16 +32,9 @@ public:
 
 private:
 	std::unique_ptr<Object3d>RailObj;
-	Model* RailModel;
 
 	XMFLOAT3 Position = {0,-3,0};
 	XMFLOAT3 Scale = { 1,1,1 };
 	XMFLOAT3 Rot={0,-180,0};
-	//回転用アングル
-	//移動ベクトルをy軸周りの角度で回転
-	XMVECTOR move;
-
-	XMMATRIX matRot;
-private:
 };
 
