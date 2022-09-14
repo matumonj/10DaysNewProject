@@ -27,14 +27,20 @@ void Cat::Update() {
 	if (f_time >= m_fbxObject->GetEndTime()) {
 		f_time = m_fbxObject->GetEndTime();
 	}
-
 	if (Cool) {
+		//AtkFlag=false;
 		CoolTime++;
 		if (CoolTime >= AtkCool) {
 			Cool = false;
 		}
 	} else {
 		CoolTime = 0;
+	}
+
+	if (AtkFlag) {
+		f_time = 0;
+		AtkFlag = false;
+
 	}
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
@@ -79,17 +85,17 @@ void Cat::IconDraw() {
 //	m_fbxObject->SetFbxTime(f_time);
 //}
 
-void Cat::Attack(Sushi* sushis)
+void Cat::Attack(std::vector<Sushi*> sushis)
 {
 	AttackJudg(sushis);
 }
 
-void Cat::Attack2(Sushi* sushis)
+void Cat::Attack2(std::vector<Sushi*>sushis)
 {
 	AttackJudg2(sushis);
 }
 
-void Cat::Attack3(Sushi* sushis)
+void Cat::Attack3(std::vector<Sushi*>sushis)
 {
 	AttackJudg3(sushis);
 }

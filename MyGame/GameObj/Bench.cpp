@@ -29,7 +29,7 @@ void Bench::Initialize() {
 	Palpha = 1.0f;
 }
 
-void Bench::Update(Sushi* sushis) {
+void Bench::Update(std::vector<Sushi*>  sushis) {
 	BenchObj->SetScale(Scale);
 	BenchObj->SetPosition(Position);
 	BenchObj->SetRotation(Rot);
@@ -41,7 +41,7 @@ void Bench::Update(Sushi* sushis) {
 	}
 }
 
-void Bench::Update2(Sushi* sushis) {
+void Bench::Update2(std::vector<Sushi*> sushis) {
 	BenchObj->SetScale(Scale);
 	BenchObj->SetPosition(Position);
 	BenchObj->SetRotation(Rot);
@@ -53,7 +53,7 @@ void Bench::Update2(Sushi* sushis) {
 	}
 }
 
-void Bench::Update3(Sushi* sushis) {
+void Bench::Update3(std::vector<Sushi*>  sushis) {
 	BenchObj->SetScale(Scale);
 	BenchObj->SetPosition(Position);
 	BenchObj->SetRotation(Rot);

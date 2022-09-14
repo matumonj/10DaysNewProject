@@ -25,7 +25,7 @@ void Human::Update() {
 	if (f_time >= m_fbxObject->GetEndTime()) {
 		f_time = m_fbxObject->GetEndTime();
 	}
-
+	
 	m_fbxObject->SetFbxTime(f_time);
 	m_fbxObject->Updata(true);
 	//PlaceObj::GetInstance()->SetIconSpritePos(iconSprite);
@@ -45,20 +45,20 @@ void Human::IconDraw() {
 
 
 
-void Human::Attack(Sushi* sushis)
+void Human::Attack(std::vector<Sushi*> sushis)
 {
 	AttackJudg(sushis);
 }
 
 
 
-void Human::Attack2(Sushi* sushis)
+void Human::Attack2(std::vector<Sushi*>  sushis)
 {
 	AttackJudg2(sushis);
 }
 
 
-void Human::Attack3(Sushi* sushis)
+void Human::Attack3(std::vector<Sushi*> sushis)
 {
 	AttackJudg3(sushis);
 }

@@ -36,9 +36,9 @@ public:
 	~Bench();
 
 	void Initialize();
-	void Update(Sushi*sushis);
-	void Update2(Sushi* sushis);
-	void Update3(Sushi* sushis);
+	void Update(std::vector<Sushi*> sushis);
+	void Update2(std::vector<Sushi*>  sushis);
+	void Update3(std::vector<Sushi*>  sushis);
 	void UpdateS();
 	void SitGaugeUp();
 	void Draw();

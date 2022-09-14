@@ -88,19 +88,19 @@ void PlaceObj::Init() {
 
 }
 
-void PlaceObj::Update(Sushi* sushis) {
+void PlaceObj::Update(std::vector<Sushi*> sushis) {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update(sushis);
 	}
 }
 
-void PlaceObj::Update2(Sushi* sushis) {
+void PlaceObj::Update2(std::vector<Sushi*>  sushis) {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update2(sushis);
 	}
 }
 
-void PlaceObj::Update3(Sushi* sushis) {
+void PlaceObj::Update3(std::vector<Sushi*>  sushis) {
 	for (std::unique_ptr<Bench>& bench : Benchs) {
 		bench->Update3(sushis);
 	}

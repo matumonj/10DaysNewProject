@@ -12,13 +12,18 @@ Player::~Player()
 	Destroy(iconSprite);
 }
 
-void Player::AttackJudg(Sushi* sushis)
+void Player::AttackJudg(std::vector<Sushi*>sushis)
 {
 	f_time += 0.02f;
-	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
-		if (CoolTime == 0) {
-			AtkFlag = true;
-			Cool = true;
+	for(int i=0;i<sushis.size();i++){
+		if (sushis[i] != nullptr) {
+			if (Collision::GetLength(sushis[i]->GetPos(), Position) < Range) {
+				if (CoolTime == 0) {
+					sushis[i]->RecvDamage(Damage);
+					AtkFlag = true;
+					Cool = true;
+				}
+			}
 		}
 	}
 	if (Cool) {
@@ -32,48 +37,44 @@ void Player::AttackJudg(Sushi* sushis)
 	}
 
 	if (AtkFlag) {
-		sushis->RecvDamage(Damage);
 		f_time = 0;
 		AtkFlag = false;
 
 	}
 	
+	
 }
 
-void Player::AttackJudg2(Sushi* sushis)
+void Player::AttackJudg2(std::vector<Sushi*>sushis)
 {
-	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
-		if (CoolTime == 0) {
-			AtkFlag2 = true;
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis[i] != nullptr) {
+		if (Collision::GetLength(sushis[i]->GetPos(), Position) < Range) {
+				if (CoolTime == 0) {
+					sushis[i]->RecvDamage(Damage);
+					AtkFlag = true;
+					Cool = true;
+				}
+			}
 		}
 	}
 
 
-	if (AtkFlag) {
-		sushis->RecvDamage(Damage);
-		Cool = true;
-		f_time = 0;
-		AtkFlag3 = false;
-
-	}
-
 }
 
-void Player::AttackJudg3(Sushi* sushis)
+void Player::AttackJudg3(std::vector<Sushi*>sushis)
 {
-	if (Collision::GetLength(sushis->GetPos(), Position) < Range) {
-		if (CoolTime == 0) {
-			AtkFlag = true;
+	for (int i = 0; i < sushis.size(); i++) {
+		if (sushis[i] != nullptr) {
+			if (Collision::GetLength(sushis[i]->GetPos(), Position) < Range) {
+				if (CoolTime == 0) {
+					sushis[i]->RecvDamage(Damage);
+					AtkFlag = true;
+					Cool = true;
+				}
+			}
 		}
 	}
-
-
-	if (AtkFlag) {
-		sushis->RecvDamage(Damage);
-		Cool = true;
-		f_time = 0;
-		AtkFlag = false;
-
-	}
+	
 
 }
