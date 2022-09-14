@@ -22,7 +22,7 @@ void ResultScene::LoadRanking() {
 void ResultScene::PushBackRank() {
 	LoadRanking();
 	std::string line;
-
+	Rank.clear();
 	while (getline(csvRanking, line)) {
 		//‰ğÍ‚µ‚â‚·‚­‚·‚é
 		std::istringstream line_stream(line);
