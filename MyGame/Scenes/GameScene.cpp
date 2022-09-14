@@ -363,6 +363,19 @@ void GameScene::WaveCont()
 		break;
 	case GameScene::WAVE4:
 
+		if (ETime[WAVE3] <= 1.0f) {
+			ETime[WAVE3] += 0.01f;
+		}
+		WaveSprite[WAVE3]->SetPosition({ Easing::EaseOut(ETime[WAVE3], 0, -300),10 });
+
+		if (ETime[WAVE4] <= 1.0f) {
+			ETime[WAVE4] += 0.01f;
+		}
+		if (SushiDeathCount > 20) {
+			fase = WAVE5;
+		}
+		WaveSprite[WAVE4]->SetPosition({ Easing::EaseOut(ETime[WAVE4], -300, 0),10 });
+
 		PlaceObj::GetInstance()->CenterBench_isUse(true);
 		break;
 	case GameScene::WAVE5:
