@@ -38,7 +38,8 @@ public:
 		Count2,
 		Count3,
 		Go,
-		Expadian
+		Expadian,
+		Rice,
 	};
 	enum tex2dName {
 		Sushi,

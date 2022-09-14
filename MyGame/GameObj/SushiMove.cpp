@@ -1,6 +1,7 @@
 #include "SushiMove.h"
 #include"Collision.h"
 #include"mHelper.h"
+#include "LifeMgr.h"
 
 SushiMove* SushiMove::GetInstance()
 {
@@ -47,8 +48,10 @@ void SushiMove::Wave1or2move(Sushi* sushi)
 		}
 		break;
 	case SushiMove::DEAD:
+		if (!sushi->GetDead()) {
+			LifeMgr::GetIns()->SumLife(1);
+		}
 		sushi->SetDead(true);
-		
 		break;
 	default:
 		break;
