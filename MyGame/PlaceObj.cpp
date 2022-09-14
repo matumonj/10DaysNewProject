@@ -21,8 +21,8 @@ void PlaceObj::Init() {
 		CharaSprite[i]->SetAnchorPoint({ 0.5f,0.5f });
 	}
 	StatusSprite[ONE_GIRL] = Sprite::Create(ImageManager::StatusHuman, { 1200,160 });
-	StatusSprite[TWO_CAT] = Sprite::Create(ImageManager::StatusCat, { 1200,360 });
-	StatusSprite[THREE_BIRD] = Sprite::Create(ImageManager::StatusBird, { 1200,560 });
+	StatusSprite[TWO_CAT] = Sprite::Create(ImageManager::StatusCat, { 1200,400 });
+	StatusSprite[THREE_BIRD] = Sprite::Create(ImageManager::StatusBird, { 1200,640 });
 	for (int i = ONE_GIRL; i < MAX_CHARA; i++) {
 		StatusSprite[i]->SetSize({ 100,100 });
 		StatusSprite[i]->setcolor({ 1,1,1,1 });
@@ -202,10 +202,10 @@ void PlaceObj::SpriteStartPos(const int& charanum) {
 		CharaSprite[charanum]->SetPosition({ 1200,60 });
 	}
 	if (charanum == TWO_CAT) {
-		CharaSprite[charanum]->SetPosition({ 1200,260 });
+		CharaSprite[charanum]->SetPosition({ 1200,300 });
 	}
 	if (charanum == THREE_BIRD) {
-		CharaSprite[charanum]->SetPosition({ 1200,460 });
+		CharaSprite[charanum]->SetPosition({ 1200,540 });
 	}
 }
 
