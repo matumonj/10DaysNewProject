@@ -1,5 +1,4 @@
 #include "Bird.h"
-#include "Bird.h"
 #include"PlaceObj.h"
 #include"Sprite.h"
 #include"imgui.h"
@@ -21,7 +20,7 @@ void Bird::Initialize() {
 void Bird::Update() {
 	//PlaceObj::GetInstance()->PlaceChara(iconSprite, this);
 	m_fbxObject->SetPosition(Position);
-	m_fbxObject->SetScale({ 0.01f,0.01f,0.01f });
+	m_fbxObject->SetScale({ 0.005f,0.005f,0.005f });
 
 	f_time += 0.02f;
 	if (f_time >= m_fbxObject->GetEndTime()) {
